@@ -1,14 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Acid : MonoBehaviour, SheepKiller {
 
-    public GameObject DeadSheep;
-    public bool TopLayer;
+	public GameObject DeadSheep;
+	public bool TopLayer;
 
-    // Use this for initialization
-    void Start () {
-        GetComponent<Animator>().SetBool("IsTopLayer", TopLayer);
+	public bool Active
+	{
+		get
+		{
+			return true;
+		}
+	}
+
+	// Use this for initialization
+	void Start () {
+		GetComponent<Animator>().SetBool("IsTopLayer", TopLayer);
 	}
 	
 	// Update is called once per frame

@@ -6,6 +6,9 @@ public class ProjectileSpawner : MonoBehaviour {
 	public GameObject prefab2Spawn;
 	public Vector3 projectileOffset;
 
+	public Animator spawnerAnimator;
+	public string spawnAnimatorTrigger;
+
 	public float waitTime = 1.0f;
 
 	// Use this for initialization
@@ -20,6 +23,7 @@ public class ProjectileSpawner : MonoBehaviour {
 			yield return new WaitForSeconds(waitTime);
 
 			Instantiate(prefab2Spawn, transform.position + (transform.rotation * projectileOffset), transform.rotation);
+			spawnerAnimator.SetTrigger(spawnAnimatorTrigger);
 		}
 	}
 }

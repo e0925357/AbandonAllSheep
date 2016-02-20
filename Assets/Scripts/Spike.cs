@@ -6,13 +6,21 @@ public class Spike : MonoBehaviour, SheepKiller
 	public Sprite[] SpikeSprites;
 	public Sprite[] BloodySpikeSprites;
 	public GameObject DeadSheep;
-    public bool EnableMirroring;
+	public bool EnableMirroring;
 
 	private int spikeIndex;
-    
+	
 
 	private SpriteRenderer spriteRenderer;
-	
+
+	public bool Active
+	{
+		get
+		{
+			return true;
+		}
+	}
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -23,9 +31,9 @@ public class Spike : MonoBehaviour, SheepKiller
 
 		if (EnableMirroring && Random.Range(0, 2) == 1)
 		{
-		    Vector3 scale = transform.localScale;
-		    scale.x = -scale.x;
-		    transform.localScale = scale;
+			Vector3 scale = transform.localScale;
+			scale.x = -scale.x;
+			transform.localScale = scale;
 		}
 	}
 	
@@ -33,18 +41,18 @@ public class Spike : MonoBehaviour, SheepKiller
 	void Update () {
 	
 	}
-    
-    public void SheepHit(GameObject sheep)
-    {
-        spriteRenderer.sprite = BloodySpikeSprites[spikeIndex];
-        GameObject deadSheep = Instantiate(DeadSheep);
-        deadSheep.transform.position = sheep.transform.position;
-        deadSheep.transform.parent = transform;
-        deadSheep.transform.localPosition -= new Vector3(0.0f, 0.75f, 0.0f);
-    }
+	
+	public void SheepHit(GameObject sheep)
+	{
+		spriteRenderer.sprite = BloodySpikeSprites[spikeIndex];
+		GameObject deadSheep = Instantiate(DeadSheep);
+		deadSheep.transform.position = sheep.transform.position;
+		deadSheep.transform.parent = transform;
+		deadSheep.transform.localPosition -= new Vector3(0.0f, 0.75f, 0.0f);
+	}
 
-    void OnParticleCollision(GameObject other)
-    {
-        spriteRenderer.sprite = BloodySpikeSprites[spikeIndex];
-    }
+	void OnParticleCollision(GameObject other)
+	{
+		spriteRenderer.sprite = BloodySpikeSprites[spikeIndex];
+	}
 }

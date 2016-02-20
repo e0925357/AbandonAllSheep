@@ -154,6 +154,7 @@ MonoBehaviour:
   - {fileID: 21243488}
   fireVisualsAlpha: []
   corpseAnimator: {fileID: 9505608}
+  burntSheepPrefab: {fileID: 195374}
 --- !u!212 &21227806
 SpriteRenderer:
   m_ObjectHideFlags: 1
