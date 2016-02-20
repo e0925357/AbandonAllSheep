@@ -5,6 +5,8 @@ using Prime31;
 
 public class LevelChanger : MonoBehaviour
 {
+	public GameObject playerPrefab = null;
+
 	private bool goalTriggered;
 	private GameObject playerObject;
 
@@ -32,6 +34,10 @@ public class LevelChanger : MonoBehaviour
 		{
 			NextLevel();
 		}
+		if (Input.GetKeyDown(KeyCode.F4))
+		{
+			RespawnPlayer();
+		}
 	}
 
 	public void NextLevel()
@@ -53,7 +59,12 @@ public class LevelChanger : MonoBehaviour
 	public void RespawnPlayer()
 	{
 		playerObject = GameObject.FindGameObjectWithTag(PLAYER_TAG_NAME);
-		if (playerObject != null)
+		if (playerObject == null)
+		{
+			// There is no player so we respawn him
+			playerObject = Instantiate(playerPrefab);
+		}
+		else
 		{
 			// Register for trigger event
 			CharacterController2D playerController = playerObject.GetComponent<CharacterController2D>();
@@ -69,10 +80,6 @@ public class LevelChanger : MonoBehaviour
 			{
 				Debug.Log("No respawn component found on player. Please add PlayerRespawn component to player");
 			}
-		}
-		else
-		{
-			Debug.Log("No player object found");
 		}
 	}
 
