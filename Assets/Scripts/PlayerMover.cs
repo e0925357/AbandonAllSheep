@@ -14,11 +14,17 @@ public class PlayerMover : MonoBehaviour {
 	[HideInInspector]
 	private float normalizedHorizontalSpeed = 0;
 
+	private bool _canMove;
 	private CharacterController2D _controller;
 	private Animator _animator;
 	private RaycastHit2D _lastControllerColliderHit;
 	private Vector3 _velocity;
 
+	public bool CanMove
+	{
+		get { return _canMove; }
+		set { _canMove = value; }
+	}
 
 	void Awake()
 	{
@@ -29,6 +35,8 @@ public class PlayerMover : MonoBehaviour {
 		_controller.onControllerCollidedEvent += onControllerCollider;
 		_controller.onTriggerEnterEvent += onTriggerEnterEvent;
 		_controller.onTriggerExitEvent += onTriggerExitEvent;
+
+		_canMove = true;
 	}
 
 
@@ -65,7 +73,14 @@ public class PlayerMover : MonoBehaviour {
 		if (_controller.isGrounded)
 			_velocity.y = 0;
 
-		normalizedHorizontalSpeed = Input.GetAxis("Horizontal");
+		if (_canMove)
+		{
+			normalizedHorizontalSpeed = Input.GetAxis("Horizontal");
+		}
+		else
+		{
+			normalizedHorizontalSpeed = 0.0f;
+		}
 
 		if (normalizedHorizontalSpeed > 0)
 		{
@@ -91,7 +106,7 @@ public class PlayerMover : MonoBehaviour {
 
 
 		// we can only jump whilst grounded
-		if (_controller.isGrounded && Input.GetButtonDown("Jump"))
+		if (_canMove && _controller.isGrounded && Input.GetButtonDown("Jump"))
 		{
 			_velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
 
@@ -109,7 +124,7 @@ public class PlayerMover : MonoBehaviour {
 
 		// if holding down bump up our movement amount and turn off one way platform detection for a frame.
 		// this lets uf jump down through one way platforms
-		if (_controller.isGrounded && Input.GetAxis("Vertical") < -0.5 && !Input.GetButtonDown("Jump"))
+		if (_canMove && _controller.isGrounded && Input.GetAxis("Vertical") < -0.5 && !Input.GetButtonDown("Jump"))
 		{
 			_velocity.y *= 3f;
 			_controller.ignoreOneWayPlatformsThisFrame = true;

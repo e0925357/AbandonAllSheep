@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ed48aa35115d841a8e2d620ef9a065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeInTime: 0.6
 --- !u!114 &11437454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -194,7 +195,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d5f19b25a2b7af544ad614268b0fbf47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -220,6 +221,10 @@ Prefab:
       objectReference: {fileID: 172554, guid: 822962a49ffe1fa4c8d3dc4687cb959f, type: 2}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -10,6 +10,7 @@ public class LevelChanger : MonoBehaviour
 	private GameObject playerObject;
 
 	private static readonly string PLAYER_TAG_NAME = "Player";
+	private static readonly string RESPAWN_TAG_NAME = "Respawn";
 
 	public void Start()
 	{
@@ -22,7 +23,6 @@ public class LevelChanger : MonoBehaviour
 		}
 		else
 		{
-			playerObject = GameObject.FindGameObjectWithTag(PLAYER_TAG_NAME);
 			RespawnPlayer();
 		}
 	}
@@ -43,11 +43,12 @@ public class LevelChanger : MonoBehaviour
 	{
 		// Unregister trigger event
 		UnregisterCallbacks();
+		Destroy(playerObject);
 	}
 
 	private void OnPlayerDeath(GameObject go)
 	{
-		RespawnPlayer(true);
+		RespawnPlayer();
 	}
 
 	public void NextLevel()
@@ -62,14 +63,13 @@ public class LevelChanger : MonoBehaviour
 		}
 	}
 
-	public void RespawnPlayer(bool forceNewSheep = false)
+	public void RespawnPlayer()
 	{
-		if (playerObject != null && forceNewSheep)
+		if (playerObject != null)
 		{
 			Health playerHealth = playerObject.GetComponent<Health>();
 			if (playerHealth && !playerHealth.IsMarkedForDeath)
 			{
-				
 				Destroy(playerObject);
 			}
 
@@ -77,11 +77,9 @@ public class LevelChanger : MonoBehaviour
 			playerObject = null;
 		}
 
-		if (playerObject == null)
-		{
-			// There is no player so we respawn him
-			playerObject = Instantiate(playerPrefab);
-		}
+		
+		// There is no player so we respawn him
+		playerObject = Instantiate(playerPrefab);
 
 		// Register for trigger event
 		RegisterCallbacks();
@@ -91,6 +89,7 @@ public class LevelChanger : MonoBehaviour
 		if (playerRespawn)
 		{
 			playerRespawn.MoveToRespawn();
+			playerRespawn.FadeIn();
 		}
 		else
 		{
