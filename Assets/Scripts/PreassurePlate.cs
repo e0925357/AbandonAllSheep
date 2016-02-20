@@ -12,8 +12,7 @@ public class PreassurePlate : MonoBehaviour, Trigger
     {
         get { return trigggerCount > 0; }
     }
-
-
+    
     private int trigggerCount;
     private SpriteRenderer spriteRenderer;
 

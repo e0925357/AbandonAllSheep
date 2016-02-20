@@ -186,6 +186,7 @@ MonoBehaviour:
   SpikeSprite: {fileID: 183358}
   SpikeAnimator: {fileID: 9565900}
   HiddenTime: 10
+  StartEnabled: 1
 --- !u!212 &21202384
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -252,7 +253,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: StartEnabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 195318}
