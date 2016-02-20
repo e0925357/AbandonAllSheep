@@ -14,6 +14,7 @@ GameObject:
   - 114: {fileID: 11410776}
   - 114: {fileID: 11457402}
   - 114: {fileID: 11417846}
+  - 95: {fileID: 9509160}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -64,6 +65,23 @@ BoxCollider2D:
   m_Offset: {x: -0.01, y: -0.03}
   serializedVersion: 2
   m_Size: {x: 0.23, y: 0.19}
+--- !u!95 &9509160
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132646}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 706822de86589e843a075292a79dc6b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11410776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,7 +192,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 706822de86589e843a075292a79dc6b2, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 132646}
