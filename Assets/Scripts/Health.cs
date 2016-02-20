@@ -11,7 +11,13 @@ public class Health : MonoBehaviour {
 
 	public GameObject BloodParticleSystem;
 
+	public AudioClip[] sheepDeathClips;
+
 	private bool isMarkedForDeath;
+	private AudioClip scheduledAudioClip;
+
+	private static readonly float MIN_PITCH = 0.8f;
+	private static readonly float MAX_PITCH = 1.3f;
 
 	public bool IsMarkedForDeath
 	{
@@ -21,6 +27,7 @@ public class Health : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		isMarkedForDeath = false;
+		scheduledAudioClip = null;
 
 		if(onBirth != null)
 		{
@@ -33,10 +40,25 @@ public class Health : MonoBehaviour {
 		SheepKiller killer = collider2D.GetComponent<SheepKiller>();
 		if (killer != null && killer.Active)
 		{
-			killer.SheepHit(gameObject);
+			AudioClip deathSound = killer.SheepHit(gameObject);
+			if (scheduledAudioClip == null && deathSound != null)
+			{
+				scheduledAudioClip = deathSound;
+				Vector3 clipPosition = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
+				AudioSource.PlayClipAtPoint(scheduledAudioClip, clipPosition);
+				StartCoroutine(ResetScheduledAudioClip());
+			}
+
 			SpawnBlood();
+			SpawnDeathSound(collider2D.gameObject);
 			KillSheep();
 		}
+	}
+
+	private IEnumerator ResetScheduledAudioClip()
+	{
+		yield return new WaitForEndOfFrame();
+		scheduledAudioClip = null;
 	}
 
 	private void SpawnBlood()
@@ -44,6 +66,21 @@ public class Health : MonoBehaviour {
 		GameObject particle = (GameObject) Instantiate(BloodParticleSystem, transform.position, Quaternion.Euler(-89.99f, 179.99f, 0.0f));
 		Destroy(particle, 2.0f);
 	}
+
+	private void SpawnDeathSound(GameObject targetObject)
+	{
+		if (sheepDeathClips.Length > 0)
+		{
+			AudioSource audio = targetObject.AddComponent<AudioSource>();
+
+			// Select a random clip
+			audio.clip = sheepDeathClips[UnityEngine.Random.Range(0, sheepDeathClips.Length - 1)];
+			audio.loop = false;
+			audio.pitch = UnityEngine.Random.Range(MIN_PITCH, MAX_PITCH);
+			audio.Play();
+		}
+	}
+
 	void KillSheep()
 	{
 		isMarkedForDeath = true;

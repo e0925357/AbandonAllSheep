@@ -25,11 +25,13 @@ public class Acid : MonoBehaviour, SheepKiller {
 	
 	}
 
-    public void SheepHit(GameObject sheep)
+    public AudioClip SheepHit(GameObject sheep)
     {
         GameObject deadSheep = Instantiate(DeadSheep);
         deadSheep.transform.position = sheep.transform.position;
         deadSheep.transform.parent = transform;
         deadSheep.transform.localPosition -= new Vector3(0.0f, 0.0f, -1.0f);
-    }
+
+		return null;
+	}
 }

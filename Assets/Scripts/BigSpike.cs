@@ -26,7 +26,7 @@ public class BigSpike : MonoBehaviour, SheepKiller
         SpikeAnimator.SetTrigger("StartMove");
     }
 
-    public void SheepHit(GameObject sheep)
+    public AudioClip SheepHit(GameObject sheep)
     {
         spriteRenderer.sprite = BloodySprite;
 
@@ -34,6 +34,8 @@ public class BigSpike : MonoBehaviour, SheepKiller
         deadSheep.transform.position = sheep.transform.position;
         deadSheep.transform.parent = transform;
         deadSheep.transform.localPosition -= new Vector3(0.0f, 0.25f, 0.0f);
+
+		return null;
     }
 
     public bool Active {
