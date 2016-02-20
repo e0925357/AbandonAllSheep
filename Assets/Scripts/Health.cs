@@ -30,7 +30,7 @@ public class Health : MonoBehaviour {
         Spike spike = collider2D.GetComponent<Spike>();
         if (spike != null)
         {
-            spike.SheepHit();
+            spike.SheepHit(transform.position);
             Destroy(gameObject);
         }
     }

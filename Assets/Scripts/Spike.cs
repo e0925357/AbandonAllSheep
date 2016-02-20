@@ -5,6 +5,7 @@ public class Spike : MonoBehaviour
 {
     public Sprite[] SpikeSprites;
     public Sprite[] BloodySpikeSprites;
+    public GameObject DeadSheep;
 
     private int spikeIndex;
 
@@ -29,8 +30,12 @@ public class Spike : MonoBehaviour
 	
 	}
 
-    public void SheepHit()
+    public void SheepHit(Vector3 sheep_position)
     {
         spriteRenderer.sprite = BloodySpikeSprites[spikeIndex];
+        GameObject deadSheep = Instantiate(DeadSheep);
+        sheep_position.y -= 0.75f;
+        deadSheep.transform.position = sheep_position;
+        deadSheep.transform.parent = transform;
     }
 }
