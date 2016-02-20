@@ -24,7 +24,7 @@ public class LevelChanger : MonoBehaviour
 		}
 		else
 		{
-			RespawnPlayer();
+			RespawnPlayer(true);
 		}
 	}
 
@@ -80,7 +80,7 @@ public class LevelChanger : MonoBehaviour
 		}
 	}
 
-	public void RespawnPlayer()
+	public void RespawnPlayer(bool warpCameraToSpawnPoint = false)
 	{
 		DestroyPlayer();
 		
@@ -94,6 +94,12 @@ public class LevelChanger : MonoBehaviour
 		PlayerRespawn playerRespawn = playerObject.GetComponent<PlayerRespawn>();
 		if (playerRespawn)
 		{
+			if (warpCameraToSpawnPoint)
+			{
+				ResetCameraToPosition(playerRespawn.transform.position);
+				StartCoroutine(ResetCameraToSheepCoroutine());
+			}
+
 			playerRespawn.MoveToRespawn();
 			playerRespawn.FadeIn();
 		}
@@ -122,6 +128,21 @@ public class LevelChanger : MonoBehaviour
 	{
 		yield return new WaitForSeconds(deathCamDuration);
 		RespawnPlayer();
+	}
+
+	private IEnumerator ResetCameraToSheepCoroutine()
+	{
+		yield return new WaitForEndOfFrame();
+		if (playerObject)
+		{
+			ResetCameraToPosition(playerObject.transform.position);
+		}
+	}
+
+	private void ResetCameraToPosition(Vector3 newCameraPosition)
+	{
+		Vector3 oldCameraPosition = Camera.main.transform.position;
+		Camera.main.transform.position = new Vector3(newCameraPosition.x, newCameraPosition.y, oldCameraPosition.z);
 	}
 
 	private void RegisterCallbacks()
