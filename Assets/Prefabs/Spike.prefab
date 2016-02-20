@@ -55,7 +55,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e267380d9ea34504cad2040e418370ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BloodySpike: {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
+  SpikeSprites:
+  - {fileID: 21300000, guid: 0f9f80b479630b34a89856058fee36cb, type: 3}
+  - {fileID: 21300000, guid: a8a27d78b8fead849a6e6de270ba049e, type: 3}
+  BloodySpikeSprites:
+  - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
+  - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
 --- !u!212 &21268774
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -94,6 +99,14 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: SpikeSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: BloodySpikeSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a8a27d78b8fead849a6e6de270ba049e,
@@ -116,6 +129,26 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: BloodySpike
+      value: 
+      objectReference: {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: SpikeSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f9f80b479630b34a89856058fee36cb,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: SpikeSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: a8a27d78b8fead849a6e6de270ba049e,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: BloodySpikeSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: BloodySpikeSprites.Array.data[1]
       value: 
       objectReference: {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00,
         type: 3}
