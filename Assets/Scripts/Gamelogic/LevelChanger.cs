@@ -6,6 +6,7 @@ using Prime31;
 public class LevelChanger : MonoBehaviour
 {
 	public GameObject playerPrefab = null;
+	public float deathCamDuration = 1.0f;
 
 	private GameObject playerObject;
 
@@ -48,7 +49,8 @@ public class LevelChanger : MonoBehaviour
 
 	private void OnPlayerDeath(GameObject go)
 	{
-		RespawnPlayer();
+		DestroyPlayer();
+		StartCoroutine(RespawnPlayerCoroutine());
 	}
 
 	public void NextLevel()
@@ -63,7 +65,7 @@ public class LevelChanger : MonoBehaviour
 		}
 	}
 
-	public void RespawnPlayer()
+	private void DestroyPlayer()
 	{
 		if (playerObject != null)
 		{
@@ -76,7 +78,11 @@ public class LevelChanger : MonoBehaviour
 			UnregisterCallbacks();
 			playerObject = null;
 		}
+	}
 
+	public void RespawnPlayer()
+	{
+		DestroyPlayer();
 		
 		// There is no player so we respawn him
 		playerObject = Instantiate(playerPrefab);
@@ -110,6 +116,12 @@ public class LevelChanger : MonoBehaviour
 		yield return new WaitForEndOfFrame();
 		NextLevel();
 		yield return null;
+	}
+
+	private IEnumerator RespawnPlayerCoroutine()
+	{
+		yield return new WaitForSeconds(deathCamDuration);
+		RespawnPlayer();
 	}
 
 	private void RegisterCallbacks()
