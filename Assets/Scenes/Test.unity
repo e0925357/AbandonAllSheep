@@ -771,15 +771,15 @@ Prefab:
     - target: {fileID: 21299102, guid: edf83e24994ec64499c7779d0df042ea, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c1d04cb2c4e3f354cbf5e9a9be85d9f9,
+      objectReference: {fileID: 21300000, guid: d5f19b25a2b7af544ad614268b0fbf47,
         type: 3}
     - target: {fileID: 466678, guid: edf83e24994ec64499c7779d0df042ea, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 466678, guid: edf83e24994ec64499c7779d0df042ea, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 466678, guid: edf83e24994ec64499c7779d0df042ea, type: 2}
       propertyPath: m_LocalScale.z
@@ -787,19 +787,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6164704, guid: edf83e24994ec64499c7779d0df042ea, type: 2}
       propertyPath: m_Size.x
-      value: 4.689422
+      value: 0.27334303
       objectReference: {fileID: 0}
     - target: {fileID: 6164704, guid: edf83e24994ec64499c7779d0df042ea, type: 2}
       propertyPath: m_Size.y
-      value: 3.6747112
+      value: 0.23291421
       objectReference: {fileID: 0}
     - target: {fileID: 6164704, guid: edf83e24994ec64499c7779d0df042ea, type: 2}
       propertyPath: m_Offset.y
-      value: -0.73762125
+      value: -0.043977946
       objectReference: {fileID: 0}
     - target: {fileID: 6164704, guid: edf83e24994ec64499c7779d0df042ea, type: 2}
       propertyPath: m_Offset.x
-      value: -0.23293209
+      value: -0.024344444
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edf83e24994ec64499c7779d0df042ea, type: 2}
@@ -1019,7 +1019,7 @@ Animator:
   m_GameObject: {fileID: 1688482948}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a7cfc54ebb6e99940a1856e7d2d94ee3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 523f96fa9e8fb74458eccaa4ce960659, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
