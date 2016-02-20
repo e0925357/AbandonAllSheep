@@ -27,8 +27,10 @@ public class Health : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collider2D.GetComponent<Spike>() != null)
+        Spike spike = collider2D.GetComponent<Spike>();
+        if (spike != null)
         {
+            spike.SheepHit();
             Destroy(gameObject);
         }
     }

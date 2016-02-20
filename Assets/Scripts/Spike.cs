@@ -1,15 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Spike : MonoBehaviour {
+public class Spike : MonoBehaviour
+{
+    public Sprite BloodySpike;
 
-	// Use this for initialization
-	void Start () {
-	
+    private SpriteRenderer spriteRenderer;
+    
+    // Use this for initialization
+	void Start ()
+	{
+	    spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+    public void SheepHit()
+    {
+        spriteRenderer.sprite = BloodySpike;
+    }
 }
