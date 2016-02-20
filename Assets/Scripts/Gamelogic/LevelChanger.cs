@@ -6,6 +6,7 @@ using Prime31;
 public class LevelChanger : MonoBehaviour
 {
 	public GameObject playerPrefab = null;
+	public float deathCamDuration = 1.0f;
 
 	private GameObject playerObject;
 
@@ -23,7 +24,7 @@ public class LevelChanger : MonoBehaviour
 		}
 		else
 		{
-			RespawnPlayer();
+			RespawnPlayer(true);
 		}
 	}
 
@@ -48,7 +49,8 @@ public class LevelChanger : MonoBehaviour
 
 	private void OnPlayerDeath(GameObject go)
 	{
-		RespawnPlayer();
+		DestroyPlayer();
+		StartCoroutine(RespawnPlayerCoroutine());
 	}
 
 	public void NextLevel()
@@ -63,7 +65,7 @@ public class LevelChanger : MonoBehaviour
 		}
 	}
 
-	public void RespawnPlayer()
+	private void DestroyPlayer()
 	{
 		if (playerObject != null)
 		{
@@ -76,7 +78,11 @@ public class LevelChanger : MonoBehaviour
 			UnregisterCallbacks();
 			playerObject = null;
 		}
+	}
 
+	public void RespawnPlayer(bool warpCameraToSpawnPoint = false)
+	{
+		DestroyPlayer();
 		
 		// There is no player so we respawn him
 		playerObject = Instantiate(playerPrefab);
@@ -88,6 +94,12 @@ public class LevelChanger : MonoBehaviour
 		PlayerRespawn playerRespawn = playerObject.GetComponent<PlayerRespawn>();
 		if (playerRespawn)
 		{
+			if (warpCameraToSpawnPoint)
+			{
+				ResetCameraToPosition(playerRespawn.transform.position);
+				StartCoroutine(ResetCameraToSheepCoroutine());
+			}
+
 			playerRespawn.MoveToRespawn();
 			playerRespawn.FadeIn();
 		}
@@ -110,6 +122,27 @@ public class LevelChanger : MonoBehaviour
 		yield return new WaitForEndOfFrame();
 		NextLevel();
 		yield return null;
+	}
+
+	private IEnumerator RespawnPlayerCoroutine()
+	{
+		yield return new WaitForSeconds(deathCamDuration);
+		RespawnPlayer();
+	}
+
+	private IEnumerator ResetCameraToSheepCoroutine()
+	{
+		yield return new WaitForEndOfFrame();
+		if (playerObject)
+		{
+			ResetCameraToPosition(playerObject.transform.position);
+		}
+	}
+
+	private void ResetCameraToPosition(Vector3 newCameraPosition)
+	{
+		Vector3 oldCameraPosition = Camera.main.transform.position;
+		Camera.main.transform.position = new Vector3(newCameraPosition.x, newCameraPosition.y, oldCameraPosition.z);
 	}
 
 	private void RegisterCallbacks()
