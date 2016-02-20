@@ -48,7 +48,7 @@ public class Spike : MonoBehaviour, SheepKiller
 		GameObject deadSheep = Instantiate(DeadSheep);
 		deadSheep.transform.position = sheep.transform.position;
 		deadSheep.transform.parent = transform;
-		deadSheep.transform.localPosition -= new Vector3(0.0f, 0.75f, 0.0f);
+		deadSheep.transform.localPosition -= new Vector3(0.0f, 0.5f, 0.0f);
 	}
 
 	void OnParticleCollision(GameObject other)
