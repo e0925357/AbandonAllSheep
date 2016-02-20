@@ -64,22 +64,20 @@ public class LevelChanger : MonoBehaviour
 			// There is no player so we respawn him
 			playerObject = Instantiate(playerPrefab);
 		}
+
+		// Register for trigger event
+		CharacterController2D playerController = playerObject.GetComponent<CharacterController2D>();
+		playerController.onTriggerEnterEvent += OnGoalEntered; 
+
+		// Respawn player
+		PlayerRespawn playerRespawn = playerObject.GetComponent<PlayerRespawn>();
+		if (playerRespawn)
+		{
+			playerRespawn.Respawn();
+		}
 		else
 		{
-			// Register for trigger event
-			CharacterController2D playerController = playerObject.GetComponent<CharacterController2D>();
-			playerController.onTriggerEnterEvent += OnGoalEntered; 
-
-			// Respawn player
-			PlayerRespawn playerRespawn = playerObject.GetComponent<PlayerRespawn>();
-			if (playerRespawn)
-			{
-				playerRespawn.Respawn();
-			}
-			else
-			{
-				Debug.Log("No respawn component found on player. Please add PlayerRespawn component to player");
-			}
+			Debug.Log("No respawn component found on player. Please add PlayerRespawn component to player");
 		}
 	}
 
