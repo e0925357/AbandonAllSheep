@@ -34,7 +34,7 @@ public class PhysicsSheep : MonoBehaviour
 
 	IEnumerator dissolve()
 	{
-		yield return new WaitForSeconds(13.0f);
+		yield return new WaitForSeconds(28.0f);
 
 		sheepAnimator.SetTrigger("dissolve");
 		Destroy(gameObject, 2.0f);
