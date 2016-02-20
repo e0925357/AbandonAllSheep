@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: abbb245bc67387b43a12c84427fc1f5f
-timeCreated: 1455975892
+timeCreated: 1455978710
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -63,7 +63,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
+        y: 8
         width: 8
         height: 8
       alignment: 0
@@ -74,7 +74,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 8
-        y: 16
+        y: 8
         width: 8
         height: 8
       alignment: 0
@@ -85,7 +85,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 16
+        y: 8
         width: 8
         height: 8
       alignment: 0
@@ -96,7 +96,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
+        y: 0
         width: 8
         height: 8
       alignment: 0
@@ -107,7 +107,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 8
-        y: 8
+        y: 0
         width: 8
         height: 8
       alignment: 0
@@ -115,39 +115,6 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: acid_anim_5
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 8
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: acid_anim_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: acid_anim_7
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: acid_anim_8
       rect:
         serializedVersion: 2
         x: 16
