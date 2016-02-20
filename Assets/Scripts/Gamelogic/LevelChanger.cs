@@ -1,15 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Prime31;
 
 public class LevelChanger : MonoBehaviour
 {
-	private PlayerRespawn playerRespawn;
+	public GameObject playerPrefab = null;
+
+	private bool goalTriggered;
+	private GameObject playerObject;
 
 	private static readonly string PLAYER_TAG_NAME = "Player";
 
 	public void Start()
 	{
+		goalTriggered = false;
 		if (SceneManager.sceneCount == 1)
 		{
 			int levelSceneIndex = gameObject.scene.buildIndex;
@@ -29,6 +34,10 @@ public class LevelChanger : MonoBehaviour
 		{
 			NextLevel();
 		}
+		if (Input.GetKeyDown(KeyCode.F4))
+		{
+			RespawnPlayer();
+		}
 	}
 
 	public void NextLevel()
@@ -37,6 +46,10 @@ public class LevelChanger : MonoBehaviour
 		int nextSceneIndex = currentScene + 1;
 		if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
 		{
+			// Unregister trigger event
+			CharacterController2D playerController = playerObject.GetComponent<CharacterController2D>();
+			playerController.onTriggerEnterEvent -= OnGoalEntered;
+
 			// Load next level
 			SceneManager.UnloadScene(currentScene);
 			SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Additive);
@@ -45,10 +58,20 @@ public class LevelChanger : MonoBehaviour
 
 	public void RespawnPlayer()
 	{
-		GameObject playerObject = GameObject.FindGameObjectWithTag(PLAYER_TAG_NAME);
-		if (playerObject != null)
+		playerObject = GameObject.FindGameObjectWithTag(PLAYER_TAG_NAME);
+		if (playerObject == null)
 		{
-			playerRespawn = playerObject.GetComponent<PlayerRespawn>();
+			// There is no player so we respawn him
+			playerObject = Instantiate(playerPrefab);
+		}
+		else
+		{
+			// Register for trigger event
+			CharacterController2D playerController = playerObject.GetComponent<CharacterController2D>();
+			playerController.onTriggerEnterEvent += OnGoalEntered; 
+
+			// Respawn player
+			PlayerRespawn playerRespawn = playerObject.GetComponent<PlayerRespawn>();
 			if (playerRespawn)
 			{
 				playerRespawn.Respawn();
@@ -58,9 +81,24 @@ public class LevelChanger : MonoBehaviour
 				Debug.Log("No respawn component found on player. Please add PlayerRespawn component to player");
 			}
 		}
-		else
+	}
+
+	private void OnGoalEntered(Collider2D collider)
+	{
+		if (!goalTriggered)
 		{
-			Debug.Log("No player object found");
+			if (collider.gameObject == gameObject)
+			{
+				StartCoroutine(NextLevelCoroutine());
+				//goalTriggered = true;
+			}
 		}
+	}
+
+	private IEnumerator NextLevelCoroutine()
+	{
+		yield return new WaitForEndOfFrame();
+		NextLevel();
+		yield return null;
 	}
 }
