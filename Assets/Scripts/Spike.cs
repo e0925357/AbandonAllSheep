@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Spike : MonoBehaviour
+public class Spike : MonoBehaviour, SheepKiller
 {
     public Sprite[] SpikeSprites;
     public Sprite[] BloodySpikeSprites;
@@ -30,12 +30,18 @@ public class Spike : MonoBehaviour
 	
 	}
 
-    public void SheepHit(Vector3 sheep_position)
+    public void SheepHit(GameObject sheep)
     {
         spriteRenderer.sprite = BloodySpikeSprites[spikeIndex];
         GameObject deadSheep = Instantiate(DeadSheep);
-        sheep_position.y -= 0.75f;
-        deadSheep.transform.position = sheep_position;
+        Vector3 sheepPosition = sheep.transform.position;
+        sheepPosition.y -= 0.75f;
+        deadSheep.transform.position = sheepPosition;
         deadSheep.transform.parent = transform;
+    }
+
+    void OnParticleCollision(GameObject other)
+    {
+        spriteRenderer.sprite = BloodySpikeSprites[spikeIndex];
     }
 }
