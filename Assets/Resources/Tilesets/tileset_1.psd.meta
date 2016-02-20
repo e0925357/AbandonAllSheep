@@ -47,7 +47,7 @@ TextureImporter:
   textureFormat: -3
   maxTextureSize: 512
   textureSettings:
-    filterMode: 0
+    filterMode: 1
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -110,8 +110,8 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -16, y: 16}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
+        - {x: -16, y: 2}
+        - {x: 16, y: 2}
         - {x: 16, y: 16}
     - name: tileset_1_3
       rect:
@@ -260,8 +260,8 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -16, y: 16}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
+        - {x: -16, y: 0}
+        - {x: 16, y: 0}
         - {x: 16, y: 16}
     - name: tileset_1_13
       rect:
