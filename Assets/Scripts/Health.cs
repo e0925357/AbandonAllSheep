@@ -8,20 +8,21 @@ public class Health : MonoBehaviour {
 	public delegate void lifeChange(GameObject go);
 	public static event lifeChange onBirth;
 	public static event lifeChange onDeath;
-    
+
+	private bool isMarkedForDeath;
+
+	public bool IsMarkedForDeath
+	{
+		get { return isMarkedForDeath; }
+	}
+
 	// Use this for initialization
 	void Start () {
+		isMarkedForDeath = false;
+
 		if(onBirth != null)
 		{
 			onBirth(gameObject);
-		}
-	}
-
-    void OnDestroy()
-	{
-		if (onDeath != null)
-		{
-			onDeath(gameObject);
 		}
 	}
 
@@ -31,7 +32,19 @@ public class Health : MonoBehaviour {
         if (spike != null)
         {
             spike.SheepHit(transform.position);
-            Destroy(gameObject);
+			KillSheep();
         }
     }
+
+	void KillSheep()
+	{
+		isMarkedForDeath = true;
+
+		if (onDeath != null)
+		{
+			onDeath(gameObject);
+		}
+
+		Destroy(gameObject);
+	}
 }
