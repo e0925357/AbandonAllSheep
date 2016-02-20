@@ -7,14 +7,12 @@ public class LevelChanger : MonoBehaviour
 {
 	public GameObject playerPrefab = null;
 
-	private bool goalTriggered;
 	private GameObject playerObject;
 
 	private static readonly string PLAYER_TAG_NAME = "Player";
 
 	public void Start()
 	{
-		goalTriggered = false;
 		if (SceneManager.sceneCount == 1)
 		{
 			int levelSceneIndex = gameObject.scene.buildIndex;
@@ -24,6 +22,8 @@ public class LevelChanger : MonoBehaviour
 		}
 		else
 		{
+			playerObject = GameObject.FindGameObjectWithTag(PLAYER_TAG_NAME);
+			Health.onDeath += OnPlayerDeath;
 			RespawnPlayer();
 		}
 	}
@@ -40,13 +40,23 @@ public class LevelChanger : MonoBehaviour
 		}
 	}
 
+	void OnDetroy()
+	{
+		// Unregister trigger event
+		Health.onDeath -= OnPlayerDeath;
+	}
+
+	private void OnPlayerDeath(GameObject go)
+	{
+		RespawnPlayer(true);
+	}
+
 	public void NextLevel()
 	{
 		int currentScene = gameObject.scene.buildIndex;
 		int nextSceneIndex = currentScene + 1;
 		if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
 		{
-			// Unregister trigger event
 			CharacterController2D playerController = playerObject.GetComponent<CharacterController2D>();
 			playerController.onTriggerEnterEvent -= OnGoalEntered;
 
@@ -56,9 +66,19 @@ public class LevelChanger : MonoBehaviour
 		}
 	}
 
-	public void RespawnPlayer()
+	public void RespawnPlayer(bool forceNewSheep = false)
 	{
-		playerObject = GameObject.FindGameObjectWithTag(PLAYER_TAG_NAME);
+		if (playerObject != null && forceNewSheep)
+		{
+			Health playerHealth = playerObject.GetComponent<Health>();
+			if (playerHealth && !playerHealth.IsMarkedForDeath)
+			{
+				Destroy(playerObject);
+			}
+
+			playerObject = null;
+		}
+
 		if (playerObject == null)
 		{
 			// There is no player so we respawn him
@@ -67,13 +87,13 @@ public class LevelChanger : MonoBehaviour
 
 		// Register for trigger event
 		CharacterController2D playerController = playerObject.GetComponent<CharacterController2D>();
-		playerController.onTriggerEnterEvent += OnGoalEntered; 
+		playerController.onTriggerEnterEvent += OnGoalEntered;
 
 		// Respawn player
 		PlayerRespawn playerRespawn = playerObject.GetComponent<PlayerRespawn>();
 		if (playerRespawn)
 		{
-			playerRespawn.Respawn();
+			playerRespawn.MoveToRespawn();
 		}
 		else
 		{
@@ -83,13 +103,9 @@ public class LevelChanger : MonoBehaviour
 
 	private void OnGoalEntered(Collider2D collider)
 	{
-		if (!goalTriggered)
+		if (collider.gameObject == gameObject)
 		{
-			if (collider.gameObject == gameObject)
-			{
-				StartCoroutine(NextLevelCoroutine());
-				//goalTriggered = true;
-			}
+			StartCoroutine(NextLevelCoroutine());
 		}
 	}
 

@@ -8,10 +8,10 @@ public class PlayerRespawn : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		Respawn();
+		MoveToRespawn();
 	}
 
-	public void Respawn()
+	public void MoveToRespawn()
 	{
 		GameObject respawn = GameObject.FindWithTag(RESPAWN_TAG_NAME);
 		if (respawn != null)
