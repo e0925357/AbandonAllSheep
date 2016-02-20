@@ -136,7 +136,7 @@ MonoBehaviour:
   _skinWidth: 0.02
   platformMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1025
   triggerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -209,6 +209,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 706822de86589e843a075292a79dc6b2, type: 2}
+    - target: {fileID: 0}
+      propertyPath: platformMask.m_Bits
+      value: 1025
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 132646}

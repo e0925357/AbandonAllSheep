@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 453486}
   - 212: {fileID: 21276350}
   - 95: {fileID: 9581344}
+  - 60: {fileID: 6053264}
   m_Layer: 10
   m_Name: DeadSheep
   m_TagString: Untagged
@@ -24,11 +25,33 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.58, y: 2.78, z: 0}
   m_LocalScale: {x: 4.172946, y: 4.172946, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!60 &6053264
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132378}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 0.08662562, y: -0.055040665}
+      - {x: 0.10557549, y: 0.024160462}
+      - {x: 0.03355181, y: 0.05823762}
+      - {x: -0.09945766, y: 0.061220948}
+      - {x: -0.19051884, y: 0.026183989}
+      - {x: -0.15677586, y: -0.077281296}
+      - {x: -0.14128423, y: -0.09954896}
+      - {x: 0.060956415, y: -0.10277299}
 --- !u!95 &9581344
 Animator:
   serializedVersion: 3
@@ -72,7 +95,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d5f19b25a2b7af544ad614268b0fbf47, type: 3}
+  m_Sprite: {fileID: 21300014, guid: d5f19b25a2b7af544ad614268b0fbf47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91,6 +114,11 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300014, guid: d5f19b25a2b7af544ad614268b0fbf47,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 132378}
