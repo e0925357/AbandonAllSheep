@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21219874}
   - 61: {fileID: 6118680}
   - 114: {fileID: 11442714}
+  - 95: {fileID: 9561748}
   m_Layer: 8
   m_Name: Acid
   m_TagString: Untagged
@@ -54,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.5, y: 1.5, z: 0}
+  m_LocalPosition: {x: -3.5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 435460}
@@ -88,6 +89,23 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!95 &9561748
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140014}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 13cb518099b85e74d9d6e123c540c42c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11442714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeadSheep: {fileID: 140452, guid: 248ed9ad1486dbb4a9b99bd27626a704, type: 2}
+  TopLayer: 0
 --- !u!212 &21219874
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -126,8 +145,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: af1a8083a58aece468f56d7e09bec2c0, type: 3}
-  m_Color: {r: 0.9862069, g: 1, b: 0, a: 0.472}
+  m_Sprite: {fileID: 21300000, guid: abbb245bc67387b43a12c84427fc1f5f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.603}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!249 &24922242
@@ -147,7 +166,7 @@ AreaEffector2D:
   m_ForceMagnitude: 70
   m_ForceVariation: 0
   m_Drag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 20
   m_ForceTarget: 0
 --- !u!1001 &100100000
 Prefab:
@@ -163,6 +182,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_ForceMagnitude
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.a
+      value: 0.603
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
