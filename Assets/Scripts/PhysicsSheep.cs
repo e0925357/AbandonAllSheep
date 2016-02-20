@@ -3,13 +3,13 @@ using System.Collections;
 
 public class PhysicsSheep : MonoBehaviour
 {
-
-    private bool isDying;
+	public Animator sheepAnimator;
+	private bool isDying;
 
 	// Use this for initialization
 	void Start ()
 	{
-	    isDying = false;
+		isDying = false;
 	}
 	
 	// Update is called once per frame
@@ -17,16 +17,26 @@ public class PhysicsSheep : MonoBehaviour
 	
 	}
 
-    void OnTriggerEnter2D(Collider2D collider2D)
-    {
-        if (!isDying)
-        {
-            Acid acid = collider2D.gameObject.GetComponent<Acid>();
-            if (acid != null)
-            {
-                Destroy(gameObject, 15.0f);
-                isDying = true;
-            }
-        }
-    }
+	void OnTriggerEnter2D(Collider2D collider2D)
+	{
+		if (!isDying)
+		{
+			Acid acid = collider2D.gameObject.GetComponent<Acid>();
+			if (acid != null)
+			{
+				sheepAnimator.SetTrigger("acid");
+				isDying = true;
+
+				StartCoroutine(dissolve());
+			}
+		}
+	}
+
+	IEnumerator dissolve()
+	{
+		yield return new WaitForSeconds(13.0f);
+
+		sheepAnimator.SetTrigger("dissolve");
+		Destroy(gameObject, 2.0f);
+	}
 }

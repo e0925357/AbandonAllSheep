@@ -8,12 +8,16 @@ public class BigSpike : MonoBehaviour, SheepKiller
     public GameObject SpikeSprite;
     public Animator SpikeAnimator;
     public float HiddenTime;
+    public bool StartEnabled;
 
     private SpriteRenderer spriteRenderer;
 	void Start ()
 	{
 	    spriteRenderer = SpikeSprite.GetComponent<SpriteRenderer>();
-        InvokeRepeating("CycleAnimation", 0, HiddenTime);
+	    if (StartEnabled)
+	    {
+	        InvokeRepeating("CycleAnimation", 0, HiddenTime);
+	    }
 	}
 	
 	// Update is called once per frame
@@ -46,5 +50,15 @@ public class BigSpike : MonoBehaviour, SheepKiller
     void OnParticleCollision(GameObject other)
     {
         spriteRenderer.sprite = BloodySprite;
+    }
+
+    public void Enable()
+    {
+        InvokeRepeating("CycleAnimation", 0, HiddenTime);
+    }
+
+    public void Disable()
+    {
+        CancelInvoke("CycleAnimation");
     }
 }
