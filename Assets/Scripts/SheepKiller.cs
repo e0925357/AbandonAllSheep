@@ -6,5 +6,10 @@ using UnityEngine;
 
 public interface SheepKiller
 {
-    void SheepHit(GameObject sheep);
+	void SheepHit(GameObject sheep);
+
+	bool Active
+	{
+		get;
+	}
 }

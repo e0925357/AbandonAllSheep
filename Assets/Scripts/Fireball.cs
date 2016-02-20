@@ -8,6 +8,14 @@ public class Fireball : MonoBehaviour, SheepKiller {
 	public float lifetime = 10;
 	public float heat = 60;
 
+	public bool Active
+	{
+		get
+		{
+			return true;
+		}
+	}
+
 	void Start()
 	{
 		StartCoroutine(startSelfDestruction());

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class Flamable : MonoBehaviour {
+public class Flamable : MonoBehaviour, SheepKiller {
 
 	public float heat = 100;
 	public float maxHeat = 200;
@@ -10,6 +11,7 @@ public class Flamable : MonoBehaviour {
 	public SpriteRenderer[] fireVisuals;
 	public float[] fireVisualsAlpha;
 	public Animator corpseAnimator;
+	public GameObject burntSheepPrefab;
 
 	private float maxDieHeat;
 
@@ -50,6 +52,11 @@ public class Flamable : MonoBehaviour {
 		}
 	}
 
+	public void SheepHit(GameObject sheep)
+	{
+		Instantiate(burntSheepPrefab, sheep.transform.position, sheep.transform.rotation);
+	}
+
 	public float Heat
 	{
 		get
@@ -88,6 +95,14 @@ public class Flamable : MonoBehaviour {
 			}
 
 			heat = value;
+		}
+	}
+
+	public bool Active
+	{
+		get
+		{
+			return Heat > 0;
 		}
 	}
 }
