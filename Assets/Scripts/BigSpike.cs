@@ -32,9 +32,13 @@ public class BigSpike : MonoBehaviour, SheepKiller
 
         GameObject deadSheep = Instantiate(DeadSheep);
         deadSheep.transform.position = sheep.transform.position;
-        deadSheep.transform.parent = transform.parent;
+        deadSheep.transform.parent = transform;
+        deadSheep.transform.localPosition -= new Vector3(0.0f, 0.75f, 0.0f);
     }
 
+    public bool Active {
+        get { return true; }
+    }
 
 
     void OnParticleCollision(GameObject other)
