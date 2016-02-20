@@ -68,6 +68,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 1
 --- !u!212 &21268774
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -163,6 +164,10 @@ Prefab:
       propertyPath: DeadSheep
       value: 
       objectReference: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+    - target: {fileID: 0}
+      propertyPath: EnableMirroring
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 102024}

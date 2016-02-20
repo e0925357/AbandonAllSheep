@@ -6,8 +6,10 @@ public class Spike : MonoBehaviour, SheepKiller
 	public Sprite[] SpikeSprites;
 	public Sprite[] BloodySpikeSprites;
 	public GameObject DeadSheep;
+    public bool EnableMirroring;
 
 	private int spikeIndex;
+    
 
 	private SpriteRenderer spriteRenderer;
 	
@@ -19,9 +21,11 @@ public class Spike : MonoBehaviour, SheepKiller
 
 		spriteRenderer.sprite = SpikeSprites[spikeIndex];
 
-		if (Random.Range(0, 2) == 1)
+		if (EnableMirroring && Random.Range(0, 2) == 1)
 		{
-			transform.localScale = new Vector3(-1, 1, 1);
+		    Vector3 scale = transform.localScale;
+		    scale.x = -scale.x;
+		    transform.localScale = scale;
 		}
 	}
 	

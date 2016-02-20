@@ -1361,6 +1361,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11413814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1379,6 +1380,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11418490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1397,6 +1399,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11422364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1415,6 +1418,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11428048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1433,6 +1437,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11432638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1451,6 +1456,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11434356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1469,6 +1475,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11443998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1487,6 +1494,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11447890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1505,6 +1513,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11450828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1523,6 +1532,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11451532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1541,6 +1551,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11459046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1559,6 +1570,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11459338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1577,6 +1589,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11460468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1595,6 +1608,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11461818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1613,6 +1627,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11477894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1631,6 +1646,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11486288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1649,6 +1665,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!114 &11493864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1679,6 +1696,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
   DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  EnableMirroring: 0
 --- !u!212 &21200156
 SpriteRenderer:
   m_ObjectHideFlags: 1
