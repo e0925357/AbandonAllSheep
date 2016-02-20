@@ -17,6 +17,10 @@ public class LevelChanger : MonoBehaviour
 			SceneManager.LoadScene("Scenes/Game", LoadSceneMode.Single);
 			SceneManager.LoadScene(levelSceneIndex, LoadSceneMode.Additive);
 		}
+		else
+		{
+			RespawnPlayer();
+		}
 	}
 
 	void Update()
@@ -36,25 +40,27 @@ public class LevelChanger : MonoBehaviour
 			// Load next level
 			SceneManager.UnloadScene(currentScene);
 			SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Additive);
+		}
+	}
 
-			// Respawn player
-			GameObject playerObject = GameObject.FindGameObjectWithTag(PLAYER_TAG_NAME);
-			if (playerObject != null)
+	public void RespawnPlayer()
+	{
+		GameObject playerObject = GameObject.FindGameObjectWithTag(PLAYER_TAG_NAME);
+		if (playerObject != null)
+		{
+			playerRespawn = playerObject.GetComponent<PlayerRespawn>();
+			if (playerRespawn)
 			{
-				playerRespawn = playerObject.GetComponent<PlayerRespawn>();
-				if (playerRespawn)
-				{
-					playerRespawn.Respawn();
-				}
-				else
-				{
-					Debug.Log("No respawn component found on player. Please add PlayerRespawn component to player");
-				}
+				playerRespawn.Respawn();
 			}
 			else
 			{
-				Debug.Log("No player object found");
+				Debug.Log("No respawn component found on player. Please add PlayerRespawn component to player");
 			}
+		}
+		else
+		{
+			Debug.Log("No player object found");
 		}
 	}
 }
