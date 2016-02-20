@@ -1,9 +1,20 @@
 fileFormatVersion: 2
 guid: d1762b73528b48342acfcf51cb3bfc93
-timeCreated: 1455969774
+timeCreated: 1455977037
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: tileset_details_0
+    21300002: tileset_details_1
+    21300004: tileset_details_2
+    21300006: tileset_details_3
+    21300008: tileset_details_4
+    21300010: tileset_details_5
+    21300012: tileset_details_6
+    21300014: tileset_details_7
+    21300016: tileset_details_8
+    21300018: tileset_details_9
+    21300020: tileset_details_10
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,10 +37,10 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
-  maxTextureSize: 2048
+  textureFormat: -3
+  maxTextureSize: 512
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -38,18 +49,221 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: tileset_details_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -16}
+        - {x: 15, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: -5}
+        - {x: -16, y: -5}
+    - name: tileset_details_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -4, y: -16}
+        - {x: 3, y: -16}
+        - {x: 3, y: 16}
+    - name: tileset_details_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -8, y: -3}
+        - {x: -8, y: -11}
+        - {x: -4, y: -14}
+        - {x: 1, y: -14}
+        - {x: 4, y: -9}
+        - {x: 4, y: 16}
+    - name: tileset_details_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: -1}
+        - {x: 13, y: 16}
+        - {x: -11, y: 16}
+        - {x: -16, y: -7}
+    - name: tileset_details_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: -16}
+        - {x: 11, y: 16}
+        - {x: -11, y: 16}
+        - {x: -11, y: -16}
+    - name: tileset_details_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: 0}
+        - {x: -14, y: -16}
+        - {x: 11, y: -16}
+        - {x: 16, y: 3}
+        - {x: 16, y: 16}
+    - name: tileset_details_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 16}
+        - {x: -8, y: -3}
+        - {x: -8, y: -16}
+        - {x: 7, y: -16}
+        - {x: 8, y: -8}
+        - {x: 3, y: 15}
+        - {x: 3, y: 16}
+    - name: tileset_details_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: -10}
+        - {x: 2, y: -13}
+        - {x: 5, y: -14}
+        - {x: 8, y: -13}
+        - {x: 8, y: -11}
+        - {x: 5, y: -8}
+        - {x: 3, y: -8}
+      - - {x: -6, y: -5}
+        - {x: -3, y: -8}
+        - {x: 0, y: -10}
+        - {x: 10, y: -12}
+        - {x: 12, y: -12}
+        - {x: 12, y: 15}
+        - {x: 11, y: 16}
+        - {x: -16, y: 16}
+        - {x: -16, y: -1}
+        - {x: -10, y: -12}
+        - {x: -5, y: -12}
+        - {x: -4, y: -11}
+        - {x: -4, y: -8}
+        - {x: -5, y: -6}
+        - {x: -7, y: -5}
+    - name: tileset_details_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 13}
+        - {x: -8, y: 13}
+        - {x: -10, y: 10}
+        - {x: -10, y: -16}
+        - {x: 4, y: -16}
+        - {x: 10, y: 0}
+        - {x: 10, y: 5}
+        - {x: 0, y: 12}
+    - name: tileset_details_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -13}
+        - {x: -5, y: -16}
+        - {x: 4, y: -16}
+        - {x: 6, y: -15}
+        - {x: 6, y: 12}
+        - {x: -4, y: 12}
+        - {x: -6, y: 11}
+    - name: tileset_details_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 0}
+        - {x: -16, y: -6}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: -2}
+        - {x: 13, y: 0}
     outline: []
   spritePackingTag: 
   userData: 

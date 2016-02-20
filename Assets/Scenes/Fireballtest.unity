@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab2Spawn: {fileID: 179344, guid: 8e79d5ea80253cf40b8564c92c2ad432, type: 2}
-  projectileOffset: {x: 2, y: 0, z: 0}
+  projectileOffset: {x: 1.5, y: 0, z: 0}
   waitTime: 1
 --- !u!1 &1087725864
 GameObject:

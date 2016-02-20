@@ -23,7 +23,6 @@ public class LevelChanger : MonoBehaviour
 		else
 		{
 			playerObject = GameObject.FindGameObjectWithTag(PLAYER_TAG_NAME);
-			Health.onDeath += OnPlayerDeath;
 			RespawnPlayer();
 		}
 	}
@@ -40,10 +39,10 @@ public class LevelChanger : MonoBehaviour
 		}
 	}
 
-	void OnDetroy()
+	void OnDestroy()
 	{
 		// Unregister trigger event
-		Health.onDeath -= OnPlayerDeath;
+		UnregisterCallbacks();
 	}
 
 	private void OnPlayerDeath(GameObject go)
@@ -57,9 +56,6 @@ public class LevelChanger : MonoBehaviour
 		int nextSceneIndex = currentScene + 1;
 		if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
 		{
-			CharacterController2D playerController = playerObject.GetComponent<CharacterController2D>();
-			playerController.onTriggerEnterEvent -= OnGoalEntered;
-
 			// Load next level
 			SceneManager.UnloadScene(currentScene);
 			SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Additive);
@@ -73,9 +69,11 @@ public class LevelChanger : MonoBehaviour
 			Health playerHealth = playerObject.GetComponent<Health>();
 			if (playerHealth && !playerHealth.IsMarkedForDeath)
 			{
+				
 				Destroy(playerObject);
 			}
 
+			UnregisterCallbacks();
 			playerObject = null;
 		}
 
@@ -86,8 +84,7 @@ public class LevelChanger : MonoBehaviour
 		}
 
 		// Register for trigger event
-		CharacterController2D playerController = playerObject.GetComponent<CharacterController2D>();
-		playerController.onTriggerEnterEvent += OnGoalEntered;
+		RegisterCallbacks();
 
 		// Respawn player
 		PlayerRespawn playerRespawn = playerObject.GetComponent<PlayerRespawn>();
@@ -114,5 +111,27 @@ public class LevelChanger : MonoBehaviour
 		yield return new WaitForEndOfFrame();
 		NextLevel();
 		yield return null;
+	}
+
+	private void RegisterCallbacks()
+	{
+		if (playerObject != null)
+		{
+			CharacterController2D playerController = playerObject.GetComponent<CharacterController2D>();
+			playerController.onTriggerEnterEvent += OnGoalEntered;
+
+			Health.onDeath += OnPlayerDeath;
+		}
+	}
+
+	private void UnregisterCallbacks()
+	{
+		if (playerObject != null)
+		{
+			CharacterController2D playerController = playerObject.GetComponent<CharacterController2D>();
+			playerController.onTriggerEnterEvent -= OnGoalEntered;
+
+			Health.onDeath -= OnPlayerDeath;
+		}
 	}
 }
