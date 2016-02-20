@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 727b37539eef71c4ca92420b568b64ec
+timeCreated: 1455979381
+=======
 guid: ff8f7b1581216fb439bbc782b2cf2d30
 timeCreated: 1455981248
+>>>>>>> 0560fefe0d36b3791e43c88dfed4ecbce10cc356
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -9,10 +14,18 @@ TextureImporter:
     21300004: fireballsprite_2
     21300006: fireballsprite_3
     21300008: fireballsprite_4
+<<<<<<< HEAD
+    21300010: fireballsprite_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+=======
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
+>>>>>>> 0560fefe0d36b3791e43c88dfed4ecbce10cc356
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -31,8 +44,13 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
+<<<<<<< HEAD
+  textureFormat: -3
+  maxTextureSize: 256
+=======
   textureFormat: -1
   maxTextureSize: 2048
+>>>>>>> 0560fefe0d36b3791e43c88dfed4ecbce10cc356
   textureSettings:
     filterMode: -1
     aniso: 16
@@ -49,7 +67,11 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< HEAD
+  spritePixelsToUnits: 100
+=======
   spritePixelsToUnits: 16
+>>>>>>> 0560fefe0d36b3791e43c88dfed4ecbce10cc356
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
@@ -66,12 +88,19 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
+<<<<<<< HEAD
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+=======
       - - {x: -3, y: 9}
         - {x: -16, y: 5}
         - {x: -16, y: -4}
         - {x: -10, y: -6}
         - {x: 16, y: -6}
         - {x: 16, y: 9}
+>>>>>>> 0560fefe0d36b3791e43c88dfed4ecbce10cc356
     - name: fireballsprite_1
       rect:
         serializedVersion: 2
@@ -80,6 +109,15 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
+<<<<<<< HEAD
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+=======
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
@@ -91,6 +129,7 @@ TextureImporter:
         - {x: 16, y: -4}
         - {x: 16, y: 7}
         - {x: 13, y: 9}
+>>>>>>> 0560fefe0d36b3791e43c88dfed4ecbce10cc356
     - name: fireballsprite_2
       rect:
         serializedVersion: 2
@@ -99,6 +138,15 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
+<<<<<<< HEAD
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+=======
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
@@ -109,6 +157,7 @@ TextureImporter:
         - {x: 16, y: -4}
         - {x: 16, y: 7}
         - {x: 13, y: 9}
+>>>>>>> 0560fefe0d36b3791e43c88dfed4ecbce10cc356
     - name: fireballsprite_3
       rect:
         serializedVersion: 2
@@ -120,6 +169,12 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
+<<<<<<< HEAD
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+=======
       - - {x: -12, y: 9}
         - {x: -16, y: 7}
         - {x: -16, y: -2}
@@ -127,6 +182,7 @@ TextureImporter:
         - {x: 16, y: -6}
         - {x: 16, y: 8}
         - {x: 14, y: 9}
+>>>>>>> 0560fefe0d36b3791e43c88dfed4ecbce10cc356
     - name: fireballsprite_4
       rect:
         serializedVersion: 2
@@ -138,6 +194,27 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
+<<<<<<< HEAD
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: fireballsprite_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+=======
       - - {x: -9, y: 10}
         - {x: -15, y: 8}
         - {x: -16, y: 1}
@@ -145,6 +222,7 @@ TextureImporter:
         - {x: -4, y: -6}
         - {x: 16, y: -6}
         - {x: 16, y: 10}
+>>>>>>> 0560fefe0d36b3791e43c88dfed4ecbce10cc356
     outline: []
   spritePackingTag: 
   userData: 
