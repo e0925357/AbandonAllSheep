@@ -10,20 +10,21 @@ public class Health : MonoBehaviour {
 	public static event lifeChange onDeath;
 
     public GameObject BloodParticleSystem;
-    
+
+	private bool isMarkedForDeath;
+
+	public bool IsMarkedForDeath
+	{
+		get { return isMarkedForDeath; }
+	}
+
 	// Use this for initialization
 	void Start () {
+		isMarkedForDeath = false;
+
 		if(onBirth != null)
 		{
 			onBirth(gameObject);
-		}
-	}
-
-    void OnDestroy()
-	{
-		if (onDeath != null)
-		{
-			onDeath(gameObject);
 		}
 	}
 
@@ -34,7 +35,7 @@ public class Health : MonoBehaviour {
         {
             killer.SheepHit(gameObject);
             SpawnBlood();
-            Destroy(gameObject);
+            KillSheep();
         }
     }
 
@@ -43,4 +44,15 @@ public class Health : MonoBehaviour {
         GameObject particle = (GameObject) Instantiate(BloodParticleSystem, transform.position, Quaternion.Euler(-89.99f, 179.99f, 0.0f));
         Destroy(particle, 2.0f);
     }
+	void KillSheep()
+	{
+		isMarkedForDeath = true;
+
+		if (onDeath != null)
+		{
+			onDeath(gameObject);
+		}
+
+		Destroy(gameObject);
+	}
 }
