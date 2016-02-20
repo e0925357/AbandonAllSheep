@@ -61,6 +61,7 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
+  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
 --- !u!212 &21268774
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -152,6 +153,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: DeadSheep
+      value: 
+      objectReference: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 102024}
