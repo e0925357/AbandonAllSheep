@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using UnityEngine;
 
-public interface SheepKiller
+public interface Triggerable
 {
-    void SheepHit(GameObject sheep);
+    void OnEnable();
+    void OnDisable();
 }
