@@ -13,6 +13,7 @@ GameObject:
   - 61: {fileID: 6164704}
   - 114: {fileID: 11410776}
   - 114: {fileID: 11457402}
+  - 114: {fileID: 11430226}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -79,6 +80,17 @@ MonoBehaviour:
   groundDamping: 20
   inAirDamping: 5
   jumpHeight: 3
+--- !u!114 &11430226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d22926a6b9a174d892ae0a5df00f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11457402
 MonoBehaviour:
   m_ObjectHideFlags: 1
