@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d5f19b25a2b7af544ad614268b0fbf47
-timeCreated: 1455999779
+timeCreated: 1456006874
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -20,10 +20,13 @@ TextureImporter:
     21300026: sheepsprite_small_13
     21300028: sheepsprite_small_14
     21300030: sheepsprite_small_15
+    21300032: sheepsprite_small_16
+    21300034: sheepsprite_small_17
+    21300036: sheepsprite_small_18
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -70,7 +73,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 160
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -87,7 +90,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 160
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -104,7 +107,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 160
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -121,7 +124,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -136,7 +139,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -154,24 +157,25 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -16, y: 8}
+      - - {x: -14, y: 8}
+        - {x: -16, y: 7}
         - {x: -16, y: -16}
-        - {x: 11, y: -16}
+        - {x: 12, y: -16}
         - {x: 15, y: -2}
-        - {x: 15, y: 5}
-        - {x: 13, y: 8}
+        - {x: 15, y: 3}
+        - {x: 10, y: 8}
     - name: sheepsprite_small_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -189,7 +193,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -206,7 +210,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -231,7 +235,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -256,7 +260,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -273,7 +277,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -290,7 +294,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -306,7 +310,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -323,7 +327,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -339,7 +343,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -353,6 +357,71 @@ TextureImporter:
         - {x: 16, y: -11}
         - {x: 16, y: 0}
         - {x: 7, y: 7}
+    - name: sheepsprite_small_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 10}
+        - {x: -16, y: 8}
+        - {x: -16, y: -16}
+        - {x: 12, y: -16}
+        - {x: 12, y: -3}
+        - {x: 6, y: 10}
+      - - {x: 13, y: -9}
+        - {x: 15, y: -11}
+        - {x: 16, y: -11}
+        - {x: 16, y: -6}
+        - {x: 14, y: -6}
+      - - {x: 13, y: -5}
+        - {x: 16, y: -4}
+        - {x: 16, y: -1}
+        - {x: 13, y: 0}
+        - {x: 11, y: -2}
+    - name: sheepsprite_small_17
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 10}
+        - {x: -16, y: -16}
+        - {x: 8, y: -16}
+        - {x: 12, y: -15}
+        - {x: 12, y: 7}
+        - {x: 6, y: 10}
+    - name: sheepsprite_small_18
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: -7}
+        - {x: 12, y: -4}
+        - {x: 8, y: 5}
+        - {x: 4, y: 10}
+        - {x: -16, y: 10}
+        - {x: -16, y: -12}
+        - {x: -12, y: -16}
+        - {x: 3, y: -16}
+        - {x: 6, y: -14}
+        - {x: 10, y: -11}
     outline: []
   spritePackingTag: 
   userData: 
