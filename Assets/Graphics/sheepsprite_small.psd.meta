@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d5f19b25a2b7af544ad614268b0fbf47
-timeCreated: 1455962457
+timeCreated: 1455971760
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,6 +13,8 @@ TextureImporter:
     21300012: sheepsprite_small_6
     21300014: sheepsprite_small_7
     21300016: sheepsprite_small_8
+    21300018: sheepsprite_small_9
+    21300020: sheepsprite_small_10
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -208,9 +210,43 @@ TextureImporter:
       outline:
       - - {x: -16, y: 8}
         - {x: -16, y: -16}
+        - {x: 9, y: -16}
+        - {x: 12, y: -15}
+        - {x: 12, y: 1}
+        - {x: 6, y: 8}
+    - name: sheepsprite_small_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 8}
+        - {x: -16, y: -16}
         - {x: 12, y: -16}
         - {x: 12, y: 2}
-        - {x: 5, y: 8}
+        - {x: 6, y: 8}
+    - name: sheepsprite_small_10
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 8}
+        - {x: -16, y: -14}
+        - {x: -14, y: -16}
+        - {x: 12, y: -16}
+        - {x: 12, y: 1}
+        - {x: 6, y: 8}
     outline: []
   spritePackingTag: 
   userData: 

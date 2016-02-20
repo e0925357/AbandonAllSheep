@@ -16,7 +16,6 @@ GameObject:
   - 114: {fileID: 11417846}
   - 95: {fileID: 9509160}
   - 114: {fileID: 11437454}
-  - 114: {fileID: 11415718}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -100,17 +99,6 @@ MonoBehaviour:
   groundDamping: 20
   inAirDamping: 5
   jumpHeight: 3
---- !u!114 &11415718
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 132646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34d22926a6b9a174d892ae0a5df00f85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11417846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d22926a6b9a174d892ae0a5df00f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BloodParticleSystem: {fileID: 172554, guid: 822962a49ffe1fa4c8d3dc4687cb959f, type: 2}
 --- !u!114 &11457402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,6 +214,10 @@ Prefab:
       propertyPath: platformMask.m_Bits
       value: 1025
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: BloodParticleSystem
+      value: 
+      objectReference: {fileID: 172554, guid: 822962a49ffe1fa4c8d3dc4687cb959f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 132646}
