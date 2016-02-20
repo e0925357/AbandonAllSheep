@@ -8,7 +8,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 441836}
-  - 114: {fileID: 11421178}
   - 212: {fileID: 21282060}
   - 95: {fileID: 9566018}
   m_Layer: 0
@@ -47,18 +46,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11421178
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 173192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a77eb664bc5d27a4394a413e7d5da4b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  circleRadius: 0.5
 --- !u!212 &21282060
 SpriteRenderer:
   m_ObjectHideFlags: 1
