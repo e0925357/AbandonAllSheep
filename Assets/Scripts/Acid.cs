@@ -22,6 +22,5 @@ public class Acid : MonoBehaviour, SheepKiller {
         deadSheep.transform.position = sheep.transform.position;
         deadSheep.transform.parent = transform;
         deadSheep.transform.localPosition -= new Vector3(0.0f, 0.0f, -1.0f);
-        Destroy(deadSheep, 15.0f);
     }
 }
