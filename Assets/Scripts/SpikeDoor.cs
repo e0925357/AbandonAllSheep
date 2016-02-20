@@ -52,9 +52,9 @@ public class SpikeDoor : MonoBehaviour, SheepKiller
         collider2d.enabled = false;
     }
 
-    public void SheepHit(GameObject sheep)
+    public AudioClip SheepHit(GameObject sheep)
     {
-        
+		return null;
     }
 
     public bool Active { get { return isClosing; } }

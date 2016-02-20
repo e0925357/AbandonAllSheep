@@ -19,7 +19,7 @@ public class ElectricConnector : MonoBehaviour, SheepKiller, Trigger
 
 	}
 
-    public void SheepHit(GameObject sheep)
+    public AudioClip SheepHit(GameObject sheep)
     {
         GameObject particles = Instantiate(ElectricParticles);
         particles.transform.position = SheepRoot.transform.position;
@@ -30,6 +30,8 @@ public class ElectricConnector : MonoBehaviour, SheepKiller, Trigger
         deadSheep.transform.position = SheepRoot.transform.position;
         deadSheep.transform.parent = transform;
         Active = false;
+
+		return null;
     }
 
     public bool Active { get; private set; }
