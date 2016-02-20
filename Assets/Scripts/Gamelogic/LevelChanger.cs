@@ -25,7 +25,7 @@ public class LevelChanger : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.F5))
 		{
 			NextLevel();
 		}
@@ -34,7 +34,7 @@ public class LevelChanger : MonoBehaviour
 	public void NextLevel()
 	{
 		int currentScene = gameObject.scene.buildIndex;
-        int nextSceneIndex = currentScene + 1;
+		int nextSceneIndex = currentScene + 1;
 		if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
 		{
 			// Load next level
