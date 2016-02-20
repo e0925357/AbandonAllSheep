@@ -28,6 +28,8 @@ GameObject:
   - 212: {fileID: 21227806}
   - 60: {fileID: 6082258}
   - 50: {fileID: 5008554}
+  - 114: {fileID: 11449426}
+  - 95: {fileID: 9505608}
   m_Layer: 10
   m_Name: PhysicsDeadBurntSheep
   m_TagString: Untagged
@@ -99,6 +101,23 @@ PolygonCollider2D:
       - {x: 0.0918437, y: -0.10435767}
       - {x: 0.09288652, y: -0.0610428}
       - {x: 0.0062013343, y: 0.0012291314}
+--- !u!95 &9505608
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195374}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe8cdf00f5c08964498d745d4120f2f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9511998
 Animator:
   serializedVersion: 3
@@ -116,6 +135,25 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11449426
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 969408fcf1da64e43896b7d603c8d837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heat: 100
+  maxHeat: 200
+  putOutRate: 10
+  diePercentage: 0.1
+  fireVisuals:
+  - {fileID: 21243488}
+  fireVisualsAlpha: []
+  corpseAnimator: {fileID: 9505608}
 --- !u!212 &21227806
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -142,7 +180,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300012, guid: d5f19b25a2b7af544ad614268b0fbf47, type: 3}
+  m_Sprite: {fileID: 21300014, guid: d5f19b25a2b7af544ad614268b0fbf47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
