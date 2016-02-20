@@ -9,6 +9,8 @@ public class Health : MonoBehaviour {
 	public static event lifeChange onBirth;
 	public static event lifeChange onDeath;
 
+    public GameObject BloodParticleSystem;
+
 	private bool isMarkedForDeath;
 
 	public bool IsMarkedForDeath
@@ -28,14 +30,20 @@ public class Health : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider2D)
     {
-        Spike spike = collider2D.GetComponent<Spike>();
-        if (spike != null)
+        SheepKiller killer = collider2D.GetComponent<SheepKiller>();
+        if (killer != null)
         {
-            spike.SheepHit(transform.position);
-			KillSheep();
+            killer.SheepHit(gameObject);
+            SpawnBlood();
+            KillSheep();
         }
     }
 
+    private void SpawnBlood()
+    {
+        GameObject particle = (GameObject) Instantiate(BloodParticleSystem, transform.position, Quaternion.Euler(-89.99f, 179.99f, 0.0f));
+        Destroy(particle, 2.0f);
+    }
 	void KillSheep()
 	{
 		isMarkedForDeath = true;
