@@ -158,6 +158,27 @@ MonoBehaviour:
   prefab2Spawn: {fileID: 179344, guid: 8e79d5ea80253cf40b8564c92c2ad432, type: 2}
   projectileOffset: {x: 1.5, y: 0, z: 0}
   waitTime: 1
+--- !u!1 &851889148 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 128472, guid: 8e79d5ea80253cf40b8564c92c2ad432, type: 2}
+  m_PrefabInternal: {fileID: 1328653570}
+--- !u!95 &851889149
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 851889148}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 210d9352f1ef6764691e6c7a9f9833a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1087725864
 GameObject:
   m_ObjectHideFlags: 0

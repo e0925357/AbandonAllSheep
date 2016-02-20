@@ -47,7 +47,7 @@ TextureImporter:
   textureFormat: -3
   maxTextureSize: 512
   textureSettings:
-    filterMode: 1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -139,10 +139,22 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -16, y: 16}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-        - {x: 16, y: 16}
+      - - {x: -9, y: -16}
+        - {x: -9, y: 16}
+        - {x: -15, y: 16}
+        - {x: -15, y: -16}
+      - - {x: -1, y: -16}
+        - {x: -1, y: 16}
+        - {x: -7, y: 16}
+        - {x: -7, y: -16}
+      - - {x: 7, y: -16}
+        - {x: 7, y: 16}
+        - {x: 1, y: 16}
+        - {x: 1, y: -16}
+      - - {x: 15, y: -16}
+        - {x: 15, y: 16}
+        - {x: 9, y: 16}
+        - {x: 9, y: -16}
     - name: tileset_1_5
       rect:
         serializedVersion: 2
