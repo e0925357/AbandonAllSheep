@@ -9,7 +9,9 @@ public class Flamable : MonoBehaviour, SheepKiller {
 	public float putOutRate = 10;
 	public float diePercentage = 0.1f;
 	public SpriteRenderer[] fireVisuals;
+	public Transform rotationPivot;
 	public float[] fireVisualsAlpha;
+	public Vector3[] fireVisualsScale;
 	public Animator corpseAnimator;
 	public GameObject burntSheepPrefab;
 
@@ -33,8 +35,10 @@ public class Flamable : MonoBehaviour, SheepKiller {
 		if (Heat <= 0) return;
 
 		Heat -= putOutRate * Time.deltaTime;
+		
+		rotationPivot.rotation = Quaternion.identity;
 
-		if(Heat < maxDieHeat)
+		if (Heat < maxDieHeat)
 		{
 			for (int i = 0; i < fireVisuals.Length; i++)
 			{
