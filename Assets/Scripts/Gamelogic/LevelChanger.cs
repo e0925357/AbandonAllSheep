@@ -10,9 +10,6 @@ public class LevelChanger : MonoBehaviour
 
 	private GameObject playerObject;
 
-	private static readonly string PLAYER_TAG_NAME = "Player";
-	private static readonly string RESPAWN_TAG_NAME = "Respawn";
-
 	public void Start()
 	{
 		if (SceneManager.sceneCount == 1)

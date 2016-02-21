@@ -7,9 +7,9 @@ public class Spike : MonoBehaviour, SheepKiller
 	public Sprite[] BloodySpikeSprites;
 	public GameObject DeadSheep;
 	public bool EnableMirroring;
+	public AudioClip[] spikeDeathAudioClips;
 
 	private int spikeIndex;
-	
 
 	private SpriteRenderer spriteRenderer;
 
@@ -42,13 +42,15 @@ public class Spike : MonoBehaviour, SheepKiller
 	
 	}
 	
-	public void SheepHit(GameObject sheep)
+	public AudioClip SheepHit(GameObject sheep)
 	{
 		spriteRenderer.sprite = BloodySpikeSprites[spikeIndex];
 		GameObject deadSheep = Instantiate(DeadSheep);
 		deadSheep.transform.position = sheep.transform.position;
 		deadSheep.transform.parent = transform;
 		deadSheep.transform.localPosition -= new Vector3(0.0f, 0.5f, 0.0f);
+
+		return spikeDeathAudioClips[UnityEngine.Random.Range(0, spikeDeathAudioClips.Length - 1)];
 	}
 
 	void OnParticleCollision(GameObject other)

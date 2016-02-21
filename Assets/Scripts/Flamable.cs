@@ -52,9 +52,11 @@ public class Flamable : MonoBehaviour, SheepKiller {
 		}
 	}
 
-	public void SheepHit(GameObject sheep)
+	public AudioClip SheepHit(GameObject sheep)
 	{
 		Instantiate(burntSheepPrefab, sheep.transform.position, sheep.transform.rotation);
+
+		return null;
 	}
 
 	public float Heat

@@ -28,12 +28,14 @@ public class Fireball : MonoBehaviour, SheepKiller {
 		Destroy(gameObject);
 	}
 
-	public void SheepHit(GameObject sheep)
+	public AudioClip SheepHit(GameObject sheep)
 	{
 		GameObject deadSheep = Instantiate(DeadSheep);
 		deadSheep.transform.position = sheep.transform.position;
 
 		Destroy(gameObject);
+
+		return null;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
