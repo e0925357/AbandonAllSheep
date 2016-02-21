@@ -2,11 +2,13 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using Prime31;
+using UnityEngine.UI;
 
 public class LevelChanger : MonoBehaviour
 {
 	public GameObject playerPrefab = null;
 	public float deathCamDuration = 1.0f;
+    private Image fadePanel;
 
 	private GameObject playerObject;
 
@@ -21,7 +23,9 @@ public class LevelChanger : MonoBehaviour
 		}
 		else
 		{
-			RespawnPlayer(true);
+            fadePanel = GameObject.FindGameObjectWithTag("FadePanel").GetComponent<Image>();
+            RespawnPlayer(true);
+            InvokeRepeating("FadeIn", 0f, 0.05f);
 		}
 	}
 
@@ -35,6 +39,11 @@ public class LevelChanger : MonoBehaviour
 		{
 			RespawnPlayer();
 		}
+	    if (Input.GetAxis("ResetLevel") > 0)
+	    {
+            SceneManager.LoadScene("Scenes/Game", LoadSceneMode.Single);
+            SceneManager.LoadScene(gameObject.scene.buildIndex, LoadSceneMode.Additive);
+        }
 	}
 
 	void OnDestroy()
@@ -106,6 +115,35 @@ public class LevelChanger : MonoBehaviour
 		}
 	}
 
+    private void FadeIn()
+    {
+        Color color = fadePanel.color;
+        if (color.a > 0)
+        {
+            color.a = Mathf.Max(0, color.a - 0.03f);
+            fadePanel.color = color;
+        }
+        else
+        {
+            CancelInvoke("FadeIn");
+        }
+    }
+
+    private void FadeOut()
+    {
+        Color color = fadePanel.color;
+        if (color.a < 1)
+        {
+            color.a = Mathf.Min(1, color.a + 0.03f);
+            fadePanel.color = color;
+        }
+        else
+        {
+            CancelInvoke("FadeOut");
+            NextLevel();
+        }
+    }
+
 	private void OnGoalEntered(Collider2D collider)
 	{
 		if (collider.gameObject == gameObject)
@@ -117,7 +155,15 @@ public class LevelChanger : MonoBehaviour
 	private IEnumerator NextLevelCoroutine()
 	{
 		yield return new WaitForEndOfFrame();
-		NextLevel();
+        if (playerObject != null)
+        {
+            PlayerMover mover = playerObject.GetComponent<PlayerMover>();
+            if (mover)
+            {
+                mover.CanMove = false;
+            }
+        }
+        InvokeRepeating("FadeOut", 0f, 0.05f);
 		yield return null;
 	}
 

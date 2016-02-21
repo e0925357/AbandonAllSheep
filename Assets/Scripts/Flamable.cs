@@ -8,8 +8,9 @@ public class Flamable : MonoBehaviour, SheepKiller {
 	public float maxHeat = 200;
 	public float putOutRate = 10;
 	public float diePercentage = 0.1f;
-	public SpriteRenderer[] fireVisuals;
-	public float[] fireVisualsAlpha;
+	public SpriteRenderer fireRenderer;
+	public Animator fireAnimator;
+	public Transform rotationPivot;
 	public Animator corpseAnimator;
 	public GameObject burntSheepPrefab;
 
@@ -18,14 +19,6 @@ public class Flamable : MonoBehaviour, SheepKiller {
 	void Start()
 	{
 		maxDieHeat = maxHeat * diePercentage;
-
-		fireVisualsAlpha = new float[fireVisuals.Length];
-
-		for (int i = 0; i < fireVisuals.Length; i++)
-		{
-			SpriteRenderer r = fireVisuals[i];
-			fireVisualsAlpha[i] = r.color.a;
-		}
 	}
 	
 	// Update is called once per frame
@@ -33,23 +26,8 @@ public class Flamable : MonoBehaviour, SheepKiller {
 		if (Heat <= 0) return;
 
 		Heat -= putOutRate * Time.deltaTime;
-
-		if(Heat < maxDieHeat)
-		{
-			for (int i = 0; i < fireVisuals.Length; i++)
-			{
-				SpriteRenderer r = fireVisuals[i];
-				r.color = new Color(r.color.r, r.color.g, r.color.b, fireVisualsAlpha[i]*Heat /maxDieHeat);
-			}
-		}
-		else
-		{
-			for (int i = 0; i < fireVisuals.Length; i++)
-			{
-				SpriteRenderer r = fireVisuals[i];
-				r.color = new Color(r.color.r, r.color.g, r.color.b, fireVisualsAlpha[i]);
-			}
-		}
+		
+		rotationPivot.rotation = Quaternion.identity;
 	}
 
 	public AudioClip SheepHit(GameObject sheep)
@@ -70,21 +48,11 @@ public class Flamable : MonoBehaviour, SheepKiller {
 		{
 			if (heat <= 0 && value > 0)
 			{
-				foreach (Renderer r in fireVisuals)
-				{
-					r.enabled = true;
-				}
-
-				corpseAnimator.SetBool("burning", true);
+				StartCoroutine(changeFireState(true));
 			}
 			else if (heat > 0 && value <= 0)
 			{
-				foreach (Renderer r in fireVisuals)
-				{
-					r.enabled = false;
-				}
-
-				corpseAnimator.SetBool("burning", false);
+				StartCoroutine(changeFireState(false));
 			}
 
 			if(value < 0)
@@ -98,6 +66,16 @@ public class Flamable : MonoBehaviour, SheepKiller {
 
 			heat = value;
 		}
+	}
+
+	IEnumerator changeFireState(bool burning)
+	{
+		fireAnimator.SetBool("burning", burning);
+
+		yield return new WaitForSeconds(1.0f);
+
+		corpseAnimator.SetBool("burning", burning);
+		fireRenderer.enabled = burning;
 	}
 
 	public bool Active
