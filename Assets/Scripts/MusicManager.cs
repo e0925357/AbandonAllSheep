@@ -56,4 +56,11 @@ public class MusicManager : MonoBehaviour {
 
 		Invoke("nextSong", clips[currentClipIndex].length);
 	}
+
+	public void Stop()
+	{
+		CancelInvoke("nextSong");
+		musicSource.Stop();
+		triggered = false;
+	}
 }
