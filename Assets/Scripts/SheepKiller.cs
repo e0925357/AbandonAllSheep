@@ -6,7 +6,7 @@ using UnityEngine;
 
 public interface SheepKiller
 {
-	void SheepHit(GameObject sheep);
+	AudioClip SheepHit(GameObject sheep);
 
 	bool Active
 	{
