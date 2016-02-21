@@ -31,7 +31,7 @@ public class LevelChanger : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.F5))
+		if (Input.GetKeyDown(KeyCode.F5) || Input.GetKeyDown(KeyCode.Joystick1Button6))
 		{
 			NextLevel();
 		}
@@ -45,7 +45,11 @@ public class LevelChanger : MonoBehaviour
             SceneManager.LoadScene("Scenes/Game", LoadSceneMode.Single);
             SceneManager.LoadScene(gameObject.scene.buildIndex, LoadSceneMode.Additive);
         }
-	}
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
 
 	void OnDestroy()
 	{

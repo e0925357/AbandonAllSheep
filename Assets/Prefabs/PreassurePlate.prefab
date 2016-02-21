@@ -11,6 +11,7 @@ GameObject:
   - 61: {fileID: 6139984}
   - 114: {fileID: 11462930}
   - 212: {fileID: 21244062}
+  - 82: {fileID: 8235848}
   m_Layer: 8
   m_Name: PreassurePlate
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5, y: 2.519, z: 0.025390625}
+  m_LocalPosition: {x: -7.44, y: -4.486, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,6 +45,80 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.44858742}
   serializedVersion: 2
   m_Size: {x: 1, y: 0.102825165}
+--- !u!82 &8235848
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155296}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 10
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &11462930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -60,6 +135,9 @@ MonoBehaviour:
   DisabledStateSprite: {fileID: 21300000, guid: fcf20818eb087ad459b764836d995c5c,
     type: 3}
   DisableDelay: 0.2
+  audioSource: {fileID: 8235848}
+  activateClip: {fileID: 8300000, guid: 392bb7438ef872b48baed68cc2790d06, type: 3}
+  deactivateClip: {fileID: 8300000, guid: c1c5f92762af5184f9197d883fbfe2d1, type: 3}
 --- !u!212 &21244062
 SpriteRenderer:
   m_ObjectHideFlags: 1
