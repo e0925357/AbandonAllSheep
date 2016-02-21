@@ -8,6 +8,8 @@ public class ElectricConnector : MonoBehaviour, SheepKiller, Trigger
     public GameObject ElectricParticles;
     public GameObject DeadSheep;
 
+	public AudioClip electricDeath;
+
     // Use this for initialization
     void Start ()
 	{
@@ -31,7 +33,7 @@ public class ElectricConnector : MonoBehaviour, SheepKiller, Trigger
         deadSheep.transform.parent = transform;
         Active = false;
 
-		return null;
+		return electricDeath;
     }
 
     public bool Active { get; private set; }
