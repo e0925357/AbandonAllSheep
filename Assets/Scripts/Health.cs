@@ -76,6 +76,8 @@ public class Health : MonoBehaviour {
 			// Select a random clip
 			audio.clip = sheepDeathClips[UnityEngine.Random.Range(0, sheepDeathClips.Length - 1)];
 			audio.loop = false;
+			audio.spatialBlend = 1.0f;
+			audio.minDistance = 25.0f;
 			audio.pitch = UnityEngine.Random.Range(MIN_PITCH, MAX_PITCH);
 			audio.Play();
 		}

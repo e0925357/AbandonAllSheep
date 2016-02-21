@@ -4,6 +4,8 @@ using System.Collections;
 public class PlayerRespawn : MonoBehaviour
 {
 	public float fadeInTime = 0.6f;
+	public AudioSource doorOpenAudio;
+	public AudioSource doorCloseAudio;
 
 	private PlayerMover playerMover;
 	private SpriteRenderer playerSpriteRenderer;
@@ -47,6 +49,7 @@ public class PlayerRespawn : MonoBehaviour
 	public void FadeIn()
 	{
 		doorAnimator.SetBool("open", true);
+		doorOpenAudio.Play();
 		StartCoroutine(FadeCoroutine());
 	}
 
@@ -63,6 +66,7 @@ public class PlayerRespawn : MonoBehaviour
 			{
 				playerMover.CanMove = true;
 				doorAnimator.SetBool("open", false);
+				doorCloseAudio.Play();
 				Debug.Log("Door should close");
 				break;
 			}
