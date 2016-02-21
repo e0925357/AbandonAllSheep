@@ -7,6 +7,8 @@ public class Acid : MonoBehaviour, SheepKiller {
 	public GameObject DeadSheep;
 	public bool TopLayer;
 
+	public AudioClip acidDeathClip;
+
 	public bool Active
 	{
 		get
@@ -32,6 +34,6 @@ public class Acid : MonoBehaviour, SheepKiller {
         deadSheep.transform.parent = transform;
         deadSheep.transform.localPosition -= new Vector3(0.0f, 0.0f, -1.0f);
 
-		return null;
+		return acidDeathClip;
 	}
 }

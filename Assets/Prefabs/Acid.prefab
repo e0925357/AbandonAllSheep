@@ -119,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeadSheep: {fileID: 140452, guid: 248ed9ad1486dbb4a9b99bd27626a704, type: 2}
   TopLayer: 0
+  acidDeathClip: {fileID: 8300000, guid: 5bec83d2e8f904f439e238cdf2fa31ed, type: 3}
 --- !u!212 &21219874
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -191,6 +192,10 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: acidDeathClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5bec83d2e8f904f439e238cdf2fa31ed, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 140014}

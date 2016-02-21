@@ -2739,6 +2739,52 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1001 &209665602
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 6.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 194948, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_Name
+      value: AcidAudio (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &210144661
 GameObject:
   m_ObjectHideFlags: 0
@@ -17171,6 +17217,88 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1001 &1317499527
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -4.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244568, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].value
+      value: 0.12777779
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244568, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[3].value
+      value: 0.08232036
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244568, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].time
+      value: 0.81264544
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244568, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[3].time
+      value: 0.9944751
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244568, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0.33703703
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244568, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.59140563
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244568, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: -1.0418178
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244568, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
+      value: -1.0418178
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244568, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inSlope
+      value: -0.69350666
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244568, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outSlope
+      value: -0.69350666
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1318487017
 GameObject:
   m_ObjectHideFlags: 0
