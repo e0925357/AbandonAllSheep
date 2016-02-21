@@ -146,6 +146,7 @@ MonoBehaviour:
   SheepRoot: {fileID: 110508}
   ElectricParticles: {fileID: 172554, guid: f74c7880510b07d4bb1ff0dffb6ee758, type: 2}
   DeadSheep: {fileID: 133302, guid: 09639a3323ea1e742b574ddec8a76474, type: 2}
+  electricDeath: {fileID: 8300000, guid: 241df879672dc774d95065b234798415, type: 3}
 --- !u!198 &19868384
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -3242,7 +3243,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: electricDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 241df879672dc774d95065b234798415, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 199354}
