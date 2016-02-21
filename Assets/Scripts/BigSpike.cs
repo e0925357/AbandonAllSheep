@@ -10,13 +10,20 @@ public class BigSpike : MonoBehaviour, SheepKiller
     public float HiddenTime;
     public bool StartEnabled;
 
+	public AudioSource spikeOutAudio;
+	public AudioClip spikeDeathClip;
+
+	private bool spikeActivated;
+
     private SpriteRenderer spriteRenderer;
 	void Start ()
 	{
 	    Active = true;
+		spikeActivated = false;
 	    spriteRenderer = SpikeSprite.GetComponent<SpriteRenderer>();
 	    if (StartEnabled)
 	    {
+			spikeActivated = true;
 	        InvokeRepeating("CycleAnimation", 0, HiddenTime);
 	    }
 	}
@@ -28,7 +35,8 @@ public class BigSpike : MonoBehaviour, SheepKiller
 
     private void CycleAnimation()
     {
-        SpikeAnimator.SetTrigger("StartMove");
+		spikeOutAudio.PlayDelayed(0.1f);
+		SpikeAnimator.SetTrigger("StartMove");
     }
 
     public AudioClip SheepHit(GameObject sheep)
@@ -46,7 +54,7 @@ public class BigSpike : MonoBehaviour, SheepKiller
         Active = false;
       
 
-		return null;
+		return spikeDeathClip;
     }
 
     public bool Active { get; private set; }
@@ -59,7 +67,11 @@ public class BigSpike : MonoBehaviour, SheepKiller
 
     public void Enable()
     {
-        InvokeRepeating("CycleAnimation", 0, HiddenTime);
+		if (!spikeActivated)
+		{
+			spikeActivated = true;
+			InvokeRepeating("CycleAnimation", 0, HiddenTime);
+		}
     }
 
     public void Disable()
