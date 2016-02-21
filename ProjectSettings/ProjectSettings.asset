@@ -9,8 +9,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: Abandon All Sheeps
+  companyName: Austrian Game Jam 2016
+  productName: Bloody Sheep
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
@@ -173,7 +173,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: ab273ac79420ac848961be94bd5f0e6c, type: 3}
       m_Width: 128
       m_Height: 128
   m_BuildTargetBatching: []
