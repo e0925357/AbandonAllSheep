@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.11, y: 4.23, z: 0.5}
+  m_LocalPosition: {x: 4.88, y: 3.4237175, z: 0.5}
   m_LocalScale: {x: 4.172946, y: 4.172946, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a063578dc5f584c97a22f5c2903704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SplashParticles: {fileID: 172554, guid: 088a9512e7f86fd4c9ee65af5779739f, type: 2}
+  BubblesParticles: {fileID: 142480, guid: 378eea9484a5e8347bbf2deb3b5ea3ea, type: 2}
   sheepAnimator: {fileID: 9521250}
 --- !u!212 &21298546
 SpriteRenderer:
