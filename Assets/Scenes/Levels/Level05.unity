@@ -3273,7 +3273,7 @@ Transform:
   - {fileID: 589319713}
   - {fileID: 841366148}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &362097451
 GameObject:
   m_ObjectHideFlags: 0
@@ -4538,6 +4538,48 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1001 &455162699
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -14.543533
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -8.6426735
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485110, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6610986ac57663842995b7d217cdcf3f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &455914007
 GameObject:
   m_ObjectHideFlags: 0
@@ -11063,7 +11105,7 @@ Transform:
   - {fileID: 1257131481}
   - {fileID: 1562501471}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &1090370486
 GameObject:
   m_ObjectHideFlags: 0
