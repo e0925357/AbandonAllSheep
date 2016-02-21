@@ -35,6 +35,11 @@ public class LevelChanger : MonoBehaviour
 		{
 			RespawnPlayer();
 		}
+	    if (Input.GetAxis("ResetLevel") > 0)
+	    {
+            SceneManager.LoadScene("Scenes/Game", LoadSceneMode.Single);
+            SceneManager.LoadScene(gameObject.scene.buildIndex, LoadSceneMode.Additive);
+        }
 	}
 
 	void OnDestroy()

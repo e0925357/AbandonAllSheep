@@ -19,7 +19,6 @@ public class PlayerMover : MonoBehaviour {
 	private Animator _animator;
 	private RaycastHit2D _lastControllerColliderHit;
 	private Vector3 _velocity;
-	private AudioSource _jumpAudio;
 
 	public bool CanMove
 	{
@@ -31,7 +30,6 @@ public class PlayerMover : MonoBehaviour {
 	{
 		_animator = GetComponent<Animator>();
 		_controller = GetComponent<CharacterController2D>();
-		_jumpAudio = GetComponent<AudioSource>();
 
 		// listen to some events for illustration purposes
 		_controller.onControllerCollidedEvent += onControllerCollider;
@@ -111,7 +109,6 @@ public class PlayerMover : MonoBehaviour {
 		if (_canMove && _controller.isGrounded && Input.GetButtonDown("Jump"))
 		{
 			_velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
-			_jumpAudio.Play();
 
 			if (_animator != null)
 				_animator.Play(Animator.StringToHash("Jump"));
