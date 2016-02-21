@@ -1,12 +1,15 @@
 fileFormatVersion: 2
 guid: 29215648db824d84da74ad70814dfb5f
-timeCreated: 1456049852
+timeCreated: 1456050313
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: fire_sprite_0
     21300002: fire_sprite_1
     21300004: fire_sprite_2
+    21300006: fire_sprite_3
+    21300008: fire_sprite_4
+    21300010: fire_sprite_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,7 +60,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 31
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -75,7 +78,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 31
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -92,7 +95,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 31
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -110,6 +113,60 @@ TextureImporter:
         - {x: 10, y: 10}
         - {x: 7, y: 11}
         - {x: 5, y: 9}
+    - name: fire_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: 12}
+        - {x: 0, y: 12}
+        - {x: -7, y: 10}
+        - {x: -15, y: -7}
+        - {x: -15, y: -16}
+        - {x: 15, y: -16}
+        - {x: 15, y: -13}
+        - {x: 14, y: -7}
+        - {x: 9, y: 3}
+    - name: fire_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: -16}
+        - {x: 13, y: -16}
+        - {x: 12, y: -4}
+        - {x: 5, y: 5}
+        - {x: 0, y: 5}
+        - {x: -11, y: -4}
+    - name: fire_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: -5}
+        - {x: -7, y: -12}
+        - {x: -7, y: -16}
+        - {x: 7, y: -16}
+        - {x: 7, y: -13}
+        - {x: 1, y: -5}
     outline: []
   spritePackingTag: 
   userData: 
