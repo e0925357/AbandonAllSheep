@@ -13,6 +13,7 @@ public class BigSpike : MonoBehaviour, SheepKiller
     private SpriteRenderer spriteRenderer;
 	void Start ()
 	{
+	    Active = true;
 	    spriteRenderer = SpikeSprite.GetComponent<SpriteRenderer>();
 	    if (StartEnabled)
 	    {
@@ -35,16 +36,20 @@ public class BigSpike : MonoBehaviour, SheepKiller
         spriteRenderer.sprite = BloodySprite;
 
         GameObject deadSheep = Instantiate(DeadSheep);
+
         deadSheep.transform.position = sheep.transform.position;
         deadSheep.transform.parent = transform;
-        deadSheep.transform.localPosition -= new Vector3(0.0f, 0.25f, 0.0f);
+
+        Vector3 deadPosition = new Vector3(Mathf.Clamp(deadSheep.transform.localPosition.x, -0.2f, 0.5f),
+            Mathf.Clamp(deadSheep.transform.localPosition.y, 0.8f, 1.3f), 0.0f);
+        deadSheep.transform.localPosition = deadPosition;
+        Active = false;
+      
 
 		return null;
     }
 
-    public bool Active {
-        get { return true; }
-    }
+    public bool Active { get; private set; }
 
 
     void OnParticleCollision(GameObject other)

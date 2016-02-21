@@ -13,17 +13,12 @@ public class Spike : MonoBehaviour, SheepKiller
 
 	private SpriteRenderer spriteRenderer;
 
-	public bool Active
-	{
-		get
-		{
-			return true;
-		}
-	}
+	public bool Active { get; private set; }
 
 	// Use this for initialization
 	void Start ()
 	{
+	    Active = true;
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		spikeIndex = Random.Range(0, SpikeSprites.Length);
 
@@ -46,11 +41,17 @@ public class Spike : MonoBehaviour, SheepKiller
 	{
 		spriteRenderer.sprite = BloodySpikeSprites[spikeIndex];
 		GameObject deadSheep = Instantiate(DeadSheep);
-		deadSheep.transform.position = sheep.transform.position;
+	    deadSheep.transform.position = sheep.transform.position;
 		deadSheep.transform.parent = transform;
-		deadSheep.transform.localPosition -= new Vector3(0.0f, 0.5f, 0.0f);
+        
+        Vector3 deadPosition = new Vector3(Mathf.Clamp(deadSheep.transform.localPosition.x, -0.35f, 0.35f),
+            Mathf.Clamp(deadSheep.transform.localPosition.y, 0, 0.65f), 0.0f);
+        
+        Active = false;
 
-		return spikeDeathAudioClips[UnityEngine.Random.Range(0, spikeDeathAudioClips.Length - 1)];
+        deadSheep.transform.localPosition = deadPosition;
+        
+        return spikeDeathAudioClips[UnityEngine.Random.Range(0, spikeDeathAudioClips.Length - 1)];
 	}
 
 	void OnParticleCollision(GameObject other)
