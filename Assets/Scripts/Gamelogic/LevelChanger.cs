@@ -64,12 +64,15 @@ public class LevelChanger : MonoBehaviour
 	{
 		int currentScene = gameObject.scene.buildIndex;
 		int nextSceneIndex = currentScene + 1;
-		if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-		{
-			// Load next level
-			SceneManager.UnloadScene(currentScene);
-			SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Additive);
-		}
+	    if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings - 1)
+	    {
+	        nextSceneIndex = 0;
+	    }
+
+	    // Load next level
+		SceneManager.UnloadScene(currentScene);
+		SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Additive);
+		
 	}
 
 	private void DestroyPlayer()
