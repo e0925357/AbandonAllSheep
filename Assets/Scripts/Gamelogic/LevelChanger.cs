@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using Prime31;
 using UnityEngine.UI;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class LevelChanger : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class LevelChanger : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.F5) || Input.GetKeyDown(KeyCode.Joystick1Button6))
+		if (CrossPlatformInputManager.GetButtonDown("SkipLevel"))
 		{
 			NextLevel();
 		}
@@ -39,7 +40,7 @@ public class LevelChanger : MonoBehaviour
 		{
 			RespawnPlayer();
 		}
-	    if (Input.GetAxis("ResetLevel") > 0)
+	    if (CrossPlatformInputManager.GetButtonDown("ResetLevel"))
 	    {
             DestroyPlayer();
             SceneManager.LoadScene("Scenes/Game", LoadSceneMode.Single);

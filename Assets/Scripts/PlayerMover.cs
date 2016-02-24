@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Prime31;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerMover : MonoBehaviour {
 
@@ -80,7 +81,7 @@ public class PlayerMover : MonoBehaviour {
 
 		if (_canMove)
 		{
-			normalizedHorizontalSpeed = Input.GetAxis("Horizontal");
+			normalizedHorizontalSpeed = CrossPlatformInputManager.GetAxis("Horizontal");
 		}
 		else
 		{
@@ -111,7 +112,7 @@ public class PlayerMover : MonoBehaviour {
 
 
 		// we can only jump whilst grounded
-		if (_canMove && _controller.isGrounded && Input.GetButtonDown("Jump"))
+		if (_canMove && _controller.isGrounded && CrossPlatformInputManager.GetButtonDown("Jump"))
 		{
 			_velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
 			_jumpAudio.pitch = UnityEngine.Random.Range(MIN_JUMP_PITCH, MAX_JUMP_PITCH);
@@ -131,7 +132,7 @@ public class PlayerMover : MonoBehaviour {
 
 		// if holding down bump up our movement amount and turn off one way platform detection for a frame.
 		// this lets uf jump down through one way platforms
-		if (_canMove && _controller.isGrounded && Input.GetAxis("Vertical") < -0.5 && !Input.GetButtonDown("Jump"))
+		if (_canMove && _controller.isGrounded && CrossPlatformInputManager.GetAxis("Vertical") < -0.5 && !CrossPlatformInputManager.GetButtonDown("Jump"))
 		{
 			_velocity.y *= 3f;
 			_controller.ignoreOneWayPlatformsThisFrame = true;
