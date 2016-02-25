@@ -119,11 +119,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: eba420e3629038a4c8f2b166e6f2002d, type: 3}
   - {fileID: 8300000, guid: 1f8cd12889fdf9545a32f03ba0827bde, type: 3}
   - {fileID: 8300000, guid: 6aaf84a7a22b2d44586de663d3fe7401, type: 3}
-  - {fileID: 8300000, guid: c69ae3d55cc327d40b4e556befab30da, type: 3}
+  - {fileID: 8300000, guid: bb41bec2aaeba604b8a9b06a2f728fd0, type: 3}
   - {fileID: 8300000, guid: a620189a9aa236040ab8637dae1f52a8, type: 3}
   - {fileID: 8300000, guid: fd93a88b20d127249a17ff184a5da7c2, type: 3}
   - {fileID: 8300000, guid: 37a568e0e82ece04e90d9452eb2e8dad, type: 3}
-  - {fileID: 8300000, guid: bb41bec2aaeba604b8a9b06a2f728fd0, type: 3}
 --- !u!82 &50058242
 AudioSource:
   m_ObjectHideFlags: 0
@@ -297,7 +296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &555711654
 RectTransform:
   m_ObjectHideFlags: 0
@@ -709,7 +708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &852598514
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1214,7 +1213,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1544117058
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1380,7 +1379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1733497157
 RectTransform:
   m_ObjectHideFlags: 0
