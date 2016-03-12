@@ -80,6 +80,17 @@ public class LevelChanger : MonoBehaviour
 		
 	}
 
+    public void NextLevel(string levelname)
+    {
+        
+        int currentScene = gameObject.scene.buildIndex;
+
+        // Load next level
+        SceneManager.UnloadScene(currentScene);
+        SceneManager.LoadScene(levelname, LoadSceneMode.Additive);
+
+    }
+
 	private void DestroyPlayer()
 	{
 		if (playerObject != null)
@@ -153,6 +164,21 @@ public class LevelChanger : MonoBehaviour
         }
     }
 
+    private void FadeOut(string levelname)
+    {
+        Color color = fadePanel.color;
+        if (color.a < 1)
+        {
+            color.a = Mathf.Min(1, color.a + 0.03f);
+            fadePanel.color = color;
+        }
+        else
+        {
+            CancelInvoke("FadeOut");
+            NextLevel(levelname);
+        }
+    }
+
 	private void OnGoalEntered(Collider2D collider)
 	{
 		if (collider.gameObject == gameObject)
@@ -160,6 +186,13 @@ public class LevelChanger : MonoBehaviour
 			StartCoroutine(NextLevelCoroutine());
 		}
 	}
+
+    public void JumpToScene(string LevelName)
+    {
+
+        StartCoroutine(NextLevelCoroutine(LevelName));
+
+    }
 
 	private IEnumerator NextLevelCoroutine()
 	{
@@ -175,6 +208,13 @@ public class LevelChanger : MonoBehaviour
         InvokeRepeating("FadeOut", 0f, 0.05f);
 		yield return null;
 	}
+
+    private IEnumerator NextLevelCoroutine(string levelname)
+    {
+        yield return new WaitForEndOfFrame();
+        FadeOut(levelname);
+        yield return null;
+    }
 
 	private IEnumerator RespawnPlayerCoroutine()
 	{
