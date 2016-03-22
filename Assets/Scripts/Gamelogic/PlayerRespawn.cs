@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerRespawn : MonoBehaviour
 {
@@ -22,6 +23,23 @@ public class PlayerRespawn : MonoBehaviour
 		fadeTimer = 0.0f;
 		playerMover = GetComponent<PlayerMover>();
 		playerSpriteRenderer = GetComponent<SpriteRenderer>();
+
+		if (playerSpriteRenderer == null)
+		{
+			Queue<Transform> objects2LookAt = new Queue<Transform>();
+			objects2LookAt.Enqueue(transform);
+
+			while (playerSpriteRenderer == null && objects2LookAt.Count > 0)
+			{
+				Transform objectTrans = objects2LookAt.Dequeue();
+				playerSpriteRenderer = objectTrans.GetComponent<SpriteRenderer>();
+
+				for (int i = 0; i < objectTrans.childCount; i++)
+				{
+					objects2LookAt.Enqueue(objectTrans.GetChild(i));
+				}
+			}
+		}
 	}
 
 	// Use this for initialization
@@ -56,6 +74,8 @@ public class PlayerRespawn : MonoBehaviour
 	private IEnumerator FadeCoroutine()
 	{
 		fadeTimer = 0.0f;
+		yield return new WaitForEndOfFrame();
+
 		while (true)
 		{
 			fadeTimer += Time.deltaTime;
