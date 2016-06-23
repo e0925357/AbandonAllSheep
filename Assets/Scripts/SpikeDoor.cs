@@ -49,6 +49,7 @@ public class SpikeDoor : MonoBehaviour, SheepKiller
 	{
 		Debug.Log("ClosingFinished");
 		isClosing = false;
+		collider2d.enabled = true;
 		collider2d.isTrigger = false;
 		gameObject.layer = LayerMask.NameToLayer("Default");
 	}
