@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PhysicsPlayerController : MonoBehaviour {
 
@@ -32,7 +33,7 @@ public class PhysicsPlayerController : MonoBehaviour {
 
 		Debug.DrawLine(groundOffset.transform.position, groundOffset.transform.position + new Vector3(0, -groundCheckRadius, 0));
 
-		float hSpeed = Input.GetAxis("Horizontal");
+		float hSpeed = CrossPlatformInputManager.GetAxis("Horizontal");
 
 		if (freezeInput) return;
 
@@ -74,7 +75,7 @@ public class PhysicsPlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if(!freezeInput && onGround && Input.GetButtonDown("Jump"))
+		if(!freezeInput && onGround && CrossPlatformInputManager.GetButtonDown("Jump"))
 		{
 			Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
 			rigidbody2D.AddForce(new Vector2(0, jumpForce));

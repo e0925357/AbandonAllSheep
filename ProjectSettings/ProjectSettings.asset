@@ -160,7 +160,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: //poseidon/lukasf/Projects/Bloody Sheep/bloodySheep.keystore
+  AndroidKeystoreName: C:/Users/Stefan/Eigene Programme/bloodySheep.keystore
   AndroidKeyaliasName: bloodysheep
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
