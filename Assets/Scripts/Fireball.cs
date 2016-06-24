@@ -7,6 +7,7 @@ public class Fireball : MonoBehaviour, SheepKiller {
 	public GameObject DeadSheep;
 	public float lifetime = 10;
 	public float heat = 60;
+	public GameObject spawner;
 
 	public bool Active
 	{
@@ -40,7 +41,7 @@ public class Fireball : MonoBehaviour, SheepKiller {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.CompareTag("Player")) return;
+		if (other.CompareTag("Player") || other.gameObject == spawner) return;
 
 		Flamable f = other.GetComponent<Flamable>();
 

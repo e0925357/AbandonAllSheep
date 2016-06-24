@@ -23,6 +23,7 @@ public class ProjectileSpawner : MonoBehaviour {
 			yield return new WaitForSeconds(waitTime);
 
 			bool mirror = transform.localScale.x < 0;
+			GameObject spawnedGO;
 
 			if(transform.localScale.x < 0)
 			{
@@ -30,15 +31,23 @@ public class ProjectileSpawner : MonoBehaviour {
 				Quaternion mirrorRotation = transform.rotation * Quaternion.AngleAxis(180, Vector3.up);
 				Vector3 posOffset = (mirrorRotation * projectileOffset);
 				//posOffset.x *= -1;
-				
 
-				Instantiate(prefab2Spawn, transform.position + posOffset, mirrorRotation);
+
+				spawnedGO = (GameObject)Instantiate(prefab2Spawn, transform.position + posOffset, mirrorRotation);
 			}
 			else
 			{
-				Instantiate(prefab2Spawn, transform.position + (transform.rotation * projectileOffset), transform.rotation);
+				spawnedGO = (GameObject)Instantiate(prefab2Spawn, transform.position + (transform.rotation * projectileOffset), transform.rotation);
 			}
 			
+			if(spawnedGO.transform.childCount > 0)
+			{
+				Fireball fb = spawnedGO.transform.GetChild(0).GetComponent<Fireball>();
+				if(fb)
+				{
+					fb.spawner = gameObject;
+				}
+			}
 			spawnerAnimator.SetTrigger(spawnAnimatorTrigger);
 		}
 	}
