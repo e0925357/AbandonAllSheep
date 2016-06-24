@@ -26,6 +26,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Level05.unity
   - enabled: 1
+    path: Assets/Scenes/Levels/WarmWelcome.unity
+  - enabled: 1
     path: Assets/Scenes/Levels/Level06.unity
   - enabled: 1
     path: Assets/Scenes/Levels/PainfulReturn.unity
