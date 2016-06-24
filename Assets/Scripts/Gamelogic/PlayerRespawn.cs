@@ -9,6 +9,7 @@ public class PlayerRespawn : MonoBehaviour
 	public AudioSource doorCloseAudio;
 
 	private PlayerMover playerMover;
+	PhysicsPlayerController ppc;
 	private SpriteRenderer playerSpriteRenderer;
 	private GameObject respawnObject;
 	private Animator doorAnimator;
@@ -18,10 +19,23 @@ public class PlayerRespawn : MonoBehaviour
 	private static readonly Color FADE_START_COLOR = new Color(1.0f, 1.0f, 1.0f, 0.0f);
 	private static readonly Color FADE_END_COLOR = Color.white;
 
+	private void setPlayerMoveable(bool moveable)
+	{
+		if (playerMover)
+		{
+			playerMover.CanMove = moveable;
+		}
+		else if (ppc)
+		{
+			ppc.freezeInput = !moveable;
+		}
+	}
+
 	void Awake()
 	{
 		fadeTimer = 0.0f;
 		playerMover = GetComponent<PlayerMover>();
+		ppc = GetComponent<PhysicsPlayerController>();
 		playerSpriteRenderer = GetComponent<SpriteRenderer>();
 
 		if (playerSpriteRenderer == null)
@@ -61,7 +75,7 @@ public class PlayerRespawn : MonoBehaviour
 			Debug.Log(string.Format("No respawn point found! Please add a gameobject with a \"{0}\" tag or the SpawnPointPrefab to the level", RESPAWN_TAG_NAME));
 		}
 
-		playerMover.CanMove = false;
+		setPlayerMoveable(false);
 	}
 
 	public void FadeIn()
@@ -84,7 +98,7 @@ public class PlayerRespawn : MonoBehaviour
 
 			if (fadeAmount >= 1.0f)
 			{
-				playerMover.CanMove = true;
+				setPlayerMoveable(true);
 				doorAnimator.SetBool("open", false);
 				doorCloseAudio.Play();
 				Debug.Log("Door should close");

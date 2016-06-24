@@ -9,7 +9,7 @@ public class LevelChanger : MonoBehaviour
 {
 	public GameObject playerPrefab = null;
 	public float deathCamDuration = 1.0f;
-    private Image fadePanel;
+	private Image fadePanel;
 
 	private GameObject playerObject;
 
@@ -24,9 +24,9 @@ public class LevelChanger : MonoBehaviour
 		}
 		else
 		{
-            fadePanel = GameObject.FindGameObjectWithTag("FadePanel").GetComponent<Image>();
-            RespawnPlayer(true);
-            InvokeRepeating("FadeIn", 0f, 0.05f);
+			fadePanel = GameObject.FindGameObjectWithTag("FadePanel").GetComponent<Image>();
+			RespawnPlayer(true);
+			InvokeRepeating("FadeIn", 0f, 0.05f);
 		}
 	}
 
@@ -40,17 +40,17 @@ public class LevelChanger : MonoBehaviour
 		{
 			RespawnPlayer();
 		}
-	    if (CrossPlatformInputManager.GetButtonDown("ResetLevel"))
-	    {
-            DestroyPlayer();
-            SceneManager.LoadScene("Scenes/Game", LoadSceneMode.Single);
-            SceneManager.LoadScene(gameObject.scene.buildIndex, LoadSceneMode.Additive);
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-    }
+		if (CrossPlatformInputManager.GetButtonDown("ResetLevel"))
+		{
+			DestroyPlayer();
+			SceneManager.LoadScene("Scenes/Game", LoadSceneMode.Single);
+			SceneManager.LoadScene(gameObject.scene.buildIndex, LoadSceneMode.Additive);
+		}
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.Quit();
+		}
+	}
 
 	void OnDestroy()
 	{
@@ -69,27 +69,27 @@ public class LevelChanger : MonoBehaviour
 	{
 		int currentScene = gameObject.scene.buildIndex;
 		int nextSceneIndex = currentScene + 1;
-	    if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings - 1)
-	    {
-	        nextSceneIndex = 0;
-	    }
+		if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings - 1)
+		{
+			nextSceneIndex = 0;
+		}
 
-	    // Load next level
+		// Load next level
 		SceneManager.UnloadScene(currentScene);
 		SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Additive);
 		
 	}
 
-    public void NextLevel(string levelname)
-    {
-        
-        int currentScene = gameObject.scene.buildIndex;
+	public void NextLevel(string levelname)
+	{
+		
+		int currentScene = gameObject.scene.buildIndex;
 
-        // Load next level
-        SceneManager.UnloadScene(currentScene);
-        SceneManager.LoadScene(levelname, LoadSceneMode.Additive);
+		// Load next level
+		SceneManager.UnloadScene(currentScene);
+		SceneManager.LoadScene(levelname, LoadSceneMode.Additive);
 
-    }
+	}
 
 	private void DestroyPlayer()
 	{
@@ -135,49 +135,49 @@ public class LevelChanger : MonoBehaviour
 		}
 	}
 
-    private void FadeIn()
-    {
-        Color color = fadePanel.color;
-        if (color.a > 0)
-        {
-            color.a = Mathf.Max(0, color.a - 0.03f);
-            fadePanel.color = color;
-        }
-        else
-        {
-            CancelInvoke("FadeIn");
-        }
-    }
+	private void FadeIn()
+	{
+		Color color = fadePanel.color;
+		if (color.a > 0)
+		{
+			color.a = Mathf.Max(0, color.a - 0.03f);
+			fadePanel.color = color;
+		}
+		else
+		{
+			CancelInvoke("FadeIn");
+		}
+	}
 
-    private void FadeOut()
-    {
-        Color color = fadePanel.color;
-        if (color.a < 1)
-        {
-            color.a = Mathf.Min(1, color.a + 0.03f);
-            fadePanel.color = color;
-        }
-        else
-        {
-            CancelInvoke("FadeOut");
-            NextLevel();
-        }
-    }
+	private void FadeOut()
+	{
+		Color color = fadePanel.color;
+		if (color.a < 1)
+		{
+			color.a = Mathf.Min(1, color.a + 0.03f);
+			fadePanel.color = color;
+		}
+		else
+		{
+			CancelInvoke("FadeOut");
+			NextLevel();
+		}
+	}
 
-    private void FadeOut(string levelname)
-    {
-        Color color = fadePanel.color;
-        if (color.a < 1)
-        {
-            color.a = Mathf.Min(1, color.a + 0.03f);
-            fadePanel.color = color;
-        }
-        else
-        {
-            CancelInvoke("FadeOut");
-            NextLevel(levelname);
-        }
-    }
+	private void FadeOut(string levelname)
+	{
+		Color color = fadePanel.color;
+		if (color.a < 1)
+		{
+			color.a = Mathf.Min(1, color.a + 0.03f);
+			fadePanel.color = color;
+		}
+		else
+		{
+			CancelInvoke("FadeOut");
+			NextLevel(levelname);
+		}
+	}
 
 	private void OnGoalEntered(Collider2D collider)
 	{
@@ -187,34 +187,48 @@ public class LevelChanger : MonoBehaviour
 		}
 	}
 
-    public void JumpToScene(string LevelName)
-    {
+	public void JumpToScene(string LevelName)
+	{
 
-        StartCoroutine(NextLevelCoroutine(LevelName));
+		StartCoroutine(NextLevelCoroutine(LevelName));
 
-    }
+	}
+
+	private void setPlayerMoveable(bool moveable)
+	{
+		if (playerObject != null)
+		{
+			PlayerMover mover = playerObject.GetComponent<PlayerMover>();
+			if (mover)
+			{
+				mover.CanMove = moveable;
+			}
+			else
+			{
+				PhysicsPlayerController ppc = playerObject.GetComponent<PhysicsPlayerController>();
+
+				if(ppc)
+				{
+					ppc.freezeInput = !moveable;
+				}
+			}
+		}
+	}
 
 	private IEnumerator NextLevelCoroutine()
 	{
 		yield return new WaitForEndOfFrame();
-        if (playerObject != null)
-        {
-            PlayerMover mover = playerObject.GetComponent<PlayerMover>();
-            if (mover)
-            {
-                mover.CanMove = false;
-            }
-        }
-        InvokeRepeating("FadeOut", 0f, 0.05f);
+		setPlayerMoveable(false);
+		InvokeRepeating("FadeOut", 0f, 0.05f);
 		yield return null;
 	}
 
-    private IEnumerator NextLevelCoroutine(string levelname)
-    {
-        yield return new WaitForEndOfFrame();
-        FadeOut(levelname);
-        yield return null;
-    }
+	private IEnumerator NextLevelCoroutine(string levelname)
+	{
+		yield return new WaitForEndOfFrame();
+		FadeOut(levelname);
+		yield return null;
+	}
 
 	private IEnumerator RespawnPlayerCoroutine()
 	{
@@ -242,7 +256,14 @@ public class LevelChanger : MonoBehaviour
 		if (playerObject != null)
 		{
 			CharacterController2D playerController = playerObject.GetComponent<CharacterController2D>();
-			playerController.onTriggerEnterEvent += OnGoalEntered;
+			if(playerController != null)
+				playerController.onTriggerEnterEvent += OnGoalEntered;
+			else
+			{
+				PhysicsPlayerController ppc = playerObject.GetComponent<PhysicsPlayerController>();
+				if (ppc != null)
+					ppc.onTriggerEnterEvent += OnGoalEntered;
+			}
 
 			Health.onDeath += OnPlayerDeath;
 		}
@@ -253,7 +274,14 @@ public class LevelChanger : MonoBehaviour
 		if (playerObject != null)
 		{
 			CharacterController2D playerController = playerObject.GetComponent<CharacterController2D>();
-			playerController.onTriggerEnterEvent -= OnGoalEntered;
+			if (playerController != null)
+				playerController.onTriggerEnterEvent -= OnGoalEntered;
+			else
+			{
+				PhysicsPlayerController ppc = playerObject.GetComponent<PhysicsPlayerController>();
+				if (ppc != null)
+					ppc.onTriggerEnterEvent -= OnGoalEntered;
+			}
 
 			Health.onDeath -= OnPlayerDeath;
 		}

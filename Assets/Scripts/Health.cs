@@ -37,7 +37,17 @@ public class Health : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider2D)
 	{
-		SheepKiller killer = collider2D.GetComponent<SheepKiller>();
+		handleCollision(collider2D.gameObject);
+	}
+
+	void OnCollisionEnter2D(Collision2D collision2D)
+	{
+		handleCollision(collision2D.gameObject);
+	}
+
+	void handleCollision(GameObject other)
+	{
+		SheepKiller killer = other.GetComponent<SheepKiller>();
 		if (killer != null && killer.Active)
 		{
 			AudioClip deathSound = killer.SheepHit(gameObject);
@@ -50,7 +60,7 @@ public class Health : MonoBehaviour {
 			}
 
 			SpawnBlood();
-			SpawnDeathSound(collider2D.gameObject);
+			SpawnDeathSound(other);
 			KillSheep();
 		}
 	}
