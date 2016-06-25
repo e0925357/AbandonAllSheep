@@ -4866,7 +4866,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441018, guid: 848746b6ed6b75b448941922a9569e58, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.046634674
+      value: 0.89
       objectReference: {fileID: 0}
     - target: {fileID: 441018, guid: 848746b6ed6b75b448941922a9569e58, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4903,6 +4903,10 @@ Prefab:
     - target: {fileID: 441018, guid: 848746b6ed6b75b448941922a9569e58, type: 2}
       propertyPath: m_LocalScale.x
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 441018, guid: 848746b6ed6b75b448941922a9569e58, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 848746b6ed6b75b448941922a9569e58, type: 2}
@@ -6219,7 +6223,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441018, guid: 848746b6ed6b75b448941922a9569e58, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.0866346
+      value: 3.49
       objectReference: {fileID: 0}
     - target: {fileID: 441018, guid: 848746b6ed6b75b448941922a9569e58, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6248,6 +6252,10 @@ Prefab:
     - target: {fileID: 21268774, guid: 848746b6ed6b75b448941922a9569e58, type: 2}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 441018, guid: 848746b6ed6b75b448941922a9569e58, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 848746b6ed6b75b448941922a9569e58, type: 2}
@@ -23953,7 +23961,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2056629746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.141756, y: -15.531828, z: 0}
+  m_LocalPosition: {x: -9.16, y: -15.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.6877341}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
