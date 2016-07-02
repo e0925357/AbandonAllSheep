@@ -12,10 +12,26 @@ GameObject:
   - 95: {fileID: 9581344}
   - 60: {fileID: 6053264}
   - 50: {fileID: 5095244}
+  - 114: {fileID: 11415830}
   m_Layer: 10
   m_Name: DeadSheep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &197354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 462626}
+  m_Layer: 10
+  m_Name: SensorOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: -1089502233064743932, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -26,10 +42,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -10.503635, y: -7.060716, z: 0}
   m_LocalScale: {x: 4.172946, y: 4.172946, z: 1}
-  m_Children: []
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 462626}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &462626
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197354}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.05, y: -0.098, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 453486}
   m_RootOrder: 0
 --- !u!50 &5095244
 Rigidbody2D:
@@ -87,6 +118,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11415830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81406f8cbfda74548b2190d174b71e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensorStart: {fileID: 462626}
+  sensorExtend: {x: 0.08, y: 0.01}
+  sensorRange: 0.03
+  sensorMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!212 &21276350
 SpriteRenderer:
   m_ObjectHideFlags: 1

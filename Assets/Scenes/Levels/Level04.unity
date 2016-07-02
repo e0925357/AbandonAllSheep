@@ -10621,6 +10621,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 2128929101}
     m_Modifications:
+    - target: {fileID: 11438774, guid: 65007eef75891884aa23af3d3884b79c, type: 2}
+      propertyPath: Triggers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 478314, guid: 65007eef75891884aa23af3d3884b79c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 14.690135
@@ -10657,6 +10661,26 @@ Prefab:
       propertyPath: StartEnabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11461912, guid: 65007eef75891884aa23af3d3884b79c, type: 2}
+      propertyPath: StartEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11461912, guid: 65007eef75891884aa23af3d3884b79c, type: 2}
+      propertyPath: HiddenTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11461912, guid: 65007eef75891884aa23af3d3884b79c, type: 2}
+      propertyPath: spikeExtendedTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11438774, guid: 65007eef75891884aa23af3d3884b79c, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11438774, guid: 65007eef75891884aa23af3d3884b79c, type: 2}
+      propertyPath: Triggers.Array.data[0]
+      value: 
+      objectReference: {fileID: 803713914}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65007eef75891884aa23af3d3884b79c, type: 2}
   m_IsPrefabParent: 0
@@ -11714,50 +11738,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1 &919152002 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 188114, guid: 65007eef75891884aa23af3d3884b79c, type: 2}
-  m_PrefabInternal: {fileID: 829704026}
---- !u!114 &919152004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 919152002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a553a47ae67ade4eb2d58825f68bc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Triggers:
-  - {fileID: 803713914}
-  OnTriggeredEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 919152005}
-        m_MethodName: Enable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  OnResetEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
---- !u!114 &919152005 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11462616, guid: 65007eef75891884aa23af3d3884b79c,
-    type: 2}
-  m_PrefabInternal: {fileID: 829704026}
-  m_Script: {fileID: 11500000, guid: c3a87816e4432e440853a8df6ac9ffe6, type: 3}
 --- !u!1 &926125412
 GameObject:
   m_ObjectHideFlags: 0
