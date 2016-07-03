@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11446616}
   - 95: {fileID: 9548206}
   - 61: {fileID: 6168924}
+  - 82: {fileID: 8279974}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -46,6 +47,85 @@ BoxCollider2D:
   m_Offset: {x: -0.07921791, y: -0.2270929}
   serializedVersion: 2
   m_Size: {x: 0.5246892, y: 0.34512728}
+--- !u!82 &8279974
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199122}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 27081e22fee288d409f42ca2fec3fd53, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 173
+  DopplerLevel: 1
+  MinDistance: 10
+  MaxDistance: 40
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0.4051724
+      value: 1.0063584
+      inSlope: -0.041721147
+      outSlope: -0.041721147
+      tangentMode: 0
+    - time: 0.637931
+      value: 0.41098264
+      inSlope: -1.9469924
+      outSlope: -1.9469924
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0.00000036899868
+      outSlope: 0.00000036899868
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &9548206
 Animator:
   serializedVersion: 3
@@ -78,6 +158,7 @@ MonoBehaviour:
   projectileOffset: {x: -0.4, y: -0.6, z: 0}
   spawnerAnimator: {fileID: 9548206}
   spawnAnimatorTrigger: shoot
+  spawnAudio: {fileID: 8279974}
   waitTime: 1
 --- !u!212 &21266430
 SpriteRenderer:

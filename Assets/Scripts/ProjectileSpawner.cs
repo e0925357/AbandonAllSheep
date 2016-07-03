@@ -8,6 +8,7 @@ public class ProjectileSpawner : MonoBehaviour {
 
 	public Animator spawnerAnimator;
 	public string spawnAnimatorTrigger;
+	public AudioSource spawnAudio;
 
 	public float waitTime = 1.0f;
 
@@ -49,6 +50,11 @@ public class ProjectileSpawner : MonoBehaviour {
 				}
 			}
 			spawnerAnimator.SetTrigger(spawnAnimatorTrigger);
+
+			if(spawnAudio != null)
+			{
+				spawnAudio.Play();
+			}
 		}
 	}
 }
