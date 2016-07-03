@@ -5,7 +5,7 @@ using Prime31;
 
 public class Health : MonoBehaviour {
 
-	public delegate void lifeChange(GameObject go);
+	public delegate void lifeChange(GameObject player);
 	public static event lifeChange onBirth;
 	public static event lifeChange onDeath;
 

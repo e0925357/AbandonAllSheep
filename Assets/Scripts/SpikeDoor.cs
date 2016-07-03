@@ -24,7 +24,7 @@ public class SpikeDoor : MonoBehaviour, SheepKiller
 
 	public void Open()
 	{
-		animator.SetTrigger("Open");
+		animator.SetBool("Open", true);
 		Debug.Log("Open");
 	}
 
@@ -32,7 +32,7 @@ public class SpikeDoor : MonoBehaviour, SheepKiller
 	public void Close()
 	{
 		Debug.Log("Close");
-		animator.SetTrigger("Close");
+		animator.SetBool("Open", false);
 
 		Invoke("beginDeadlyPhase", doorDeathDelay);
 	}
