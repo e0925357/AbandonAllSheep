@@ -27,8 +27,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.02, y: -5.83, z: 0}
-  m_LocalScale: {x: -3, y: 3, z: 1}
+  m_LocalPosition: {x: 0.7015457, y: 5.184773, z: -1}
+  m_LocalScale: {x: 2.4175735, y: 2.4175735, z: 0.80585784}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -155,11 +155,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab2Spawn: {fileID: 179344, guid: 8e79d5ea80253cf40b8564c92c2ad432, type: 2}
-  projectileOffset: {x: -0.4, y: -0.6, z: 0}
+  projectileOffset: {x: 1, y: -0.35, z: 0}
   spawnerAnimator: {fileID: 9548206}
   spawnAnimatorTrigger: shoot
   spawnAudio: {fileID: 8279974}
-  waitTime: 1
+  waitTime: 2
 --- !u!212 &21266430
 SpriteRenderer:
   m_ObjectHideFlags: 1
