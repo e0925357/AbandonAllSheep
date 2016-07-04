@@ -31,6 +31,7 @@ GameObject:
   - 4: {fileID: 486026}
   - 82: {fileID: 8281572}
   - 114: {fileID: 11465406}
+  - 114: {fileID: 11479844}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -106,7 +107,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 86ee6299cd9e3a740a36bac5e6df765e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -237,6 +238,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e89bfc4c598724eac977d57a6348c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11479844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32dc659f53ff3484ab2760837c2ce1b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceToStart: {fileID: 8281572}
 --- !u!212 &21263686
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -12,6 +12,7 @@ public class Flamable : MonoBehaviour, SheepKiller {
 	public Transform rotationPivot;
 	public Animator corpseAnimator;
 	public GameObject burntSheepPrefab;
+	public LoopSoundController burningSoundController;
 	
 	// Update is called once per frame
 	void Update () {
@@ -62,12 +63,19 @@ public class Flamable : MonoBehaviour, SheepKiller {
 
 	IEnumerator changeFireState(bool burning)
 	{
+		if (burning)
+			fireRenderer.enabled = true;
+
 		fireAnimator.SetBool("burning", burning);
+
+		if (burningSoundController != null)
+			burningSoundController.ShouldPlay = burning;
 
 		yield return new WaitForSeconds(1.0f);
 
 		corpseAnimator.SetBool("burning", burning);
-		fireRenderer.enabled = burning;
+		if(!burning)
+			fireRenderer.enabled = false;
 	}
 
 	public bool Active
