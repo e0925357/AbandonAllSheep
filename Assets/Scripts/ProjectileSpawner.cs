@@ -22,8 +22,7 @@ public class ProjectileSpawner : MonoBehaviour {
 		while(true)
 		{
 			yield return new WaitForSeconds(waitTime);
-
-			bool mirror = transform.localScale.x < 0;
+			
 			GameObject spawnedGO;
 
 			if(transform.localScale.x < 0)

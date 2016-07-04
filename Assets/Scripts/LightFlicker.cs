@@ -12,6 +12,7 @@ public class LightFlicker : MonoBehaviour
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		random = Random.Range(0.0f, 65535.0f);
+		random2 = Random.Range(0.0f, 65535.0f);
 		initialScale = transform.localScale;
 	}
 	

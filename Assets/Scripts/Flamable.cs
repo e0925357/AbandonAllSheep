@@ -7,19 +7,11 @@ public class Flamable : MonoBehaviour, SheepKiller {
 	public float heat = 100;
 	public float maxHeat = 200;
 	public float putOutRate = 10;
-	public float diePercentage = 0.1f;
 	public SpriteRenderer fireRenderer;
 	public Animator fireAnimator;
 	public Transform rotationPivot;
 	public Animator corpseAnimator;
 	public GameObject burntSheepPrefab;
-
-	private float maxDieHeat;
-
-	void Start()
-	{
-		maxDieHeat = maxHeat * diePercentage;
-	}
 	
 	// Update is called once per frame
 	void Update () {
