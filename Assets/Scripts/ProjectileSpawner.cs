@@ -41,13 +41,10 @@ public class ProjectileSpawner : MonoBehaviour {
 				spawnedGO = (GameObject)Instantiate(prefab2Spawn, transform.position + (transform.rotation * projectileOffset), transform.rotation);
 			}
 			
-			if(spawnedGO.transform.childCount > 0)
+			Fireball fb = spawnedGO.GetComponent<Fireball>();
+			if(fb)
 			{
-				Fireball fb = spawnedGO.transform.GetChild(0).GetComponent<Fireball>();
-				if(fb)
-				{
-					fb.spawner = gameObject;
-				}
+				fb.spawner = gameObject;
 			}
 			spawnerAnimator.SetTrigger(spawnAnimatorTrigger);
 

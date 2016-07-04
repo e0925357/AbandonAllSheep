@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &148508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 491656}
+  - 114: {fileID: 11445118}
+  - 82: {fileID: 8222954}
+  m_Layer: 0
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &199122
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +29,6 @@ GameObject:
   - 114: {fileID: 11446616}
   - 95: {fileID: 9548206}
   - 61: {fileID: 6168924}
-  - 82: {fileID: 8279974}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -30,8 +46,22 @@ Transform:
   m_LocalPosition: {x: -4.02, y: -5.83, z: 0}
   m_LocalScale: {x: -3, y: 3, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 491656}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &491656
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 449062}
   m_RootOrder: 0
 --- !u!61 &6168924
 BoxCollider2D:
@@ -47,12 +77,12 @@ BoxCollider2D:
   m_Offset: {x: -0.07921791, y: -0.2270929}
   serializedVersion: 2
   m_Size: {x: 0.5246892, y: 0.34512728}
---- !u!82 &8279974
+--- !u!82 &8222954
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199122}
+  m_GameObject: {fileID: 148508}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -65,7 +95,7 @@ AudioSource:
   Spatialize: 0
   Priority: 173
   DopplerLevel: 1
-  MinDistance: 10
+  MinDistance: 4
   MaxDistance: 40
   Pan2D: 0
   rolloffMode: 2
@@ -75,20 +105,30 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0.4051724
-      value: 1.0063584
-      inSlope: -0.041721147
-      outSlope: -0.041721147
+    - time: 0.1
+      value: 1
+      inSlope: -10.0039835
+      outSlope: -10.0039835
       tangentMode: 0
-    - time: 0.637931
-      value: 0.41098264
-      inSlope: -1.9469924
-      outSlope: -1.9469924
+    - time: 0.2
+      value: 0.5
+      inSlope: -2.5009959
+      outSlope: -2.5009959
+      tangentMode: 0
+    - time: 0.3698276
+      value: 0.23728323
+      inSlope: -0.911726
+      outSlope: -0.911726
+      tangentMode: 0
+    - time: 0.7482759
+      value: 0.03179191
+      inSlope: -0.38892788
+      outSlope: -0.38892788
       tangentMode: 0
     - time: 1
       value: 0
-      inSlope: 0.00000036899868
-      outSlope: 0.00000036899868
+      inSlope: -0.023048783
+      outSlope: -0.023048783
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -143,6 +183,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11445118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e89bfc4c598724eac977d57a6348c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11446616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,7 +209,7 @@ MonoBehaviour:
   projectileOffset: {x: -0.4, y: -0.6, z: 0}
   spawnerAnimator: {fileID: 9548206}
   spawnAnimatorTrigger: shoot
-  spawnAudio: {fileID: 8279974}
+  spawnAudio: {fileID: 8222954}
   waitTime: 1
 --- !u!212 &21266430
 SpriteRenderer:

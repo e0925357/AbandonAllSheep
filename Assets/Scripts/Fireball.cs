@@ -8,6 +8,7 @@ public class Fireball : MonoBehaviour, SheepKiller {
 	public float lifetime = 10;
 	public float heat = 60;
 	public GameObject spawner;
+	public GameObject root;
 
 	public bool Active
 	{
@@ -50,6 +51,9 @@ public class Fireball : MonoBehaviour, SheepKiller {
 			f.Heat += heat;
 		}
 
-		Destroy(gameObject);
+		if (root == null)
+			Destroy(gameObject);
+		else
+			Destroy(root);
 	}
 }
