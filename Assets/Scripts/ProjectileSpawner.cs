@@ -11,18 +11,19 @@ public class ProjectileSpawner : MonoBehaviour {
 	public AudioSource spawnAudio;
 
 	public float waitTime = 1.0f;
+	public float firstShotDelay = 0.0f;
 
 	// Use this for initialization
 	void Start () {
-		StartCoroutine(spawnProjectile());
+		StartCoroutine(spawnProjectile(firstShotDelay));
 	}
 
-	IEnumerator spawnProjectile()
+	IEnumerator spawnProjectile(float startDelay)
 	{
-		while(true)
+		yield return new WaitForSeconds(startDelay);
+
+		while (true)
 		{
-			yield return new WaitForSeconds(waitTime);
-			
 			GameObject spawnedGO;
 
 			if(transform.localScale.x < 0)
@@ -51,6 +52,8 @@ public class ProjectileSpawner : MonoBehaviour {
 			{
 				spawnAudio.Play();
 			}
+
+			yield return new WaitForSeconds(waitTime);
 		}
 	}
 }
