@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 7e167539c0c14084081b53a92282a780
-timeCreated: 1466679189
+guid: 9b2d2fc18a9ab584eac0b957ae743922
+timeCreated: 1467808743
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: generator_0
-    21300002: generator_1
-    21300004: generator_2
-    21300006: generator_3
+    21300000: fireball_dissolve_0
+    21300002: fireball_dissolve_1
+    21300004: fireball_dissolve_2
+    21300006: fireball_dissolve_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -31,7 +31,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
-  maxTextureSize: 128
+  maxTextureSize: 256
   textureSettings:
     filterMode: 0
     aniso: 16
@@ -54,40 +54,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: generator_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -10, y: 16}
-        - {x: -15, y: 15}
-        - {x: -15, y: -16}
-        - {x: 16, y: -16}
-        - {x: 16, y: 14}
-        - {x: 15, y: 16}
-    - name: generator_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -10, y: 16}
-        - {x: -15, y: 15}
-        - {x: -15, y: -16}
-        - {x: 16, y: -16}
-        - {x: 16, y: 16}
-    - name: generator_2
+    - name: fireball_dissolve_0
       rect:
         serializedVersion: 2
         x: 0
@@ -98,12 +65,14 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -16, y: 16}
-        - {x: -16, y: -15}
-        - {x: -15, y: -16}
-        - {x: 16, y: -16}
-        - {x: 16, y: 16}
-    - name: generator_3
+      - - {x: -6, y: 9}
+        - {x: -16, y: 7}
+        - {x: -16, y: -8}
+        - {x: 13, y: -8}
+        - {x: 16, y: -7}
+        - {x: 16, y: 4}
+        - {x: 12, y: 9}
+    - name: fireball_dissolve_1
       rect:
         serializedVersion: 2
         x: 32
@@ -114,12 +83,50 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -14, y: 16}
-        - {x: -16, y: 11}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-        - {x: 16, y: 12}
-        - {x: 13, y: 16}
+      - - {x: 2, y: 13}
+        - {x: -2, y: 10}
+        - {x: -2, y: -6}
+        - {x: 4, y: -13}
+        - {x: 14, y: -13}
+        - {x: 16, y: -11}
+        - {x: 16, y: 13}
+    - name: fireball_dissolve_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 10}
+        - {x: 4, y: 4}
+        - {x: 4, y: -4}
+        - {x: 6, y: -6}
+        - {x: 10, y: -7}
+        - {x: 16, y: -7}
+        - {x: 16, y: 10}
+    - name: fireball_dissolve_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: 8}
+        - {x: 9, y: 4}
+        - {x: 9, y: -2}
+        - {x: 11, y: -5}
+        - {x: 13, y: -5}
+        - {x: 16, y: -2}
+        - {x: 16, y: 7}
+        - {x: 14, y: 8}
     outline: []
   spritePackingTag: 
   userData: 
