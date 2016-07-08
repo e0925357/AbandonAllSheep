@@ -45,6 +45,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.24, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 467910}
   m_RootOrder: 0
@@ -57,6 +58,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 435460}
   m_Father: {fileID: 0}
@@ -117,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee773385aea74bd499abb320f6e4119d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeadSheep: {fileID: 140452, guid: 248ed9ad1486dbb4a9b99bd27626a704, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   TopLayer: 0
   acidDeathClip: {fileID: 8300000, guid: 5bec83d2e8f904f439e238cdf2fa31ed, type: 3}
 --- !u!212 &21219874

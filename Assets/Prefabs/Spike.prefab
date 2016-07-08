@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21268774}
   - 114: {fileID: 11450306}
   - 60: {fileID: 6024668}
+  - 114: {fileID: 11444022}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -51,6 +52,17 @@ PolygonCollider2D:
       - {x: -0.29717255, y: -0.47765446}
       - {x: 0.0926218, y: -0.48493433}
       - {x: 0.048371315, y: -0.1354649}
+--- !u!114 &11444022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11450306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,7 +80,7 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 1
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}

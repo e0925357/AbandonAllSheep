@@ -92,6 +92,7 @@ GameObject:
   - 4: {fileID: 478314}
   - 114: {fileID: 11461912}
   - 114: {fileID: 11438774}
+  - 114: {fileID: 11470056}
   m_Layer: 0
   m_Name: BigSpike
   m_TagString: Untagged
@@ -358,7 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BloodySprite: {fileID: 21300000, guid: 1015627ed4d41374ba3cc3e0668a4993, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   SpikeSprite: {fileID: 183358}
   spikeOutAudio: {fileID: 8283206}
   spikeDeathClip: {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
@@ -381,6 +382,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receiver: {fileID: 195318}
+--- !u!114 &11470056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21202384
 SpriteRenderer:
   m_ObjectHideFlags: 1

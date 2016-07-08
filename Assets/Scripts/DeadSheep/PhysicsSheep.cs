@@ -3,8 +3,8 @@ using System.Collections;
 
 public class PhysicsSheep : MonoBehaviour
 {
-    public GameObject SplashParticles;
-    public GameObject BubblesParticles;
+	public GameObject SplashParticles;
+	public GameObject BubblesParticles;
 	public Animator sheepAnimator;
 	private bool isDying;
 
@@ -26,17 +26,17 @@ public class PhysicsSheep : MonoBehaviour
 			Acid acid = collider2D.gameObject.GetComponent<Acid>();
 			if (acid != null)
 			{
-                GameObject particle = (GameObject)Instantiate(BubblesParticles, new Vector3(0, 0), Quaternion.Euler(-89.99f, 179.99f, 0.0f));
-			    particle.transform.parent = transform;
-			    particle.transform.localPosition = new Vector3(0, -0.1f);
-                particle.transform.localScale = new Vector3(1, 1, 1);
+				GameObject particle = (GameObject)Instantiate(BubblesParticles, new Vector3(0, 0), Quaternion.Euler(-89.99f, 179.99f, 0.0f));
+				particle.transform.parent = transform;
+				particle.transform.localPosition = new Vector3(0, -0.1f);
+				particle.transform.localScale = new Vector3(1, 1, 1);
 
 
-                particle = (GameObject)Instantiate(SplashParticles, transform.position, Quaternion.Euler(-89.99f, 179.99f, 0.0f));
-                Destroy(particle, 2.0f);
+				particle = (GameObject)Instantiate(SplashParticles, transform.position, Quaternion.Euler(-89.99f, 179.99f, 0.0f));
+				Destroy(particle, 2.0f);
 
 
-                sheepAnimator.SetTrigger("acid");
+				sheepAnimator.SetTrigger("acid");
 				isDying = true;
 
 				StartCoroutine(dissolve());

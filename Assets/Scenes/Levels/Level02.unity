@@ -4978,7 +4978,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 439088, guid: 552881943c115764884c2260d441dd9f, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 21226312, guid: 552881943c115764884c2260d441dd9f, type: 2}
       propertyPath: m_Color.g
@@ -19053,7 +19053,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 455606, guid: 183eb357ffe167144b7858bd3ec4a0c6, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 176096, guid: 183eb357ffe167144b7858bd3ec4a0c6, type: 2}
       propertyPath: m_StaticEditorFlags

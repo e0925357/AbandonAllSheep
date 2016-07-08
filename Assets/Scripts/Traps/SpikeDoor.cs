@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class SpikeDoor : MonoBehaviour, SheepKiller
 {
@@ -63,6 +64,11 @@ public class SpikeDoor : MonoBehaviour, SheepKiller
 	public AudioClip SheepHit(GameObject sheep)
 	{
 		return null;
+	}
+
+	public CorpseHitInfo CorpseHit(CorpseStateManager corpseManager)
+	{
+		return new CorpseHitInfo();
 	}
 
 	public bool Active { get { return isClosing; } }

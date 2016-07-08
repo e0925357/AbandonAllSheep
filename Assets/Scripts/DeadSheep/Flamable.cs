@@ -78,6 +78,11 @@ public class Flamable : MonoBehaviour, SheepKiller {
 			fireRenderer.enabled = false;
 	}
 
+	public CorpseHitInfo CorpseHit(CorpseStateManager corpse)
+	{
+		return new CorpseHitInfo();
+	}
+
 	public bool Active
 	{
 		get

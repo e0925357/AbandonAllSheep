@@ -35,6 +35,14 @@ public class Fireball : MonoBehaviour, SheepKiller {
 		GameObject deadSheep = Instantiate(DeadSheep);
 		deadSheep.transform.position = sheep.transform.position;
 
+		CorpseStateManager corpseManager = deadSheep.GetComponent<CorpseStateManager>();
+
+		if (corpseManager != null)
+		{
+			corpseManager.currentState = CorpseStateManager.CorpseStateEnum.Burnt;
+			corpseManager.CurrentPhysicsState = CorpseStateManager.PhysicsState.Dynamic;
+		}
+
 		Destroy(gameObject);
 
 		return null;
@@ -51,9 +59,21 @@ public class Fireball : MonoBehaviour, SheepKiller {
 			f.Heat += heat;
 		}
 
+		Burnable b = other.GetComponent<Burnable>();
+
+		if(b != null)
+		{
+			b.addHeat(heat);
+		}
+
 		if (root == null)
 			Destroy(gameObject);
 		else
 			Destroy(root);
+	}
+
+	public CorpseHitInfo CorpseHit(CorpseStateManager corpseManager)
+	{
+		return new CorpseHitInfo(CorpseStateManager.CorpseStateEnum.Burnt);
 	}
 }

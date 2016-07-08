@@ -27,13 +27,26 @@ public class Acid : MonoBehaviour, SheepKiller {
 	
 	}
 
-    public AudioClip SheepHit(GameObject sheep)
-    {
-        GameObject deadSheep = Instantiate(DeadSheep);
-        deadSheep.transform.position = sheep.transform.position;
-        deadSheep.transform.parent = transform;
-        deadSheep.transform.localPosition -= new Vector3(0.0f, 0.0f, -1.0f);
+	public AudioClip SheepHit(GameObject sheep)
+	{
+		GameObject deadSheep = Instantiate(DeadSheep);
+		deadSheep.transform.position = sheep.transform.position;
+		deadSheep.transform.parent = transform;
+		deadSheep.transform.localPosition -= new Vector3(0.0f, 0.0f, -1.0f);
+
+		CorpseStateManager corpseManager = deadSheep.GetComponent<CorpseStateManager>();
+
+		if (corpseManager != null)
+		{
+			corpseManager.currentState = CorpseStateManager.CorpseStateEnum.Acid;
+			corpseManager.CurrentPhysicsState = CorpseStateManager.PhysicsState.Dynamic;
+		}
 
 		return acidDeathClip;
+	}
+
+	public CorpseHitInfo CorpseHit(CorpseStateManager corpseManager)
+	{
+		return new CorpseHitInfo(CorpseStateManager.CorpseStateEnum.Acid);
 	}
 }

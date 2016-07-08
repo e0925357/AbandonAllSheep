@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Impaler))]
 public class Spike : MonoBehaviour, SheepKiller
 {
 	public Sprite[] SpikeSprites;
@@ -18,7 +19,7 @@ public class Spike : MonoBehaviour, SheepKiller
 	// Use this for initialization
 	void Start ()
 	{
-	    Active = true;
+		Active = true;
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		spikeIndex = Random.Range(0, SpikeSprites.Length);
 
@@ -30,6 +31,9 @@ public class Spike : MonoBehaviour, SheepKiller
 			scale.x = -scale.x;
 			transform.localScale = scale;
 		}
+
+		Impaler impaler = GetComponent<Impaler>();
+		impaler.init(new Vector2(-0.35f, 0.0f), new Vector2(0.35f, 0.65f), transform);
 	}
 	
 	// Update is called once per frame
@@ -41,21 +45,33 @@ public class Spike : MonoBehaviour, SheepKiller
 	{
 		spriteRenderer.sprite = BloodySpikeSprites[spikeIndex];
 		GameObject deadSheep = Instantiate(DeadSheep);
-	    deadSheep.transform.position = sheep.transform.position;
+		deadSheep.transform.position = sheep.transform.position;
 		deadSheep.transform.parent = transform;
-        
-        Vector3 deadPosition = new Vector3(Mathf.Clamp(deadSheep.transform.localPosition.x, -0.35f, 0.35f),
-            Mathf.Clamp(deadSheep.transform.localPosition.y, 0, 0.65f), 0.0f);
-        
-        Active = false;
 
-        deadSheep.transform.localPosition = deadPosition;
-        
-        return spikeDeathAudioClips[UnityEngine.Random.Range(0, spikeDeathAudioClips.Length - 1)];
+		CorpseStateManager corpseManager = deadSheep.GetComponent<CorpseStateManager>();
+
+		if (corpseManager != null)
+		{
+			corpseManager.currentState = CorpseStateManager.CorpseStateEnum.Normal;
+			corpseManager.CurrentPhysicsState = CorpseStateManager.PhysicsState.Static;
+		}
+
+		GetComponent<Impaler>().impale(deadSheep);
+
+		Active = false;
+		
+		return spikeDeathAudioClips[UnityEngine.Random.Range(0, spikeDeathAudioClips.Length - 1)];
 	}
 
 	void OnParticleCollision(GameObject other)
 	{
 		spriteRenderer.sprite = BloodySpikeSprites[spikeIndex];
+	}
+
+	public CorpseHitInfo CorpseHit(CorpseStateManager corpseManager)
+	{
+		GetComponent<Impaler>().impale(corpseManager.gameObject);
+		Active = false;
+		return new CorpseHitInfo(CorpseStateManager.PhysicsState.Static);
 	}
 }

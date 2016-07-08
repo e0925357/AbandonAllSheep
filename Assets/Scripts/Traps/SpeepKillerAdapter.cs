@@ -15,6 +15,16 @@ public class SpeepKillerAdapter : MonoBehaviour, SheepKiller
 		}
 	}
 
+	public CorpseHitInfo CorpseHit(CorpseStateManager corpseManager)
+	{
+		if(receiver != null && receiver.GetComponent<SheepKiller>() != null)
+		{
+			return receiver.GetComponent<SheepKiller>().CorpseHit(corpseManager);
+		}
+
+		return new CorpseHitInfo();
+	}
+
 	public AudioClip SheepHit(GameObject sheep)
 	{
 		if(receiver != null && receiver.GetComponent<SheepKiller>() != null)

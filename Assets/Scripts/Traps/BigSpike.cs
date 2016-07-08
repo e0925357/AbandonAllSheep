@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 
+[RequireComponent (typeof (Impaler))]
 public class BigSpike : MonoBehaviour, SheepKiller, SheepSquasher
 {
 	public Sprite BloodySprite;
@@ -35,6 +36,9 @@ public class BigSpike : MonoBehaviour, SheepKiller, SheepSquasher
 		spikeDeadly = true;
 		spikeActivated = StartEnabled;
 		spriteRenderer = SpikeSprite.GetComponent<SpriteRenderer>();
+
+		Impaler impaler = GetComponent<Impaler>();
+		impaler.init(new Vector2(-0.2f,-0.2f), new Vector2(0.5f, 0.3f), moveablePartent);
 	}
 	
 	// Update is called once per frame
@@ -115,11 +119,17 @@ public class BigSpike : MonoBehaviour, SheepKiller, SheepSquasher
 		GameObject deadSheep = Instantiate(DeadSheep);
 
 		deadSheep.transform.position = sheep.transform.position;
-		deadSheep.transform.parent = moveablePartent;
 
-		Vector3 deadPosition = new Vector3(Mathf.Clamp(deadSheep.transform.localPosition.x, -0.2f, 0.5f),
-			Mathf.Clamp(deadSheep.transform.localPosition.y, -0.2f, 0.3f), 0.0f);
-		deadSheep.transform.localPosition = deadPosition;
+		CorpseStateManager corpseManager = deadSheep.GetComponent<CorpseStateManager>();
+
+		if(corpseManager != null)
+		{
+			corpseManager.currentState = CorpseStateManager.CorpseStateEnum.Normal;
+			corpseManager.CurrentPhysicsState = CorpseStateManager.PhysicsState.Static;
+		}
+
+		GetComponent<Impaler>().impale(deadSheep);
+		
 		spikeDeadly = false;
 
 		PlayerSensor sensor = deadSheep.GetComponent<PlayerSensor>();
@@ -170,5 +180,12 @@ public class BigSpike : MonoBehaviour, SheepKiller, SheepSquasher
 		{
 			state = State.UP;
 		}
+	}
+
+	public CorpseHitInfo CorpseHit(CorpseStateManager corpseManager)
+	{
+		GetComponent<Impaler>().impale(corpseManager.gameObject);
+		spikeDeadly = false;
+		return new CorpseHitInfo(CorpseStateManager.PhysicsState.Static);
 	}
 }

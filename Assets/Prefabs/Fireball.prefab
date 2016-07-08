@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b4e4511d235774c87124e8982b5cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeadSheep: {fileID: 195374, guid: 208b49b4200995a40a571b930d4105c8, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   lifetime: 500
   heat: 60
   spawner: {fileID: 0}

@@ -26,6 +26,7 @@ GameObject:
   - 212: {fileID: 21200156}
   - 61: {fileID: 6126012}
   - 114: {fileID: 11443998}
+  - 114: {fileID: 11442338}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -44,6 +45,7 @@ GameObject:
   - 212: {fileID: 21264208}
   - 61: {fileID: 6142782}
   - 114: {fileID: 11460468}
+  - 114: {fileID: 11449416}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -62,6 +64,7 @@ GameObject:
   - 212: {fileID: 21221268}
   - 61: {fileID: 6167030}
   - 114: {fileID: 11418490}
+  - 114: {fileID: 11495930}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -80,6 +83,7 @@ GameObject:
   - 212: {fileID: 21266298}
   - 61: {fileID: 6197456}
   - 114: {fileID: 11477894}
+  - 114: {fileID: 11486976}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -143,6 +147,7 @@ GameObject:
   - 212: {fileID: 21229558}
   - 61: {fileID: 6104396}
   - 114: {fileID: 11495838}
+  - 114: {fileID: 11463752}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -176,6 +181,7 @@ GameObject:
   - 212: {fileID: 21294614}
   - 61: {fileID: 6196030}
   - 114: {fileID: 11447890}
+  - 114: {fileID: 11436986}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -239,6 +245,7 @@ GameObject:
   - 212: {fileID: 21283602}
   - 61: {fileID: 6150194}
   - 114: {fileID: 11413814}
+  - 114: {fileID: 11429936}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -257,6 +264,7 @@ GameObject:
   - 212: {fileID: 21248922}
   - 61: {fileID: 6122512}
   - 114: {fileID: 11407836}
+  - 114: {fileID: 11415834}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -275,6 +283,7 @@ GameObject:
   - 212: {fileID: 21276078}
   - 61: {fileID: 6171318}
   - 114: {fileID: 11459046}
+  - 114: {fileID: 11411630}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -311,6 +320,7 @@ GameObject:
   - 212: {fileID: 21239532}
   - 61: {fileID: 6143472}
   - 114: {fileID: 11432638}
+  - 114: {fileID: 11475942}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -344,6 +354,7 @@ GameObject:
   - 212: {fileID: 21236522}
   - 61: {fileID: 6152916}
   - 114: {fileID: 11422364}
+  - 114: {fileID: 11486208}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -362,6 +373,7 @@ GameObject:
   - 212: {fileID: 21240010}
   - 61: {fileID: 6121930}
   - 114: {fileID: 11461818}
+  - 114: {fileID: 11452924}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -380,6 +392,7 @@ GameObject:
   - 212: {fileID: 21208356}
   - 61: {fileID: 6194226}
   - 114: {fileID: 11434356}
+  - 114: {fileID: 11454088}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -490,6 +503,7 @@ GameObject:
   - 212: {fileID: 21202996}
   - 61: {fileID: 6120776}
   - 114: {fileID: 11428048}
+  - 114: {fileID: 11475908}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -523,6 +537,7 @@ GameObject:
   - 212: {fileID: 21201308}
   - 61: {fileID: 6168256}
   - 114: {fileID: 11486288}
+  - 114: {fileID: 11472982}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -571,6 +586,7 @@ GameObject:
   - 212: {fileID: 21217140}
   - 61: {fileID: 6130114}
   - 114: {fileID: 11450828}
+  - 114: {fileID: 11436246}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -604,6 +620,7 @@ GameObject:
   - 212: {fileID: 21259584}
   - 61: {fileID: 6138962}
   - 114: {fileID: 11451532}
+  - 114: {fileID: 11411026}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -622,6 +639,7 @@ GameObject:
   - 212: {fileID: 21245952}
   - 61: {fileID: 6113548}
   - 114: {fileID: 11459338}
+  - 114: {fileID: 11475650}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -651,7 +669,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.34202018, w: 0.9396926}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 40}
   m_Children:
   - {fileID: 466154}
   m_Father: {fileID: 482240}
@@ -733,7 +751,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: -0.34202018, w: 0.9396926}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -40}
   m_Children:
   - {fileID: 442194}
   m_Father: {fileID: 482240}
@@ -975,7 +993,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.17364822, w: 0.9848078}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20}
   m_Children:
   - {fileID: 442152}
   m_Father: {fileID: 482240}
@@ -1014,7 +1032,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.322866, y: -15.428512, z: 1}
+  m_LocalPosition: {x: -11.959614, y: 4.245319, z: 1}
   m_LocalScale: {x: 1.5000007, y: 1.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1089,7 +1107,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.50000006, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 60}
   m_Children:
   - {fileID: 422914}
   m_Father: {fileID: 482240}
@@ -1513,10 +1531,32 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
+--- !u!114 &11411026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11411630
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11413814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1534,10 +1574,21 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
+--- !u!114 &11415834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11418490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1555,7 +1606,7 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
@@ -1576,7 +1627,7 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
@@ -1609,10 +1660,21 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
+--- !u!114 &11429936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11432638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1630,7 +1692,7 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
@@ -1651,10 +1713,43 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
+--- !u!114 &11436246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11436986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11442338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11443998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1672,7 +1767,7 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
@@ -1693,10 +1788,21 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
+--- !u!114 &11449416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11450828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1714,7 +1820,7 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
@@ -1735,10 +1841,32 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
+--- !u!114 &11452924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11454088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11455692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1767,7 +1895,7 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
@@ -1788,7 +1916,7 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
@@ -1809,7 +1937,7 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
@@ -1830,10 +1958,65 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
+--- !u!114 &11463752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11472982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11475650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11475908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11475942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11477894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1851,10 +2034,21 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
+--- !u!114 &11486208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11486288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1872,10 +2066,21 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
+--- !u!114 &11486976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11493864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1905,10 +2110,21 @@ MonoBehaviour:
   BloodySpikeSprites:
   - {fileID: 21300000, guid: 5d87eb4072aedd9408053c6ebbf84ebc, type: 3}
   - {fileID: 21300000, guid: 02ba7a21b7bff9d44b34d0362351bd00, type: 3}
-  DeadSheep: {fileID: 132378, guid: b77ee884641ef7448ab097e0e638dbb5, type: 2}
+  DeadSheep: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   EnableMirroring: 0
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
+--- !u!114 &11495930
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce6d01ab6eb9e14ba53a3068af1e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200156
 SpriteRenderer:
   m_ObjectHideFlags: 1
