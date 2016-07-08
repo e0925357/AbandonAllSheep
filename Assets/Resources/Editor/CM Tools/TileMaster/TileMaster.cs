@@ -7,6 +7,7 @@ using System.IO;
  
 [ExecuteInEditMode]
 public class TileMaster : EditorWindow {
+	static bool active = false;
 	static Texture[] cmTileSets;
 	static Sprite[] cmSprites;
 	static Sprite[] cmCurSprites;
@@ -23,8 +24,9 @@ public class TileMaster : EditorWindow {
 	static Vector3 cmCurPos;
 	static List<Transform> layers = new List<Transform>();
 	static bool highlightLayer = false;
-    static Vector2 drawBox;
+	static Vector2 drawBox;
 	static bool makeCollider = false;
+	static bool paintStatic = true;
 	//static bool toggleAdvanced = false; //Added it for features later down the line possibly.
 	static EditorWindow window;
 	static int renameId = -1;
@@ -73,6 +75,7 @@ public class TileMaster : EditorWindow {
 		int index = layers.Count-1;
 		layers[index].name = "New Layer";
 		layers[index].transform.parent = cmquad.transform;
+		layers[index].gameObject.isStatic = true;
 		SpriteRenderer tmpRenderer = layers[index].gameObject.AddComponent<SpriteRenderer>();
 		tmpRenderer.sortingOrder = index;
 	}
@@ -102,6 +105,7 @@ public class TileMaster : EditorWindow {
 				cmquad = GameObject.CreatePrimitive(PrimitiveType.Quad);
 				cmquad.name = "TileMasterField";
 				cmquad.transform.localScale = new Vector3 (1000000,1000000,1000000);
+				cmquad.isStatic = true;
 				AddLayer();
 				ResetLayers();
 				curLayer = layers[0].gameObject;
@@ -187,6 +191,13 @@ public class TileMaster : EditorWindow {
 			{
 				//If in standard paint mode, display the proper gui elements for the user to use.
 				EditorGUILayout.BeginHorizontal();
+				int selectedActive = active ? 1 : 0;
+				string[] activeStates = { "Off", "On" };
+				EditorGUILayout.LabelField("Active", GUILayout.Width(150));
+				selectedActive = GUILayout.Toolbar(selectedActive, activeStates);
+				active = selectedActive == 1;
+				EditorGUILayout.EndHorizontal();
+				EditorGUILayout.BeginHorizontal();
 				int tmpInt = EditorGUILayout.Popup("Tileset", cmSelectedTileSet, names);
 				if(GUILayout.Button("Reload"))
 				{
@@ -227,7 +238,12 @@ public class TileMaster : EditorWindow {
 				highlightColor = EditorGUILayout.ColorField(highlightColor);
 				EditorGUILayout.EndHorizontal();
 
-				if(tmpInt != cmSelectedTileSet) //Forces selection of first tileset if none are selected.
+				EditorGUILayout.BeginHorizontal();
+				EditorGUILayout.LabelField("Paint Static Objects", GUILayout.Width(150));
+				paintStatic = EditorGUILayout.Toggle(paintStatic);
+				EditorGUILayout.EndHorizontal();
+
+				if (tmpInt != cmSelectedTileSet) //Forces selection of first tileset if none are selected.
 				{
 					LoadTileset(tmpInt);
 				}
@@ -421,8 +437,17 @@ public class TileMaster : EditorWindow {
 						layers = ResortLayers(layers);
 						break;
 					case 2:
-						//deletes the layer game object, which also deletes all the children
-						destroyFlag = i;
+						bool delete = EditorUtility.DisplayDialog(
+							"Delete Layer",
+							"Do you want to delete the layer '" + layers[i].name +
+							"' and all its content?", "Delete", "Cancel");
+						
+						if(delete)
+						{
+							//deletes the layer game object, which also deletes all the children
+							destroyFlag = i;
+						}
+						
 						break;
 					case 3:
 						if(renameId == -1)
@@ -575,8 +600,8 @@ public class TileMaster : EditorWindow {
 								listOfNewSlices.Add(new Rect(
 															((i*gridSizeY)+(i*padSizeY*2))+padSizeY,
 															((j*gridSizeX)+(j*padSizeX*2))+padSizeX,
-								                            gridSizeX, 
-								                            gridSizeY));
+															gridSizeX, 
+															gridSizeY));
 
 							//Debug.Log("Drawing tile " + i + ", " + j + " at " + ((i*padSizeX)+(i*gridSizeX)) + ", " + ((j*padSizeY)+(j*gridSizeY)) + " from " + i*gridSizeX + ", " + j*gridSizeY);
 							}catch(System.Exception ex)
@@ -729,7 +754,8 @@ public class TileMaster : EditorWindow {
 
 	
 	static void OnSceneGUI( SceneView sceneview )
-    {
+	{
+		if (!active) return;
 		int i, j;
 		if(cmquad != null)
 		{
@@ -745,31 +771,31 @@ public class TileMaster : EditorWindow {
 				HandleUtility.AddDefaultControl(
 					GUIUtility.GetControlID(
 					window.GetHashCode(),
-				    FocusType.Passive));
+					FocusType.Passive));
 			}
 
 			e = Event.current;
 
-	        Ray ray = HandleUtility.GUIPointToWorldRay(e.mousePosition);
-	        RaycastHit hit;
+			Ray ray = HandleUtility.GUIPointToWorldRay(e.mousePosition);
+			RaycastHit hit;
 
-	        if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
-	        {
+			if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
+			{
 				//Draw gui elements in scene based on mouse position
-		        Handles.BeginGUI();
-		        Handles.color = Color.white;
-		        Handles.Label(cmCurPos, " ", EditorStyles.boldLabel);
-		        
-		        if ((cmCurPos.x != drawBox.x || cmCurPos.y != drawBox.y) && curTool == 2)
-		        {
+				Handles.BeginGUI();
+				Handles.color = Color.white;
+				Handles.Label(cmCurPos, " ", EditorStyles.boldLabel);
+				
+				if ((cmCurPos.x != drawBox.x || cmCurPos.y != drawBox.y) && curTool == 2)
+				{
 					if(cmCurPos.x >= drawBox.x)
 					{
 						if(cmCurPos.y <= drawBox.y)
 						{
-			            	Handles.DrawLine(new Vector3(drawBox.x, drawBox.y + 1, 0), new Vector3(cmCurPos.x + 1, drawBox.y + 1, 0));
-			            	Handles.DrawLine(new Vector3(cmCurPos.x + 1, drawBox.y + 1, 0), new Vector3(cmCurPos.x + 1, cmCurPos.y, 0));
-			            	Handles.DrawLine(new Vector3(cmCurPos.x + 1, cmCurPos.y, 0), new Vector3(drawBox.x, cmCurPos.y, 0));
-			            	Handles.DrawLine(new Vector3(drawBox.x, cmCurPos.y, 0), new Vector3(drawBox.x, drawBox.y + 1, 0));
+							Handles.DrawLine(new Vector3(drawBox.x, drawBox.y + 1, 0), new Vector3(cmCurPos.x + 1, drawBox.y + 1, 0));
+							Handles.DrawLine(new Vector3(cmCurPos.x + 1, drawBox.y + 1, 0), new Vector3(cmCurPos.x + 1, cmCurPos.y, 0));
+							Handles.DrawLine(new Vector3(cmCurPos.x + 1, cmCurPos.y, 0), new Vector3(drawBox.x, cmCurPos.y, 0));
+							Handles.DrawLine(new Vector3(drawBox.x, cmCurPos.y, 0), new Vector3(drawBox.x, drawBox.y + 1, 0));
 						}else{
 							Handles.DrawLine(new Vector3(drawBox.x, drawBox.y, 0), new Vector3(cmCurPos.x + 1, drawBox.y, 0));
 							Handles.DrawLine(new Vector3(cmCurPos.x + 1, drawBox.y, 0), new Vector3(cmCurPos.x + 1, cmCurPos.y, 0));
@@ -794,19 +820,19 @@ public class TileMaster : EditorWindow {
 				else
 				{
 					Handles.DrawLine(cmCurPos + new Vector3(0, 0, 0), cmCurPos + new Vector3(1, 0, 0));
-		            Handles.DrawLine(cmCurPos + new Vector3(1, 0, 0), cmCurPos + new Vector3(1, 1, 0));
-		            Handles.DrawLine(cmCurPos + new Vector3(1, 1, 0), cmCurPos + new Vector3(0, 1, 0));
-		            Handles.DrawLine(cmCurPos + new Vector3(0, 1, 0), cmCurPos + new Vector3(0, 0, 0));
-		        }
-		        Handles.EndGUI();
+					Handles.DrawLine(cmCurPos + new Vector3(1, 0, 0), cmCurPos + new Vector3(1, 1, 0));
+					Handles.DrawLine(cmCurPos + new Vector3(1, 1, 0), cmCurPos + new Vector3(0, 1, 0));
+					Handles.DrawLine(cmCurPos + new Vector3(0, 1, 0), cmCurPos + new Vector3(0, 0, 0));
+				}
+				Handles.EndGUI();
 
-			    if(e.isMouse)
-			    {
-	                if (e.button == 0 && (e.type == EventType.MouseUp || e.type == EventType.MouseDrag))
-	                {
-	                    if (curTool == 0)
-	                    {
-	                        GameObject tmpObj = GenerateTile(hit.point.x, hit.point.y);
+				if(e.isMouse)
+				{
+					if (e.button == 0 && (e.type == EventType.MouseUp || e.type == EventType.MouseDrag))
+					{
+						if (curTool == 0)
+						{
+							GameObject tmpObj = GenerateTile(hit.point.x, hit.point.y);
 							Undo.RegisterCreatedObjectUndo(tmpObj, "Created Tile");
 							Sprite[] tmpCurSprite = new Sprite[cmCurSprite.Count];
 							cmCurSprite.CopyTo(tmpCurSprite);
@@ -814,51 +840,51 @@ public class TileMaster : EditorWindow {
 							if(tmpCurSprite.Length > 0)
 							{
 								tmpObj.GetComponent<SpriteRenderer>().sprite = tmpCurSprite[UnityEngine.Random.Range((int)0,(int)tmpCurSprite.Length)];
-		                        tmpObj.transform.localPosition = new Vector3(Mathf.Floor(hit.point.x) + .5f, Mathf.Floor(hit.point.y) + .5f, layers[selectedLayer].transform.position.z);
+								tmpObj.transform.localPosition = new Vector3(Mathf.Floor(hit.point.x) + .5f, Mathf.Floor(hit.point.y) + .5f, layers[selectedLayer].transform.position.z);
 							}else{
 								Debug.LogWarning("Tile not selected for painting. Please select a tile to paint.");
 							}
-	                    }
-	                    else if (curTool == 1)
-	                    {
-	                        Transform tmpObj = layers[selectedLayer].Find("Tile|" + (Mathf.Floor(hit.point.x) + .5f) + "|" + (Mathf.Floor(hit.point.y) + .5f));
+						}
+						else if (curTool == 1)
+						{
+							Transform tmpObj = layers[selectedLayer].Find("Tile|" + (Mathf.Floor(hit.point.x) + .5f) + "|" + (Mathf.Floor(hit.point.y) + .5f));
 							if(tmpObj != null)
 							{
 								Undo.DestroyObjectImmediate(tmpObj.gameObject);
 							}
-	                    }
-	                    else if (curTool == 2)
-	                    {
-	                        
-	                        if (e.type == EventType.MouseUp)
-	                        {
-	                            Vector2 distance;
-	                            bool drawLeft, drawUp;
+						}
+						else if (curTool == 2)
+						{
+							
+							if (e.type == EventType.MouseUp)
+							{
+								Vector2 distance;
+								bool drawLeft, drawUp;
 
 
-	                            if (drawBox.x >= hit.point.x)
-	                            {
-	                                distance.x = drawBox.x - hit.point.x;
-	                                drawLeft = true;
-	                            }
-	                            else
-	                            {
-	                                distance.x = hit.point.x - drawBox.x;
-	                                drawLeft = false;
-	                            }
+								if (drawBox.x >= hit.point.x)
+								{
+									distance.x = drawBox.x - hit.point.x;
+									drawLeft = true;
+								}
+								else
+								{
+									distance.x = hit.point.x - drawBox.x;
+									drawLeft = false;
+								}
 
-	                            if (drawBox.y >= hit.point.y)
-	                            {
-	                                distance.y = drawBox.y - hit.point.y;
-	                                drawUp = false;
-	                            }
-	                            else
-	                            {
-	                                distance.y = hit.point.y - drawBox.y;
+								if (drawBox.y >= hit.point.y)
+								{
+									distance.y = drawBox.y - hit.point.y;
+									drawUp = false;
+								}
+								else
+								{
+									distance.y = hit.point.y - drawBox.y;
 
-	                                distance.y -= 1;
-	                                drawUp = true;
-	                            }
+									distance.y -= 1;
+									drawUp = true;
+								}
 
 								if(cmCurPos.y > drawBox.y)
 								{
@@ -866,71 +892,71 @@ public class TileMaster : EditorWindow {
 								}
 								
 
-	                            for (i = 0; i <= distance.x; i++)
-	                            {
+								for (i = 0; i <= distance.x; i++)
+								{
 									for (j = 0; j <= Mathf.Ceil (distance.y); j++)
-	                                {
-	                                    int curI = i;
-	                                    int curJ = j;
-	                                    if (drawLeft)
-	                                    {
-	                                        curI = -curI;
-	                                    }
-	                                    if (drawUp)
-	                                    {
-	                                        curJ = -curJ;
-	                                    }
+									{
+										int curI = i;
+										int curJ = j;
+										if (drawLeft)
+										{
+											curI = -curI;
+										}
+										if (drawUp)
+										{
+											curJ = -curJ;
+										}
 										if(cmCurSprite != null)
 										{
-		                                    GameObject tmpObj = GenerateTile(drawBox.x + curI, drawBox.y - curJ);
+											GameObject tmpObj = GenerateTile(drawBox.x + curI, drawBox.y - curJ);
 											Undo.RegisterCreatedObjectUndo(tmpObj, "Created Tiles in Box");
 											Sprite[] tmpCurSprite = new Sprite[cmCurSprite.Count];
 											cmCurSprite.CopyTo(tmpCurSprite);
 											tmpObj.GetComponent<SpriteRenderer>().sprite = tmpCurSprite[UnityEngine.Random.Range((int)0,(int)tmpCurSprite.Length)];
-		                                    tmpObj.transform.localPosition = new Vector3(Mathf.Floor(drawBox.x + curI) + .5f, Mathf.Floor(drawBox.y - curJ) + .5f, layers[selectedLayer].transform.position.z);
+											tmpObj.transform.localPosition = new Vector3(Mathf.Floor(drawBox.x + curI) + .5f, Mathf.Floor(drawBox.y - curJ) + .5f, layers[selectedLayer].transform.position.z);
 										}else{
 											Debug.LogWarning("No tiles selected."); 
 										}
-	                                }
-	                            }
-	                            
-	                        }
-	                    }
-	                }
-	                else if (e.button == 0 && e.type == EventType.MouseDown)
-	                {
-	                    drawBox.x = Mathf.Floor(hit.point.x);
-	                    drawBox.y = Mathf.Floor(hit.point.y);
-	                }
-	                else if (e.type == EventType.MouseMove)
-	                {
-	                    drawBox.x = Mathf.Floor(hit.point.x);
-	                    drawBox.y = Mathf.Floor(hit.point.y);
-	                }
+									}
+								}
+								
+							}
+						}
+					}
+					else if (e.button == 0 && e.type == EventType.MouseDown)
+					{
+						drawBox.x = Mathf.Floor(hit.point.x);
+						drawBox.y = Mathf.Floor(hit.point.y);
+					}
+					else if (e.type == EventType.MouseMove)
+					{
+						drawBox.x = Mathf.Floor(hit.point.x);
+						drawBox.y = Mathf.Floor(hit.point.y);
+					}
 
 				}
-	            cmCurPos.x = (float)Mathf.Floor(hit.point.x);
-	            cmCurPos.y = (float)Mathf.Floor(hit.point.y);
+				cmCurPos.x = (float)Mathf.Floor(hit.point.x);
+				cmCurPos.y = (float)Mathf.Floor(hit.point.y);
 				if(curLayer != null)
 				{
 					cmCurPos.z = curLayer.transform.position.z-1;
 				}else{
 					cmCurPos.z = 0;
 				}
-	        }
+			}
 		}else{
 			ResetManager();
 		}
 		SceneView.RepaintAll();
 	}
 
-    void OnDisable(){
-       SceneView.onSceneGUIDelegate -= OnSceneGUI;
-    }
+	void OnDisable(){
+	   SceneView.onSceneGUIDelegate -= OnSceneGUI;
+	}
 	
-    static GameObject GenerateTile(float x, float y)
-    {
-        GameObject tmpObj = null;
+	static GameObject GenerateTile(float x, float y)
+	{
+		GameObject tmpObj = null;
 		if(curLayer != null)
 		{
 			Transform[] children = curLayer.GetComponentsInChildren<Transform>();
@@ -946,17 +972,17 @@ public class TileMaster : EditorWindow {
 			}
 		}
 		if(tmpObj == null)
-        {
-            tmpObj = new GameObject("Tile|" + (Mathf.Floor(x) + .5f) + "|" + (Mathf.Floor(y) + .5f));
-            tmpObj.AddComponent<SpriteRenderer>();
-        }
+		{
+			tmpObj = new GameObject("Tile|" + (Mathf.Floor(x) + .5f) + "|" + (Mathf.Floor(y) + .5f));
+			tmpObj.AddComponent<SpriteRenderer>();
+		}
 		if(selectedLayer > layers.Count-1)
 		{
 			selectedLayer = layers.Count-1;
 			ResetLayers();
 			layers = ResortLayers(layers);
 		}
-        tmpObj.transform.parent = layers[selectedLayer];
+		tmpObj.transform.parent = layers[selectedLayer];
 		tmpObj.GetComponent<SpriteRenderer>().sortingOrder = layers[selectedLayer].GetComponent<SpriteRenderer>().sortingOrder;
 		tmpObj.transform.localScale = new Vector3 (1,1,1);
 		PolygonCollider2D tmpCol = tmpObj.GetComponent<PolygonCollider2D>();
@@ -981,7 +1007,8 @@ public class TileMaster : EditorWindow {
 			Undo.DestroyObjectImmediate(tmpCol);
 		}
 		//Repaint();
+		tmpObj.isStatic = paintStatic;
 		SceneView.RepaintAll();
-        return tmpObj;
-    }
+		return tmpObj;
+	}
 }
