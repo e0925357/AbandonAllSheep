@@ -463,7 +463,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 952396241}
   m_RootOrder: 4
-  m_AnchorMin: {x: 0.17, y: 0.09}
+  m_AnchorMin: {x: 0.17, y: 0}
   m_AnchorMax: {x: 0.3, y: 0.28}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -573,6 +573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 0}
+  adaptiveJoystick: {fileID: 0}
   image: {fileID: 174789323}
   eventTrigger: {fileID: 174789326}
 --- !u!1 &299855466
@@ -608,7 +609,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 952396241}
   m_RootOrder: 5
-  m_AnchorMin: {x: 0.02, y: 0.09}
+  m_AnchorMin: {x: 0.02, y: 0}
   m_AnchorMax: {x: 0.15, y: 0.28}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -718,6 +719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 0}
+  adaptiveJoystick: {fileID: 0}
   image: {fileID: 299855468}
   eventTrigger: {fileID: 299855471}
 --- !u!1 &555711653
@@ -1827,8 +1829,8 @@ GameObject:
   - 224: {fileID: 1733497157}
   - 222: {fileID: 1733497160}
   - 114: {fileID: 1733497159}
-  - 114: {fileID: 1733497158}
   - 114: {fileID: 1733497161}
+  - 114: {fileID: 1733497158}
   m_Layer: 5
   m_Name: MobileJoystick
   m_TagString: Untagged
@@ -1858,20 +1860,18 @@ RectTransform:
 --- !u!114 &1733497158
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400008, guid: 9529ecc3d479da5499993355e6c2cb4f,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1733497156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c3c865782347f41b6358d9fba14b48, type: 3}
+  m_Script: {fileID: 11500000, guid: adf90c02ec5ebf9479c49a96ecea96fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MovementRange: 50
   axesToUse: 1
   horizontalAxisName: Horizontal
   verticalAxisName: Vertical
-  acceptPessEvent: 0
 --- !u!114 &1733497159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1918,6 +1918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e42c2693417d04aa5b206627752302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystick: {fileID: 1733497158}
+  joystick: {fileID: 0}
+  adaptiveJoystick: {fileID: 1733497158}
   image: {fileID: 1733497159}
   eventTrigger: {fileID: 0}

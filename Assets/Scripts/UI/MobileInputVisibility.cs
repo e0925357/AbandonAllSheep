@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class MobileInputVisibility : MonoBehaviour {
 	public Joystick joystick;
+	public AdaptiveJoystick adaptiveJoystick;
 	public Image image;
 	public EventTrigger eventTrigger;
 
@@ -24,6 +25,11 @@ public class MobileInputVisibility : MonoBehaviour {
 		if(joystick != null)
 		{
 			joystick.enabled = image.enabled = useJoystick;
+		}
+
+		if(adaptiveJoystick != null)
+		{
+			adaptiveJoystick.enabled = image.enabled = useJoystick;
 		}
 
 		if(eventTrigger != null)
