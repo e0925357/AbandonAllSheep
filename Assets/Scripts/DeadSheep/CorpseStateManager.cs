@@ -184,4 +184,19 @@ public class CorpseStateManager : MonoBehaviour {
 			possibleStates[(int)currentState].physicsChanged(this);
 		}
 	}
+
+	void OnEnable()
+	{
+		LevelChanger.nextLevelEvent += levelChanged;
+	}
+
+	void OnDisable()
+	{
+		LevelChanger.nextLevelEvent -= levelChanged;
+	}
+
+	void levelChanged()
+	{
+		Destroy(gameObject);
+	}
 }

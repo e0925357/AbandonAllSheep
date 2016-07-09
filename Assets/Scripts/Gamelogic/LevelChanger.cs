@@ -7,6 +7,9 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class LevelChanger : MonoBehaviour
 {
+	public delegate void NextLevelDelegate();
+	public static event NextLevelDelegate nextLevelEvent;
+
 	public GameObject playerPrefab = null;
 	public float deathCamDuration = 1.0f;
 	private Image fadePanel;
@@ -82,7 +85,9 @@ public class LevelChanger : MonoBehaviour
 
 	public void NextLevel(string levelname)
 	{
-		
+		if (nextLevelEvent != null)
+			nextLevelEvent();
+
 		int currentScene = gameObject.scene.buildIndex;
 
 		// Load next level
