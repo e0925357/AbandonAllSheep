@@ -91,7 +91,8 @@ PlayerSettings:
     Others: 1
   bundleIdentifier: com.agj2016.BloodySheep
   bundleVersion: 1.1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
