@@ -93,6 +93,7 @@ GameObject:
   - 114: {fileID: 11461912}
   - 114: {fileID: 11438774}
   - 114: {fileID: 11470056}
+  - 114: {fileID: 11449324}
   m_Layer: 0
   m_Name: BigSpike
   m_TagString: Untagged
@@ -347,6 +348,25 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &11449324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08807d968f7f90e4297a9ad47cd20294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveablePart: {fileID: 492774}
+  activated: 1
+  retractedTime: 1
+  extendedTime: 1
+  extendedDelta: {x: 0, y: 2, z: 0}
+  extensionDuration: 2
+  paused: 0
+  loop: 1
 --- !u!114 &11461912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -363,13 +383,6 @@ MonoBehaviour:
   SpikeSprite: {fileID: 183358}
   spikeOutAudio: {fileID: 8283206}
   spikeDeathClip: {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
-  moveablePartent: {fileID: 492774}
-  hiddenY: 0
-  extendedY: 2
-  spikeSpeed: 1
-  spikeExtendedTime: 1
-  HiddenTime: 1
-  StartEnabled: 1
 --- !u!114 &11462042
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-[RequireComponent (typeof (Impaler))]
+[RequireComponent (typeof (Impaler), typeof(Extender))]
 public class BigSpike : MonoBehaviour, SheepKiller, SheepSquasher
 {
 	public Sprite BloodySprite;
@@ -12,104 +12,33 @@ public class BigSpike : MonoBehaviour, SheepKiller, SheepSquasher
 	public AudioSource spikeOutAudio;
 	public AudioClip spikeDeathClip;
 
-	public Transform moveablePartent;
-	public float hiddenY = 0;
-	public float extendedY = 2;
-	public float spikeSpeed = 2;
-	public float spikeExtendedTime = 1;
-	public float HiddenTime;
-	public bool StartEnabled;
-
-	private bool spikeActivated;
-
 	private SpriteRenderer spriteRenderer;
 	private bool spikeDeadly;
-
-	private enum State
-	{
-		HIDDEN, HIDDEN_WAIT, UP, EXTENDED, EXTENDED_WAIT, DOWN
-	}
-	private State state = State.HIDDEN;
+	private Extender extender;
 
 	void Start ()
 	{
 		spikeDeadly = true;
-		spikeActivated = StartEnabled;
 		spriteRenderer = SpikeSprite.GetComponent<SpriteRenderer>();
 
+		extender = GetComponent<Extender>();
 		Impaler impaler = GetComponent<Impaler>();
-		impaler.init(new Vector2(-0.2f,-0.2f), new Vector2(0.5f, 0.3f), moveablePartent);
+		impaler.init(new Vector2(-0.2f,-0.2f), new Vector2(0.5f, 0.3f), extender.moveablePart);
+	}
+
+	void OnEnable()
+	{
+		GetComponent<Extender>().extendingEvent += onExtending;
+	}
+
+	void OnDisable()
+	{
+		GetComponent<Extender>().extendingEvent -= onExtending;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		if (!spikeActivated && state == State.HIDDEN) return;
-
-		switch(state)
-		{
-			case State.HIDDEN:
-				state = State.HIDDEN_WAIT;
-				Invoke("waitHidden", HiddenTime);
-				break;
-			case State.UP:
-				stepUp();
-				break;
-			case State.EXTENDED:
-				state = State.EXTENDED_WAIT;
-				Invoke("waitExtended", spikeExtendedTime);
-				break;
-			case State.DOWN:
-				stepDown();
-				break;
-		}
-	}
-
-	private void waitHidden()
+	private void onExtending()
 	{
-		if (spikeActivated)
-		{
-			spikeOutAudio.PlayDelayed(0.1f);
-			state = State.UP;
-		}
-		else
-		{
-			state = State.HIDDEN;
-		}
-	}
-
-	private void stepUp()
-	{
-		Vector3 pos = moveablePartent.localPosition;
-		float sign = Mathf.Sign(extendedY - hiddenY);
-		pos.y += sign * Time.deltaTime * spikeSpeed;
-
-		if(sign * pos.y >= sign * extendedY)
-		{
-			state = State.EXTENDED;
-			pos.y = extendedY;
-		}
-
-		moveablePartent.localPosition = pos;
-	}
-
-	private void waitExtended()
-	{
-		state = State.DOWN;
-	}
-
-	private void stepDown()
-	{
-		Vector3 pos = moveablePartent.localPosition;
-		float sign = Mathf.Sign(extendedY - hiddenY);
-		pos.y -= sign * Time.deltaTime * spikeSpeed;
-
-		if (sign * pos.y <= sign * hiddenY)
-		{
-			state = State.HIDDEN;
-			pos.y = hiddenY;
-		}
-
-		moveablePartent.localPosition = pos;
+		spikeOutAudio.PlayDelayed(0.1f);
 	}
 
 	public AudioClip SheepHit(GameObject sheep)
@@ -143,7 +72,7 @@ public class BigSpike : MonoBehaviour, SheepKiller, SheepSquasher
 
 	public bool Active {
 		get {
-			return spikeDeadly && (state == State.UP || state == State.EXTENDED || state == State.EXTENDED_WAIT);
+			return spikeDeadly;
 		}
 	}
 
@@ -155,12 +84,12 @@ public class BigSpike : MonoBehaviour, SheepKiller, SheepSquasher
 
 	public void Enable()
 	{
-		spikeActivated = true;
+		extender.activated = true;
 	}
 
 	public void Disable()
 	{
-		spikeActivated = false;
+		extender.activated = false;
 	}
 
 	public void playerUnderneath(GameObject player)
@@ -176,9 +105,9 @@ public class BigSpike : MonoBehaviour, SheepKiller, SheepSquasher
 
 	private void handleSomthingsUnderneath()
 	{
-		if(state == State.DOWN)
+		if(extender.CurrentState == Extender.State.RETRACTING)
 		{
-			state = State.UP;
+			extender.toggleExtending();
 		}
 	}
 
