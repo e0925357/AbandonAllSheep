@@ -27,9 +27,8 @@ public class Spike : MonoBehaviour, SheepKiller
 
 		if (EnableMirroring && Random.Range(0, 2) == 1)
 		{
-			Vector3 scale = transform.localScale;
-			scale.x = -scale.x;
-			transform.localScale = scale;
+			Quaternion localRotation = Quaternion.AngleAxis(180, Vector3.up);
+			transform.localRotation = transform.localRotation*localRotation;
 		}
 
 		Impaler impaler = GetComponent<Impaler>();
@@ -70,6 +69,8 @@ public class Spike : MonoBehaviour, SheepKiller
 
 	public CorpseHitInfo CorpseHit(CorpseStateManager corpseManager)
 	{
+		if (corpseManager.currentPhysicsState == CorpseStateManager.PhysicsState.Static) return new CorpseHitInfo();
+
 		GetComponent<Impaler>().impale(corpseManager.gameObject);
 		Active = false;
 		return new CorpseHitInfo(CorpseStateManager.PhysicsState.Static);

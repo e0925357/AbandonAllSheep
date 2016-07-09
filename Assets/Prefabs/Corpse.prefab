@@ -43,6 +43,7 @@ GameObject:
   - 50: {fileID: 5080008}
   - 114: {fileID: 11463798}
   - 114: {fileID: 11478458}
+  - 114: {fileID: 11403732}
   m_Layer: 0
   m_Name: Corpse
   m_TagString: Untagged
@@ -108,8 +109,7 @@ GameObject:
   - 60: {fileID: 6099702}
   - 212: {fileID: 21261934}
   - 95: {fileID: 9550554}
-  - 114: {fileID: 11479480}
-  - 114: {fileID: 11458038}
+  - 114: {fileID: 11406230}
   m_Layer: 0
   m_Name: Dynamic
   m_TagString: Untagged
@@ -146,8 +146,7 @@ GameObject:
   - 60: {fileID: 6093374}
   - 212: {fileID: 21262334}
   - 95: {fileID: 9519882}
-  - 114: {fileID: 11445914}
-  - 114: {fileID: 11414076}
+  - 114: {fileID: 11492132}
   m_Layer: 0
   m_Name: Static
   m_TagString: Untagged
@@ -163,8 +162,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 486934}
-  - 114: {fileID: 11460150}
   - 114: {fileID: 11457510}
+  - 114: {fileID: 11450218}
   m_Layer: 0
   m_Name: BurntState
   m_TagString: Untagged
@@ -260,7 +259,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.06, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -328,7 +327,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.72, y: 5.28, z: 0}
+  m_LocalPosition: {x: -30.25, y: -8.84, z: 0}
   m_LocalScale: {x: 4.172946, y: 4.172946, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -390,7 +389,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.06}
   m_Points:
     m_Paths:
     - - {x: -0.107057855, y: 0.00018631513}
@@ -536,6 +535,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11403732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08da4e634b969594bbc5e4354c1d8f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  receiver: {fileID: 0}
 --- !u!114 &11404016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -552,6 +563,18 @@ MonoBehaviour:
     type: 2}
   dynamicSprite: {fileID: 21300012, guid: d5f19b25a2b7af544ad614268b0fbf47, type: 3}
   dynamicAnimationController: {fileID: 0}
+--- !u!114 &11406230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3440d05ff17e5c04cb6cdea29a34e252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  corpseStateManager: {fileID: 11463798}
 --- !u!114 &11409040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -572,18 +595,6 @@ MonoBehaviour:
   timeUntilDissolve: 30
   rootObject: {fileID: 146600}
   sheepAnimator: {fileID: 0}
---- !u!114 &11414076
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 174714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3440d05ff17e5c04cb6cdea29a34e252, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  corpseStateManager: {fileID: 11463798}
 --- !u!114 &11427084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -614,18 +625,24 @@ MonoBehaviour:
     m_RotationOrder: 0
   transitionTime: 1
   startActivated: 1
---- !u!114 &11445914
+--- !u!114 &11450218
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 174714}
+  m_GameObject: {fileID: 188312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08da4e634b969594bbc5e4354c1d8f80, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ec3cc40f8ab726498fb00fa442bd802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  receiver: {fileID: 0}
+  staticSprite: {fileID: 21300014, guid: d5f19b25a2b7af544ad614268b0fbf47, type: 3}
+  staticAnimationController: {fileID: 9100000, guid: fe8cdf00f5c08964498d745d4120f2f9,
+    type: 2}
+  dynamicSprite: {fileID: 21300014, guid: d5f19b25a2b7af544ad614268b0fbf47, type: 3}
+  dynamicAnimationController: {fileID: 9100000, guid: fe8cdf00f5c08964498d745d4120f2f9,
+    type: 2}
+  flamable: {fileID: 11457510}
 --- !u!114 &11457510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -644,37 +661,8 @@ MonoBehaviour:
   fireAnimator: {fileID: 9560422}
   rotationPivot: {fileID: 491722}
   corpseAnimator: {fileID: 0}
-  burntSheepPrefab: {fileID: 0}
+  burntSheepPrefab: {fileID: 146600}
   burningSoundController: {fileID: 11427084}
---- !u!114 &11458038
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3440d05ff17e5c04cb6cdea29a34e252, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  corpseStateManager: {fileID: 11463798}
---- !u!114 &11460150
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4260ea9d96a16324db247e83e47f40bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  staticSprite: {fileID: 21300014, guid: d5f19b25a2b7af544ad614268b0fbf47, type: 3}
-  staticAnimationController: {fileID: 9100000, guid: fe8cdf00f5c08964498d745d4120f2f9,
-    type: 2}
-  dynamicSprite: {fileID: 21300014, guid: d5f19b25a2b7af544ad614268b0fbf47, type: 3}
-  dynamicAnimationController: {fileID: 9100000, guid: fe8cdf00f5c08964498d745d4120f2f9,
-    type: 2}
 --- !u!114 &11461868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -698,18 +686,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rBody2D: {fileID: 5080008}
+  sheepKillerAdapter: {fileID: 11403732}
   staticRenderer: {fileID: 21262334}
   staticAnimator: {fileID: 9519882}
-  staticSKA: {fileID: 11445914}
   dynamicRenderer: {fileID: 21261934}
   dynamicAnimator: {fileID: 9550554}
-  dynamicSKA: {fileID: 11479480}
   currentPhysicsState: 1
   currentState: 0
   possibleStates:
   - {fileID: 11404016}
   - {fileID: 11409040}
-  - {fileID: 11460150}
+  - {fileID: 11450218}
 --- !u!114 &11478458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -727,18 +714,18 @@ MonoBehaviour:
   sensorMask:
     serializedVersion: 2
     m_Bits: 512
---- !u!114 &11479480
+--- !u!114 &11492132
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162188}
+  m_GameObject: {fileID: 174714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08da4e634b969594bbc5e4354c1d8f80, type: 3}
+  m_Script: {fileID: 11500000, guid: 3440d05ff17e5c04cb6cdea29a34e252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  receiver: {fileID: 0}
+  corpseStateManager: {fileID: 11463798}
 --- !u!212 &21227316
 SpriteRenderer:
   m_ObjectHideFlags: 1

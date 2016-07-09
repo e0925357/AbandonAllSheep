@@ -28,8 +28,7 @@ public class BurntCorpse : CorpseState, Burnable {
 	/// </summary>
 	protected override void onEnterState(CorpseStateManager manager)
 	{
-		manager.DynamicSheepKillerAdapter.receiver = flamable.gameObject;
-		manager.StaticSheepKillerAdapter.receiver = flamable.gameObject;
+		manager.SheepKillerAdapter.receiver = flamable.gameObject;
 	}
 
 	/// <summary>
@@ -37,7 +36,6 @@ public class BurntCorpse : CorpseState, Burnable {
 	/// </summary>
 	protected override void onLeaveState(CorpseStateManager manager)
 	{
-		manager.DynamicSheepKillerAdapter.receiver = null;
-		manager.StaticSheepKillerAdapter.receiver = null;
+		manager.SheepKillerAdapter.receiver = null;
 	}
 }

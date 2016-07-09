@@ -16,11 +16,14 @@ public class Flamable : MonoBehaviour, SheepKiller {
 	
 	// Update is called once per frame
 	void Update () {
+		if(fireRenderer.enabled)
+		{
+			rotationPivot.rotation = Quaternion.identity;
+		}
+
 		if (Heat <= 0) return;
 
 		Heat -= putOutRate * Time.deltaTime;
-		
-		rotationPivot.rotation = Quaternion.identity;
 	}
 
 	public AudioClip SheepHit(GameObject sheep)

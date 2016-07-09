@@ -16,13 +16,13 @@ public class CorpseStateManager : MonoBehaviour {
 
 	public Rigidbody2D rBody2D;
 
+	public SpeepKillerAdapter sheepKillerAdapter;
+
 	public SpriteRenderer staticRenderer;
 	public Animator staticAnimator;
-	public SpeepKillerAdapter staticSKA;
 
 	public SpriteRenderer dynamicRenderer;
 	public Animator dynamicAnimator;
-	public SpeepKillerAdapter dynamicSKA;
 
 	public PhysicsState currentPhysicsState = PhysicsState.Dynamic;
 
@@ -79,9 +79,15 @@ public class CorpseStateManager : MonoBehaviour {
 	{
 		if(CurrentState == CorpseStateEnum.Burnt)
 		{
-			Burnable b = possibleStates[(int)currentState].GetComponent<Burnable>();
+			Burnable b = null;
 
-			if(b != null)
+			if (possibleStates[(int)currentState] is Burnable)
+				b = possibleStates[(int)currentState] as Burnable;
+
+			if (b == null)
+				b = possibleStates[(int)currentState].GetComponent<Burnable>();
+
+			if (b != null)
 			{
 				b.addHeat(heat);
 			}
@@ -114,19 +120,11 @@ public class CorpseStateManager : MonoBehaviour {
 		}
 	}
 
-	public SpeepKillerAdapter DynamicSheepKillerAdapter
+	public SpeepKillerAdapter SheepKillerAdapter
 	{
 		get
 		{
-			return dynamicSKA;
-		}
-	}
-
-	public SpeepKillerAdapter StaticSheepKillerAdapter
-	{
-		get
-		{
-			return staticSKA;
+			return sheepKillerAdapter;
 		}
 	}
 

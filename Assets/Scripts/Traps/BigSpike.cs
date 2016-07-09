@@ -184,6 +184,8 @@ public class BigSpike : MonoBehaviour, SheepKiller, SheepSquasher
 
 	public CorpseHitInfo CorpseHit(CorpseStateManager corpseManager)
 	{
+		if (corpseManager.currentPhysicsState == CorpseStateManager.PhysicsState.Static) return new CorpseHitInfo();
+
 		GetComponent<Impaler>().impale(corpseManager.gameObject);
 		spikeDeadly = false;
 		return new CorpseHitInfo(CorpseStateManager.PhysicsState.Static);
