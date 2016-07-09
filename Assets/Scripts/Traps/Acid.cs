@@ -31,8 +31,7 @@ public class Acid : MonoBehaviour, SheepKiller {
 	{
 		GameObject deadSheep = Instantiate(DeadSheep);
 		deadSheep.transform.position = sheep.transform.position;
-		deadSheep.transform.parent = transform;
-		deadSheep.transform.localPosition -= new Vector3(0.0f, 0.0f, -1.0f);
+		deadSheep.transform.position -= new Vector3(0.0f, 0.0f, -1.0f);
 
 		CorpseStateManager corpseManager = deadSheep.GetComponent<CorpseStateManager>();
 

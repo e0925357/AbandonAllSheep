@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class Impaler : MonoBehaviour {
+	public delegate void ImpaleDelegate(GameObject deadSheep);
+	public event ImpaleDelegate impaleEvent;
+	 
 	private Vector2 maxOffset;
 	private Vector2 minOffset;
 	private Transform deadSheepParent;
@@ -25,6 +28,11 @@ public class Impaler : MonoBehaviour {
 		if(rBody != null)
 		{
 			rBody.isKinematic = true;
+		}
+
+		if(impaleEvent != null)
+		{
+			impaleEvent(deadSheep);
 		}
 	}
 }

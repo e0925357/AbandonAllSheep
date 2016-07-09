@@ -35,11 +35,6 @@ public class Spike : MonoBehaviour, SheepKiller
 		impaler.init(new Vector2(-0.35f, 0.0f), new Vector2(0.35f, 0.65f), transform);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-	
 	public AudioClip SheepHit(GameObject sheep)
 	{
 		spriteRenderer.sprite = BloodySpikeSprites[spikeIndex];
