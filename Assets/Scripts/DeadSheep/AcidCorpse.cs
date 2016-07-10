@@ -5,6 +5,8 @@ public class AcidCorpse : CorpseState {
 	public float timeUntilDissolve = 30.0f;
 	public GameObject rootObject;
 	public Animator sheepAnimator;
+	public ParticleSystem splashParticles;
+	public Transform paticleRoot;
 
 	private bool waitForDeath = false;
 
@@ -19,10 +21,13 @@ public class AcidCorpse : CorpseState {
 	protected override void onEnterState(CorpseStateManager manager)
 	{
 		sheepAnimator = manager.getCurrentAnimator();
+		splashParticles.Play();
 	}
 
 	// Update is called once per frame
 	void Update () {
+		paticleRoot.rotation = Quaternion.identity;
+
 		if (waitForDeath) return;
 
 		timeUntilDissolve -= Time.deltaTime;
