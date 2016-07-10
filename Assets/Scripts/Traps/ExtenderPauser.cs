@@ -1,20 +1,21 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 
-public class ExtenderPauser : MonoBehaviour {
+public class ExtenderPauser : PhysicsTrigger
+{
 	public Extender controlledExtender;
 
-	private HashSet<Collider2D> colliders = new HashSet<Collider2D>();
-	
-	void OnTriggerEnter2D(Collider2D collider2D)
+	protected override bool isImportant(Collider2D collider)
 	{
-		colliders.Add(collider2D);
+		return true;
+	}
+
+	protected override void triggerActivated()
+	{
 		controlledExtender.paused = true;
 	}
 
-	void OnTriggerExit2D(Collider2D collider2D)
+	protected override void triggerDeactivated()
 	{
-		colliders.Remove(collider2D);
-		controlledExtender.paused = colliders.Count > 0;
+		controlledExtender.paused = false;
 	}
 }

@@ -102,8 +102,7 @@ public class Extender : MonoBehaviour {
 		if(timer > extensionDuration)
 		{
 			timer = extensionDuration;
-			state = State.EXTENDED;
-			if (extendedEvent != null) extendedEvent();
+			stopHere();
 		}
 
 		moveablePart.localPosition = localStartPosition + extendedDelta * (timer / extensionDuration);
@@ -124,6 +123,25 @@ public class Extender : MonoBehaviour {
 		if (timer < 0)
 		{
 			timer = 0;
+			stopHere();
+		}
+
+		moveablePart.localPosition = localStartPosition + extendedDelta * (timer / extensionDuration);
+	}
+
+	/// <summary>
+	/// Cases the extender to halt and wait before going into the opposite direction again. Also causes the extended or
+	/// retracted event to fire.
+	/// </summary>
+	public void stopHere()
+	{
+		if(state == State.EXTENDING)
+		{
+			state = State.EXTENDED;
+			if (extendedEvent != null) extendedEvent();
+		}
+		else if(state == State.RETRACTING)
+		{
 			if (activated && loop)
 			{
 				state = State.RETRACTED;
@@ -136,8 +154,10 @@ public class Extender : MonoBehaviour {
 
 			if (retractedEvent != null) retractedEvent();
 		}
-
-		moveablePart.localPosition = localStartPosition + extendedDelta * (timer / extensionDuration);
+		else
+		{
+			Debug.LogWarning("Can't stop here when not in extending/retracting state,  current state=" + state);
+		}
 	}
 
 	/// <summary>
@@ -162,6 +182,17 @@ public class Extender : MonoBehaviour {
 		get
 		{
 			return state;
+		}
+	}
+
+	/// <summary>
+	/// The current extension in percentage from 0 to 1 where 0 means retracted and 1 means extended.
+	/// </summary>
+	public float Extension
+	{
+		get
+		{
+			return timer / extensionDuration;
 		}
 	}
 }

@@ -33,7 +33,7 @@ public class StomperSpike : MonoBehaviour, SheepSquasher {
 	{
 		if(stomperExtender.CurrentState == Extender.State.EXTENDING)
 		{
-			stomperExtender.toggleExtending();
+			stomperExtender.stopHere();
 		}
 	}
 
@@ -41,7 +41,7 @@ public class StomperSpike : MonoBehaviour, SheepSquasher {
 	{
 		if (stomperExtender.CurrentState == Extender.State.EXTENDING)
 		{
-			stomperExtender.toggleExtending();
+			stomperExtender.stopHere();
 		}
 	}
 }
