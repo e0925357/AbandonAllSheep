@@ -11,11 +11,11 @@ public class ExtenderPauser : PhysicsTrigger
 
 	protected override void triggerActivated()
 	{
-		controlledExtender.paused = true;
+		controlledExtender.Paused = true;
 	}
 
 	protected override void triggerDeactivated()
 	{
-		controlledExtender.paused = false;
+		controlledExtender.Paused = false;
 	}
 }

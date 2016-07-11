@@ -25,6 +25,16 @@ public class Extender : MonoBehaviour {
 	/// </summary>
 	public event StateChanged retractedEvent;
 
+	/// <summary>
+	/// Gets called when the Extender gets paused.
+	/// </summary>
+	public event StateChanged pausedEvent;
+
+	/// <summary>
+	/// Gets called when the Extender gets unpaused.
+	/// </summary>
+	public event StateChanged unpausedEvent;
+
 	public Transform moveablePart;
 	public bool activated = false;
 	public float retractedTime = 1.0f;
@@ -193,6 +203,29 @@ public class Extender : MonoBehaviour {
 		get
 		{
 			return timer / extensionDuration;
+		}
+	}
+
+	public bool Paused
+	{
+		get
+		{
+			return paused;
+		}
+
+		set
+		{
+			bool oldValue = paused;
+			paused = value;
+
+			if (value && !oldValue && pausedEvent != null)
+			{
+				pausedEvent();
+			}
+			else if(!value && oldValue && unpausedEvent != null)
+			{
+				unpausedEvent();
+			}
 		}
 	}
 }
