@@ -6,6 +6,7 @@ public class PlayerStomper : MonoBehaviour, SheepKiller {
 	public Extender stomperExtender;
 	public float deadlyExtension = 0.5f;
 	public GameObject corpsePrefab;
+	public AudioClip crushSound;
 
 	public bool Active
 	{
@@ -33,6 +34,6 @@ public class PlayerStomper : MonoBehaviour, SheepKiller {
 			corpseManager.CurrentPhysicsState = CorpseStateManager.PhysicsState.Dynamic;
 		}
 
-		return null;
+		return crushSound;
 	}
 }

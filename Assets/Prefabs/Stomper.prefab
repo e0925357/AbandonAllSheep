@@ -500,6 +500,7 @@ MonoBehaviour:
   stomperExtender: {fileID: 11462686}
   deadlyExtension: 0.5
   corpsePrefab: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
+  crushSound: {fileID: 8300000, guid: 805c9d4703ff1e049beff4112895a464, type: 3}
 --- !u!114 &11423126
 MonoBehaviour:
   m_ObjectHideFlags: 1
