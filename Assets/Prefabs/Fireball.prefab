@@ -214,6 +214,8 @@ MonoBehaviour:
   heat: 60
   spawner: {fileID: 0}
   root: {fileID: 179344}
+  fireballAnimator: {fileID: 9509918}
+  mover: {fileID: 11435120}
 --- !u!114 &11435120
 MonoBehaviour:
   m_ObjectHideFlags: 1

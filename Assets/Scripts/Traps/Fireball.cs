@@ -9,12 +9,14 @@ public class Fireball : MonoBehaviour, SheepKiller {
 	public float heat = 60;
 	public GameObject spawner;
 	public GameObject root;
+	public Animator fireballAnimator;
+	public LinearMover mover;
 
 	public bool Active
 	{
 		get
 		{
-			return true;
+			return fireballAnimator.GetBool("alive");
 		}
 	}
 
@@ -27,7 +29,7 @@ public class Fireball : MonoBehaviour, SheepKiller {
 	{
 		yield return new WaitForSeconds(lifetime);
 
-		Destroy(gameObject);
+		dissolve();
 	}
 
 	public AudioClip SheepHit(GameObject sheep)
@@ -43,7 +45,7 @@ public class Fireball : MonoBehaviour, SheepKiller {
 			corpseManager.CurrentPhysicsState = CorpseStateManager.PhysicsState.Dynamic;
 		}
 
-		Destroy(gameObject);
+		dissolve();
 
 		return null;
 	}
@@ -66,14 +68,30 @@ public class Fireball : MonoBehaviour, SheepKiller {
 			b.addHeat(heat);
 		}
 
-		if (root == null)
-			Destroy(gameObject);
-		else
-			Destroy(root);
+		dissolve();
 	}
 
 	public CorpseHitInfo CorpseHit(CorpseStateManager corpseManager)
 	{
 		return new CorpseHitInfo(CorpseStateManager.CorpseStateEnum.Burnt);
+	}
+
+	void dissolve()
+	{
+		fireballAnimator.SetBool("alive", false);
+
+		Collider2D collider = GetComponent<Collider2D>();
+		if (collider != null)
+			collider.enabled = false;
+
+		mover.enabled = false;
+	}
+
+	public void killInstance()
+	{
+		if (root == null)
+			Destroy(gameObject);
+		else
+			Destroy(root);
 	}
 }
