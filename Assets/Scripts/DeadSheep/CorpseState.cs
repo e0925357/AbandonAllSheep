@@ -1,21 +1,23 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
-using UnityEditor.Animations;
 
-public class CorpseState : MonoBehaviour {
-	public Sprite staticSprite;
-	public AnimatorController staticAnimationController;
-	public Sprite dynamicSprite;
-	public AnimatorController dynamicAnimationController;
+public class CorpseState : MonoBehaviour
+{
+	public Transform staticNode;
+	public Transform dynamicNode;
+
+	private CorpseStateManager manager;
 
 	public void enterState(CorpseStateManager manager)
 	{
+		this.manager = manager;
 		beforeEnterState(manager);
 
-		manager.setStaticRendererSprite(staticSprite);
-		manager.setStaticAnimatorController(staticAnimationController);
-		manager.setDynamicRendererSprite(dynamicSprite);
-		manager.setDynamicAnimatorController(dynamicAnimationController);
+		setEnabled(staticNode == dynamicNode || manager.CurrentPhysicsState == CorpseStateManager.PhysicsState.Static, staticNode);
+
+		if(staticNode != dynamicNode)
+			setEnabled(manager.CurrentPhysicsState == CorpseStateManager.PhysicsState.Dynamic, dynamicNode);
 
 		setEnabled(true);
 		onEnterState(manager);
@@ -23,7 +25,30 @@ public class CorpseState : MonoBehaviour {
 
 	public virtual void physicsChanged(CorpseStateManager manager)
 	{
-		//Do nothing
+		this.manager = manager;
+
+		if (staticNode != dynamicNode)
+		{
+			setEnabled(manager.CurrentPhysicsState == CorpseStateManager.PhysicsState.Static, staticNode);
+			setEnabled(manager.CurrentPhysicsState == CorpseStateManager.PhysicsState.Dynamic, dynamicNode);
+		}
+	}
+
+	/// <summary>
+	/// Retrieves the node associated with the current physics state of the owning CorpseStateManager.
+	/// </summary>
+	/// <returns>The node containing the physics-state dependend graphical representations.</returns>
+	public Transform getActivePhysicsDependendNode()
+	{
+		switch (manager.CurrentPhysicsState)
+		{
+			case CorpseStateManager.PhysicsState.Static:
+				return staticNode;
+			case CorpseStateManager.PhysicsState.Dynamic:
+				return dynamicNode;
+			default:
+				throw new ArgumentOutOfRangeException();
+		}
 	}
 
 	/// <summary>
@@ -44,8 +69,13 @@ public class CorpseState : MonoBehaviour {
 
 	public void leaveState(CorpseStateManager manager)
 	{
+		this.manager = manager;
 		onLeaveState(manager);
 		setEnabled(false);
+		setEnabled(false, staticNode);
+
+		if (staticNode != dynamicNode)
+			setEnabled(false, dynamicNode);
 	}
 
 	/// <summary>
@@ -58,13 +88,13 @@ public class CorpseState : MonoBehaviour {
 
 	private void setEnabled(bool isEnabled, Transform t = null)
 	{
-		if(t == null)
+		if (t == null)
 		{
 			t = transform;
 		}
 
 		Behaviour[] components = t.GetComponents<Behaviour>();
-		for(int i = 0; i < components.Length; i++)
+		for (int i = 0; i < components.Length; i++)
 		{
 			components[i].enabled = isEnabled;
 		}
@@ -75,9 +105,11 @@ public class CorpseState : MonoBehaviour {
 			renderers[i].enabled = isEnabled;
 		}
 
-		for (int i = 0; i <  t.childCount; i++)
+		for (int i = 0; i < t.childCount; i++)
 		{
-			setEnabled(isEnabled, t.GetChild(i));
+			Transform child = t.GetChild(i);
+			if (child != dynamicNode && child != staticNode)
+				setEnabled(isEnabled, child);
 		}
 	}
 }

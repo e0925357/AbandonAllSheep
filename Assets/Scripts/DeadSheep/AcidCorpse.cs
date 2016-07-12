@@ -12,7 +12,8 @@ public class AcidCorpse : CorpseState {
 
 	public override void physicsChanged(CorpseStateManager manager)
 	{
-		sheepAnimator = manager.getCurrentAnimator();
+		base.physicsChanged(manager);
+		sheepAnimator = getActivePhysicsDependendNode().GetComponent<Animator>();
 	}
 
 	/// <summary>
@@ -20,7 +21,7 @@ public class AcidCorpse : CorpseState {
 	/// </summary>
 	protected override void onEnterState(CorpseStateManager manager)
 	{
-		sheepAnimator = manager.getCurrentAnimator();
+		sheepAnimator = getActivePhysicsDependendNode().GetComponent<Animator>();
 		splashParticles.Play();
 	}
 

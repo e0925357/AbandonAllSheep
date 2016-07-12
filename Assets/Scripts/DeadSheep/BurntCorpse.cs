@@ -12,7 +12,8 @@ public class BurntCorpse : CorpseState, Burnable {
 
 	public override void physicsChanged(CorpseStateManager manager)
 	{
-		flamable.corpseAnimator = manager.getCurrentAnimator();
+		base.physicsChanged(manager);
+		flamable.corpseAnimator = getActivePhysicsDependendNode().GetComponent<Animator>();
 	}
 
 	/// <summary>
@@ -20,7 +21,7 @@ public class BurntCorpse : CorpseState, Burnable {
 	/// </summary>
 	protected override void beforeEnterState(CorpseStateManager manager)
 	{
-		flamable.corpseAnimator = manager.getCurrentAnimator();
+		flamable.corpseAnimator = getActivePhysicsDependendNode().GetComponent<Animator>();
 	}
 
 	/// <summary>

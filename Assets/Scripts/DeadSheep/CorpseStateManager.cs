@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditor.Animations;
 
 public class CorpseStateManager : MonoBehaviour {
 
@@ -17,12 +16,8 @@ public class CorpseStateManager : MonoBehaviour {
 	public Rigidbody2D rBody2D;
 
 	public SpeepKillerAdapter sheepKillerAdapter;
-
-	public SpriteRenderer staticRenderer;
-	public Animator staticAnimator;
-
-	public SpriteRenderer dynamicRenderer;
-	public Animator dynamicAnimator;
+	public Collider2D staticCollider;
+	public Collider2D dynamicCollider;
 
 	public PhysicsState currentPhysicsState = PhysicsState.Dynamic;
 
@@ -32,11 +27,8 @@ public class CorpseStateManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rBody2D.isKinematic = currentPhysicsState == PhysicsState.Static;
-		staticRenderer.enabled = currentPhysicsState == PhysicsState.Static;
-		staticAnimator.enabled = currentPhysicsState == PhysicsState.Static;
-
-		dynamicRenderer.enabled = currentPhysicsState == PhysicsState.Dynamic;
-		dynamicAnimator.enabled = currentPhysicsState == PhysicsState.Dynamic;
+		staticCollider.enabled = currentPhysicsState == PhysicsState.Static;
+		dynamicCollider.enabled = currentPhysicsState == PhysicsState.Dynamic;
 
 		for (int i = 0; i < 3; i++)
 		{
@@ -50,31 +42,7 @@ public class CorpseStateManager : MonoBehaviour {
 			}
 		}
 	}
-
-	public void setDynamicRendererSprite(Sprite sprite)
-	{
-		dynamicRenderer.sprite = sprite;
-		dynamicRenderer.enabled = currentPhysicsState == PhysicsState.Dynamic && dynamicRenderer.sprite != null;
-	}
-
-	public void setStaticRendererSprite(Sprite sprite)
-	{
-		staticRenderer.sprite = sprite;
-		staticRenderer.enabled = currentPhysicsState == PhysicsState.Static && staticRenderer.sprite != null;
-	}
-
-	public void setDynamicAnimatorController(AnimatorController controller)
-	{
-		dynamicAnimator.runtimeAnimatorController = controller;
-		dynamicAnimator.enabled = currentPhysicsState == PhysicsState.Dynamic && dynamicAnimator.runtimeAnimatorController != null;
-	}
-
-	public void setStaticAnimatorController(AnimatorController controller)
-	{
-		staticAnimator.runtimeAnimatorController = controller;
-		staticAnimator.enabled = currentPhysicsState == PhysicsState.Static && staticAnimator.runtimeAnimatorController != null;
-	}
-
+	
 	public void addHeat(float heat)
 	{
 		if(CurrentState == CorpseStateEnum.Burnt)
@@ -91,32 +59,6 @@ public class CorpseStateManager : MonoBehaviour {
 			{
 				b.addHeat(heat);
 			}
-		}
-	}
-
-	public SpriteRenderer getCurrentSpriteRenderer()
-	{
-		switch(currentPhysicsState)
-		{
-			case PhysicsState.Dynamic:
-				return dynamicRenderer;
-			case PhysicsState.Static:
-				return staticRenderer;
-			default:
-				return null;
-		}
-	}
-
-	public Animator getCurrentAnimator()
-	{
-		switch (currentPhysicsState)
-		{
-			case PhysicsState.Dynamic:
-				return dynamicAnimator;
-			case PhysicsState.Static:
-				return staticAnimator;
-			default:
-				return null;
 		}
 	}
 
@@ -175,12 +117,11 @@ public class CorpseStateManager : MonoBehaviour {
 			if (value == currentPhysicsState) return;
 
 			currentPhysicsState = value;
-			rBody2D.isKinematic = currentPhysicsState == PhysicsState.Static;
-			staticRenderer.enabled = currentPhysicsState == PhysicsState.Static && staticRenderer.sprite != null;
-			staticAnimator.enabled = currentPhysicsState == PhysicsState.Static && staticAnimator.runtimeAnimatorController != null;
 
-			dynamicRenderer.enabled = currentPhysicsState == PhysicsState.Dynamic && dynamicRenderer.sprite != null;
-			dynamicAnimator.enabled = currentPhysicsState == PhysicsState.Dynamic && dynamicAnimator.runtimeAnimatorController != null;
+			rBody2D.isKinematic = currentPhysicsState == PhysicsState.Static;
+			staticCollider.enabled = currentPhysicsState == PhysicsState.Static;
+			dynamicCollider.enabled = currentPhysicsState == PhysicsState.Dynamic;
+
 			possibleStates[(int)currentState].physicsChanged(this);
 		}
 	}
