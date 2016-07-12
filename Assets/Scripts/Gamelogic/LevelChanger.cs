@@ -18,19 +18,9 @@ public class LevelChanger : MonoBehaviour
 
 	public void Start()
 	{
-		if (SceneManager.sceneCount == 1)
-		{
-			int levelSceneIndex = gameObject.scene.buildIndex;
-
-			SceneManager.LoadScene("Scenes/Game", LoadSceneMode.Single);
-			SceneManager.LoadScene(levelSceneIndex, LoadSceneMode.Additive);
-		}
-		else
-		{
-			fadePanel = GameObject.FindGameObjectWithTag("FadePanel").GetComponent<Image>();
-			RespawnPlayer(true);
-			InvokeRepeating("FadeIn", 0f, 0.05f);
-		}
+		fadePanel = GameObject.FindGameObjectWithTag("FadePanel").GetComponent<Image>();
+		RespawnPlayer(true);
+		InvokeRepeating("FadeIn", 0f, 0.05f);
 	}
 
 	void Update()
@@ -46,8 +36,7 @@ public class LevelChanger : MonoBehaviour
 		if (CrossPlatformInputManager.GetButtonDown("ResetLevel"))
 		{
 			DestroyPlayer();
-			SceneManager.LoadScene("Scenes/Game", LoadSceneMode.Single);
-			SceneManager.LoadScene(gameObject.scene.buildIndex, LoadSceneMode.Additive);
+			SceneManager.LoadScene(gameObject.scene.buildIndex, LoadSceneMode.Single);
 		}
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
@@ -55,8 +44,15 @@ public class LevelChanger : MonoBehaviour
 		}
 	}
 
-	void OnDestroy()
+	void OnEnable()
 	{
+		Health.onDeath += OnPlayerDeath;
+	}
+
+	void OnDisable()
+	{
+		Health.onDeath -= OnPlayerDeath;
+
 		// Unregister trigger event
 		UnregisterCallbacks();
 		Destroy(playerObject);
@@ -78,21 +74,19 @@ public class LevelChanger : MonoBehaviour
 		}
 
 		// Load next level
-		SceneManager.UnloadScene(currentScene);
-		SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Additive);
+		SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Single);
 		
 	}
 
 	public void NextLevel(string levelname)
 	{
 		if (nextLevelEvent != null)
+		{
 			nextLevelEvent();
-
-		int currentScene = gameObject.scene.buildIndex;
+		}
 
 		// Load next level
-		SceneManager.UnloadScene(currentScene);
-		SceneManager.LoadScene(levelname, LoadSceneMode.Additive);
+		SceneManager.LoadScene(levelname, LoadSceneMode.Single);
 
 	}
 
@@ -105,10 +99,10 @@ public class LevelChanger : MonoBehaviour
 			{
 				Destroy(playerObject);
 			}
-
-			UnregisterCallbacks();
 			playerObject = null;
 		}
+
+		UnregisterCallbacks();
 	}
 
 	public void RespawnPlayer(bool warpCameraToSpawnPoint = false)
@@ -261,16 +255,18 @@ public class LevelChanger : MonoBehaviour
 		if (playerObject != null)
 		{
 			CharacterController2D playerController = playerObject.GetComponent<CharacterController2D>();
-			if(playerController != null)
+			if (playerController != null)
+			{
 				playerController.onTriggerEnterEvent += OnGoalEntered;
+			}
 			else
 			{
 				PhysicsPlayerController ppc = playerObject.GetComponent<PhysicsPlayerController>();
 				if (ppc != null)
+				{
 					ppc.onTriggerEnterEvent += OnGoalEntered;
+				}
 			}
-
-			Health.onDeath += OnPlayerDeath;
 		}
 	}
 
@@ -280,15 +276,17 @@ public class LevelChanger : MonoBehaviour
 		{
 			CharacterController2D playerController = playerObject.GetComponent<CharacterController2D>();
 			if (playerController != null)
+			{
 				playerController.onTriggerEnterEvent -= OnGoalEntered;
+			}
 			else
 			{
 				PhysicsPlayerController ppc = playerObject.GetComponent<PhysicsPlayerController>();
 				if (ppc != null)
+				{
 					ppc.onTriggerEnterEvent -= OnGoalEntered;
+				}
 			}
-
-			Health.onDeath -= OnPlayerDeath;
 		}
 	}
 }

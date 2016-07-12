@@ -26,13 +26,11 @@ public class SpikeDoor : MonoBehaviour, SheepKiller
 	public void Open()
 	{
 		animator.SetBool("Open", true);
-		Debug.Log("Open");
 	}
 
 
 	public void Close()
 	{
-		Debug.Log("Close");
 		animator.SetBool("Open", false);
 
 		Invoke("beginDeadlyPhase", doorDeathDelay);
@@ -48,7 +46,6 @@ public class SpikeDoor : MonoBehaviour, SheepKiller
 
 	public void ClosingFinished()
 	{
-		Debug.Log("ClosingFinished");
 		isClosing = false;
 		collider2d.enabled = true;
 		collider2d.isTrigger = false;
@@ -57,7 +54,6 @@ public class SpikeDoor : MonoBehaviour, SheepKiller
 
 	public void OpeningFinished()
 	{
-		Debug.Log("OpeningFinished");
 		collider2d.enabled = false;
 	}
 

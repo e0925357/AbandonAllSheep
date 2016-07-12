@@ -101,7 +101,6 @@ public class PlayerRespawn : MonoBehaviour
 				setPlayerMoveable(true);
 				doorAnimator.SetBool("open", false);
 				doorCloseAudio.Play();
-				Debug.Log("Door should close");
 				break;
 			}
 

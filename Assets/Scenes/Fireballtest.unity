@@ -143,9 +143,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.5, y: -3, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!114 &208982993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +162,9 @@ MonoBehaviour:
   projectileOffset: {x: 1.7, y: -0.5, z: 0}
   spawnerAnimator: {fileID: 208982994}
   spawnAnimatorTrigger: shoot
+  spawnAudio: {fileID: 0}
   waitTime: 1
+  firstShotDelay: 0
 --- !u!95 &208982994
 Animator:
   serializedVersion: 3
@@ -193,6 +196,52 @@ BoxCollider2D:
   m_Offset: {x: -0.07921791, y: -0.2270929}
   serializedVersion: 2
   m_Size: {x: 0.5246892, y: 0.34512728}
+--- !u!1001 &378002292
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 494434, guid: 987b3776d066f3540858437ff0506d75, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494434, guid: 987b3776d066f3540858437ff0506d75, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494434, guid: 987b3776d066f3540858437ff0506d75, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494434, guid: 987b3776d066f3540858437ff0506d75, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494434, guid: 987b3776d066f3540858437ff0506d75, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494434, guid: 987b3776d066f3540858437ff0506d75, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494434, guid: 987b3776d066f3540858437ff0506d75, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 494434, guid: 987b3776d066f3540858437ff0506d75, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11408626, guid: 987b3776d066f3540858437ff0506d75, type: 2}
+      propertyPath: gameSection
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 987b3776d066f3540858437ff0506d75, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &401950207
 Prefab:
   m_ObjectHideFlags: 0
@@ -338,9 +387,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5, y: -4.5, z: 0}
   m_LocalScale: {x: 41.2, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!61 &1087725867
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -523,9 +573,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.82, y: -1.04, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
 --- !u!114 &1889599207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,7 +704,9 @@ MonoBehaviour:
   projectileOffset: {x: 1.7, y: -0.5, z: 0}
   spawnerAnimator: {fileID: 2040013726}
   spawnAnimatorTrigger: shoot
+  spawnAudio: {fileID: 0}
   waitTime: 1
+  firstShotDelay: 0
 --- !u!212 &2040013728
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -693,6 +746,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.5, y: -3, z: 0}
   m_LocalScale: {x: -3, y: 3, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
