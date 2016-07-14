@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System.Collections;
 using System.Collections.Generic;
 using PersistentGameObjects_1 = PersistentGameObjects;
@@ -121,6 +123,7 @@ public class PersistentGameObjects : MonoBehaviour
 	}
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(PersistentGameObjects))]
 public class PersistentGameObjectsEditor : Editor
 {
@@ -139,7 +142,7 @@ public class PersistentGameObjectsEditor : Editor
 		EditorGUILayout.Space();
 
 		string[] enumNames = Enum.GetNames(typeof(GameSection));
-        int enumLength = Math.Max(0, enumNames.Length - 1);
+		int enumLength = Math.Max(0, enumNames.Length - 1);
 		SerializedProperty listProp = serializedObject.FindProperty("sectionPersistentObjects");
 		
 		if (enumLength != listProp.arraySize)
@@ -166,3 +169,4 @@ public class PersistentGameObjectsEditor : Editor
 		serializedObject.ApplyModifiedProperties();
 	}
 }
+#endif
