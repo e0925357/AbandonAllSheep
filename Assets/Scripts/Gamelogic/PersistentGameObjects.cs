@@ -130,8 +130,7 @@ public class PersistentGameObjectsEditor : Editor
 	public override void OnInspectorGUI()
 	{
 		serializedObject.Update();
-
-		PersistentGameObjects pgo = target as PersistentGameObjects;
+		
 		SerializedProperty gameSectionProp = serializedObject.FindProperty("gameSection");
 		SerializedProperty gamePersistentObjectsProp = serializedObject.FindProperty("gamePersistentObjects");
 
