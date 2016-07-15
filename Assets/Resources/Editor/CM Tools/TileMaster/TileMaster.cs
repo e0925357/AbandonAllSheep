@@ -163,11 +163,18 @@ public class TileMaster : EditorWindow {
 			renameId = -1;
 		}
 
-		if(cmTileSets == null) //Check to make certain there is actually a tileset in the resources/tileset folder.
+		if (cmTileSets == null) //Check to make certain there is actually a tileset in the resources/tileset folder.
+		{
+			OnEnable();
+		}
+
+		if (cmTileSets == null) //Check to make certain there is actually a tileset in the resources/tileset folder.
 		{
 			EditorGUILayout.LabelField("No tilesets found. Retrying.");
-			OnEnable();
-		}else{
+			Debug.LogWarning("No tilesets found. Please place some tiles in your resources/tileset folder!");
+		}
+		else
+		{
 			string[] names = new string[cmTileSets.Length]; //Gets the name of the tilesets into a useable list
 			for(i = 0; i < cmTileSets.Length; i++)
 			{
