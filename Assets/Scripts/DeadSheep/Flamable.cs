@@ -28,7 +28,15 @@ public class Flamable : MonoBehaviour, SheepKiller {
 
 	public AudioClip SheepHit(GameObject sheep)
 	{
-		Instantiate(burntSheepPrefab, sheep.transform.position, sheep.transform.rotation);
+		GameObject corpse = Instantiate(burntSheepPrefab, sheep.transform.position, sheep.transform.rotation) as GameObject;
+		corpse.transform.localScale = Vector3.one;
+		CorpseStateManager csm = corpse.GetComponent<CorpseStateManager>();
+
+		if (csm != null)
+		{
+			csm.currentState = CorpseStateManager.CorpseStateEnum.Burnt;
+			csm.CurrentPhysicsState = CorpseStateManager.PhysicsState.Dynamic;
+		}
 
 		return null;
 	}
