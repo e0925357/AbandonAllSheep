@@ -1,5 +1,10 @@
 For the Game "Bloody Sheep" and its development the following sounds were used:
 
+Please find the whole list of sound files here:
+https://docs.google.com/document/d/1NBnl6-n_pNZpJHXpN3KciK-ug0IZNmcoIcO8LiiWcO8/pub
+
+
+
 31770__slanesh__porte-pierre.wav, "stone door.wav" (https://www.freesound.org/people/Slanesh/sounds/31770/) by Slanesh (CC-BY-3.0)
 66787__mattj99__bubbling02.wav, acidbubble.wav (https://www.freesound.org/people/MattJ99/sounds/66787/) by MattJ99 (CC-BY-3.0)
 85468__jasonelrod__sizzling.aif, acid.aif (https://www.freesound.org/people/JasonElrod/sounds/85468/) by JasonElrod (CC-BY-3.0)
