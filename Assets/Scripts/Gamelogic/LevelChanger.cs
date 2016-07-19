@@ -103,6 +103,11 @@ public class LevelChanger : MonoBehaviour
 
 	public void NextLevel()
 	{
+		if (nextLevelEvent != null)
+		{
+			nextLevelEvent();
+		}
+
 		int currentScene = gameObject.scene.buildIndex;
 		int nextSceneIndex = currentScene + 1;
 		if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings - 1)
