@@ -13,14 +13,51 @@ public class LevelChanger : MonoBehaviour
 	public GameObject playerPrefab = null;
 	public float deathCamDuration = 1.0f;
 	private Image fadePanel;
+	private Text levelnameText;
 
 	private GameObject playerObject;
 
 	public void Start()
 	{
 		fadePanel = GameObject.FindGameObjectWithTag("FadePanel").GetComponent<Image>();
+		levelnameText = GameObject.FindGameObjectWithTag("LevelnameText").GetComponent<Text>();
 		RespawnPlayer(true);
-		InvokeRepeating("FadeIn", 0f, 0.05f);
+		StartCoroutine(FadeIn());
+		StartCoroutine(ShowAndHideLevelname(SceneManager.GetActiveScene().name));
+	}
+
+	IEnumerator ShowAndHideLevelname(string levelname)
+	{
+		if (levelname == null) yield break;
+
+		levelnameText.text = levelname;
+		Color startColor = levelnameText.color;
+		startColor.a = 0.0f;
+		levelnameText.color = startColor;
+
+		while (levelnameText.color.a < 1.0f)
+		{
+			Color c = levelnameText.color;
+			c.a += Time.deltaTime*2;
+
+			if (c.a > 1.0f) c.a = 1.0f;
+
+			levelnameText.color = c;
+			yield return new WaitForEndOfFrame();
+		}
+
+		yield return new WaitForSeconds(1.5f);
+
+		while (levelnameText.color.a > 0)
+		{
+			Color c = levelnameText.color;
+			c.a -= Time.deltaTime;
+
+			if (c.a < 0) c.a = 0;
+
+			levelnameText.color = c;
+			yield return new WaitForEndOfFrame();
+		}
 	}
 
 	void Update()
@@ -75,7 +112,6 @@ public class LevelChanger : MonoBehaviour
 
 		// Load next level
 		SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Single);
-		
 	}
 
 	public void NextLevel(string levelname)
@@ -134,17 +170,17 @@ public class LevelChanger : MonoBehaviour
 		}
 	}
 
-	private void FadeIn()
+	private IEnumerator FadeIn()
 	{
-		Color color = fadePanel.color;
-		if (color.a > 0)
+		yield return new WaitForSeconds(1.0f);
+
+		while (fadePanel.color.a > 0)
 		{
-			color.a = Mathf.Max(0, color.a - 0.03f);
+			Color color = fadePanel.color;
+			color.a = Mathf.Max(0, color.a - Time.deltaTime);
 			fadePanel.color = color;
-		}
-		else
-		{
-			CancelInvoke("FadeIn");
+
+			yield return new WaitForEndOfFrame();
 		}
 	}
 

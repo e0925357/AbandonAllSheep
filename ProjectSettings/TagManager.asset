@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FadePanel
   - PersistentGameObjects
+  - LevelnameText
   layers:
   - Default
   - TransparentFX
