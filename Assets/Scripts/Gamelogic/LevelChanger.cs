@@ -8,10 +8,12 @@ using UnityStandardAssets.CrossPlatformInput;
 public class LevelChanger : MonoBehaviour
 {
 	public delegate void NextLevelDelegate();
-	public static event NextLevelDelegate nextLevelEvent;
+	public static event NextLevelDelegate LevelFinishedEvent;
+	public static event NextLevelDelegate LevelAbortedEvent;
 
 	public GameObject playerPrefab = null;
 	public float deathCamDuration = 1.0f;
+	public string firstLevelName = "Level1";
 	private Image fadePanel;
 	private Text levelnameText;
 
@@ -64,18 +66,26 @@ public class LevelChanger : MonoBehaviour
 	{
 		if (CrossPlatformInputManager.GetButtonDown("SkipLevel"))
 		{
+			if (LevelAbortedEvent != null)
+			{
+				LevelAbortedEvent();
+			}
 			NextLevel();
 		}
-		if (Input.GetKeyDown(KeyCode.F4))
+		else if (CrossPlatformInputManager.GetButtonDown("ResetLevel"))
 		{
-			RespawnPlayer();
-		}
-		if (CrossPlatformInputManager.GetButtonDown("ResetLevel"))
-		{
+			if (LevelAbortedEvent != null)
+			{
+				LevelAbortedEvent();
+			}
 			DestroyPlayer();
 			SceneManager.LoadScene(gameObject.scene.buildIndex, LoadSceneMode.Single);
 		}
-		if (Input.GetKeyDown(KeyCode.Escape))
+		else if (CrossPlatformInputManager.GetButtonDown("JumpToStart"))
+		{
+			JumpToScene(firstLevelName);
+		}
+		else if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			Application.Quit();
 		}
@@ -103,11 +113,6 @@ public class LevelChanger : MonoBehaviour
 
 	public void NextLevel()
 	{
-		if (nextLevelEvent != null)
-		{
-			nextLevelEvent();
-		}
-
 		int currentScene = gameObject.scene.buildIndex;
 		int nextSceneIndex = currentScene + 1;
 		if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings - 1)
@@ -121,11 +126,6 @@ public class LevelChanger : MonoBehaviour
 
 	public void NextLevel(string levelname)
 	{
-		if (nextLevelEvent != null)
-		{
-			nextLevelEvent();
-		}
-
 		// Load next level
 		SceneManager.LoadScene(levelname, LoadSceneMode.Single);
 
@@ -204,32 +204,40 @@ public class LevelChanger : MonoBehaviour
 		}
 	}
 
-	private void FadeOut(string levelname)
+	private IEnumerator FadeOut(string levelname)
 	{
-		Color color = fadePanel.color;
-		if (color.a < 1)
+		while (fadePanel.color.a < 1)
 		{
-			color.a = Mathf.Min(1, color.a + 0.03f);
+			Color color = fadePanel.color;
+			color.a = Mathf.Min(1, color.a + Time.deltaTime);
 			fadePanel.color = color;
+			yield return new WaitForEndOfFrame();
 		}
-		else
-		{
-			CancelInvoke("FadeOut");
-			NextLevel(levelname);
-		}
+
+		NextLevel(levelname);
 	}
 
 	private void OnGoalEntered(Collider2D collider)
 	{
 		if (collider.gameObject == gameObject)
 		{
+			if (LevelFinishedEvent != null)
+			{
+				LevelFinishedEvent();
+			}
+
 			StartCoroutine(NextLevelCoroutine());
 		}
 	}
 
 	public void JumpToScene(string LevelName)
 	{
+		if (LevelAbortedEvent != null)
+		{
+			LevelAbortedEvent();
+		}
 
+		DestroyPlayer();
 		StartCoroutine(NextLevelCoroutine(LevelName));
 
 	}
@@ -266,7 +274,7 @@ public class LevelChanger : MonoBehaviour
 	private IEnumerator NextLevelCoroutine(string levelname)
 	{
 		yield return new WaitForEndOfFrame();
-		FadeOut(levelname);
+		StartCoroutine(FadeOut(levelname));
 		yield return null;
 	}
 

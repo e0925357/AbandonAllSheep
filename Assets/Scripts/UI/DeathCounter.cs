@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class DeathCounter : MonoBehaviour {
 
@@ -12,6 +13,15 @@ public class DeathCounter : MonoBehaviour {
 	private Color defaultColor;
 
 	int deathCount = 0;
+
+	void Update()
+	{
+		if (CrossPlatformInputManager.GetButtonDown("JumpToStart"))
+		{
+			deathCount = 0;
+			deathsText.text = "" + deathCount;
+		}
+	}
 
 	void OnEnable()
 	{

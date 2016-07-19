@@ -32,12 +32,18 @@ public class PersonalBest : MonoBehaviour
 	}
 
 	//Save new best
-	void OnNextLevel()
+	void onLevelFinished()
 	{
 		if (currentScore < personalBest)
 		{
 			PlayerPrefs.SetInt("PB-" + SceneManager.GetActiveScene().name, currentScore);
 		}
+	}
+
+	//Reset score
+	void onLevelAbort()
+	{
+		currentScore = 0;
 	}
 
 	void OnSheepDeath(GameObject player)
@@ -47,13 +53,15 @@ public class PersonalBest : MonoBehaviour
 
 	void OnEnable()
 	{
-		LevelChanger.nextLevelEvent += OnNextLevel;
+		LevelChanger.LevelFinishedEvent += onLevelFinished;
+		LevelChanger.LevelAbortedEvent += onLevelAbort;
 		Health.onDeath += OnSheepDeath;
 	}
 
 	void OnDisable()
 	{
-		LevelChanger.nextLevelEvent -= OnNextLevel;
+		LevelChanger.LevelFinishedEvent -= onLevelFinished;
+		LevelChanger.LevelAbortedEvent -= onLevelAbort;
 		Health.onDeath -= OnSheepDeath;
 		PlayerPrefs.Save();
 	}

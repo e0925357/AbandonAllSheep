@@ -128,15 +128,15 @@ public class CorpseStateManager : MonoBehaviour {
 
 	void OnEnable()
 	{
-		LevelChanger.nextLevelEvent += levelChanged;
+		LevelChanger.LevelFinishedEvent += levelFinishedChanged;
 	}
 
 	void OnDisable()
 	{
-		LevelChanger.nextLevelEvent -= levelChanged;
+		LevelChanger.LevelFinishedEvent -= levelFinishedChanged;
 	}
 
-	void levelChanged()
+	void levelFinishedChanged()
 	{
 		Destroy(gameObject);
 	}
