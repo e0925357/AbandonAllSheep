@@ -3,6 +3,7 @@ using System.Collections;
 using System;
 using UnityStandardAssets.CrossPlatformInput;
 
+[RequireComponent(typeof(AudioSource))]
 public class PhysicsPlayerController : MonoBehaviour {
 
 	public Animator animator;
@@ -19,10 +20,14 @@ public class PhysicsPlayerController : MonoBehaviour {
 
 	public bool freezeInput = false;
 
-	// Use this for initialization
-	void Start ()
+	private AudioSource jumpAudio;
+
+	private static readonly float MIN_JUMP_PITCH = 0.7f;
+	private static readonly float MAX_JUMP_PITCH = 1.4f;
+
+	void Awake ()
 	{
-	
+		jumpAudio = GetComponent<AudioSource>();
 	}
 
 	void FixedUpdate()
@@ -77,6 +82,9 @@ public class PhysicsPlayerController : MonoBehaviour {
 	{
 		if(!freezeInput && onGround && CrossPlatformInputManager.GetButtonDown("Jump"))
 		{
+			jumpAudio.pitch = UnityEngine.Random.Range(MIN_JUMP_PITCH, MAX_JUMP_PITCH);
+			jumpAudio.Play();
+
 			Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
 			rigidbody2D.AddForce(new Vector2(0, jumpForce));
 			onGround = false;
