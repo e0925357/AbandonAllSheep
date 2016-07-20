@@ -2,25 +2,21 @@
 using System.Collections;
 using System;
 
-public class SpikeDoor : MonoBehaviour, SheepKiller
+public class SpikeDoor : MonoBehaviour
 {
-	public float doorDeathDelay = 0.5f;
-
 	private Animator animator;
-	private BoxCollider2D collider2d;
 	private volatile bool isClosing;
+
+	public bool IsClosing
+	{
+		get { return isClosing; }
+	}
 
 	// Use this for initialization
 	void Start ()
 	{
 		animator = GetComponent<Animator>();
-		collider2d = GetComponent<BoxCollider2D>();
 		isClosing = false;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 	public void Open()
@@ -33,39 +29,21 @@ public class SpikeDoor : MonoBehaviour, SheepKiller
 	{
 		animator.SetBool("Open", false);
 
-		Invoke("beginDeadlyPhase", doorDeathDelay);
+		beginDeadlyPhase();
 	}
 
 	private void beginDeadlyPhase()
 	{
-		collider2d.enabled = true;
-		collider2d.isTrigger = true;
-		gameObject.layer = LayerMask.NameToLayer("Trigger");
 		isClosing = true;
 	}
 
 	public void ClosingFinished()
 	{
 		isClosing = false;
-		collider2d.enabled = true;
-		collider2d.isTrigger = false;
-		gameObject.layer = LayerMask.NameToLayer("Default");
 	}
 
 	public void OpeningFinished()
 	{
-		collider2d.enabled = false;
+		// Called by an event, but not needed --> thus it is empty
 	}
-
-	public AudioClip SheepHit(GameObject sheep)
-	{
-		return null;
-	}
-
-	public CorpseHitInfo CorpseHit(CorpseStateManager corpseManager)
-	{
-		return new CorpseHitInfo();
-	}
-
-	public bool Active { get { return isClosing; } }
 }
