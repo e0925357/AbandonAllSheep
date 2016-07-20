@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71e1b37885e8d93418e83aea1f5f6503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorDeathDelay: 0.1
+  doorDeathSound: {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
 --- !u!114 &11466602
 MonoBehaviour:
   m_ObjectHideFlags: 1

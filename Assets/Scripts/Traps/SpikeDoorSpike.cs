@@ -63,7 +63,7 @@ public class SpikeDoorSpike : MonoBehaviour, SheepKiller
 
 	public AudioClip SheepHit(GameObject sheep)
 	{
-		return null;
+		return door.doorDeathSound;
 	}
 
 	public CorpseHitInfo CorpseHit(CorpseStateManager corpseManager)

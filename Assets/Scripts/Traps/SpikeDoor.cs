@@ -7,6 +7,8 @@ public class SpikeDoor : MonoBehaviour
 	private Animator animator;
 	private volatile bool isClosing;
 
+	public AudioClip doorDeathSound;
+
 	public bool IsClosing
 	{
 		get { return isClosing; }
