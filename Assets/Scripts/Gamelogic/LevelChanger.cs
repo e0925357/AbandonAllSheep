@@ -21,6 +21,10 @@ public class LevelChanger : MonoBehaviour
 
 	private GameObject playerObject;
 
+	private float resetGameTime = 3.0f;
+	private bool skipButtonDown = false;
+	private float skipButtonTimer = 0.0f;
+
 	public void Start()
 	{
 		fadePanel = GameObject.FindGameObjectWithTag("FadePanel").GetComponent<Image>();
@@ -66,13 +70,33 @@ public class LevelChanger : MonoBehaviour
 
 	void Update()
 	{
+		if (skipButtonDown)
+		{
+			skipButtonTimer += Time.deltaTime;
+		}
+
 		if (CrossPlatformInputManager.GetButtonDown("SkipLevel"))
 		{
-			if (LevelAbortedEvent != null)
+			skipButtonDown = true;
+		}
+		if (CrossPlatformInputManager.GetButtonUp("SkipLevel"))
+		{
+			skipButtonDown = false;
+
+			if (skipButtonTimer > resetGameTime)
 			{
-				LevelAbortedEvent();
+				JumpToScene(firstLevelName);
 			}
-			NextLevel();
+			else
+			{
+				if (LevelAbortedEvent != null)
+				{
+					LevelAbortedEvent();
+				}
+				NextLevel();
+			}
+
+			skipButtonTimer = 0.0f;
 		}
 		else if (CrossPlatformInputManager.GetButtonDown("ResetLevel"))
 		{
