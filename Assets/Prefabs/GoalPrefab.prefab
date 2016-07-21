@@ -66,7 +66,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 124470, guid: 847b4e1e2394cfc49bcae50ca2e7e917, type: 2}
   deathCamDuration: 1
-  firstLevelName: Level01
+  firstLevelName: Bloody Sheep
+  firstLevelIndex: 0
 --- !u!212 &21232376
 SpriteRenderer:
   m_ObjectHideFlags: 1

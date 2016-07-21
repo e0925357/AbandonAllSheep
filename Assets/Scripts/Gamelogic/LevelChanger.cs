@@ -17,7 +17,7 @@ public class LevelChanger : MonoBehaviour
 	private Image fadePanel;
 	private Text levelnameText;
 
-	public int firstLevelIndex = 1;
+	public int firstLevelIndex = 0;
 
 	private GameObject playerObject;
 
@@ -117,7 +117,7 @@ public class LevelChanger : MonoBehaviour
 	{
 		int currentScene = gameObject.scene.buildIndex;
 		int nextSceneIndex = currentScene + 1;
-		if (nextSceneIndex > SceneManager.sceneCountInBuildSettings - 1)
+		if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings - 1)
 		{
 			nextSceneIndex = firstLevelIndex;
 		}

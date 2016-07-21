@@ -90,7 +90,7 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.agj2016.BloodySheep
-  bundleVersion: 1.2.0
+  bundleVersion: 1.3.0
   preloadedAssets:
   - {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   metroEnableIndependentInputSource: 0
@@ -98,7 +98,7 @@ PlayerSettings:
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 0
   productGUID: 1eff992b5535f6347aed8fdfab40af38
-  AndroidBundleVersionCode: 3
+  AndroidBundleVersionCode: 4
   AndroidMinSdkVersion: 16
   AndroidPreferredInstallLocation: 0
   aotOptions: 
@@ -161,8 +161,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: E:/Programmieren/unity/sheepBuild/bloodySheep.keystore
+  AndroidKeyaliasName: bloodysheep
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1
