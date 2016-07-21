@@ -17,6 +17,8 @@ public class LevelChanger : MonoBehaviour
 	private Image fadePanel;
 	private Text levelnameText;
 
+	public int firstLevelIndex = 1;
+
 	private GameObject playerObject;
 
 	public void Start()
@@ -115,9 +117,9 @@ public class LevelChanger : MonoBehaviour
 	{
 		int currentScene = gameObject.scene.buildIndex;
 		int nextSceneIndex = currentScene + 1;
-		if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings - 1)
+		if (nextSceneIndex > SceneManager.sceneCountInBuildSettings - 1)
 		{
-			nextSceneIndex = 0;
+			nextSceneIndex = firstLevelIndex;
 		}
 
 		// Load next level
@@ -194,7 +196,7 @@ public class LevelChanger : MonoBehaviour
 		Color color = fadePanel.color;
 		if (color.a < 1)
 		{
-			color.a = Mathf.Min(1, color.a + 0.03f);
+			color.a = Mathf.Min(1, color.a + 0.05f);
 			fadePanel.color = color;
 		}
 		else
@@ -232,12 +234,11 @@ public class LevelChanger : MonoBehaviour
 
 	public void JumpToScene(string LevelName)
 	{
-		if (LevelAbortedEvent != null)
+		if (LevelFinishedEvent != null)
 		{
-			LevelAbortedEvent();
+			LevelFinishedEvent();
 		}
 
-		DestroyPlayer();
 		StartCoroutine(NextLevelCoroutine(LevelName));
 
 	}
@@ -274,6 +275,7 @@ public class LevelChanger : MonoBehaviour
 	private IEnumerator NextLevelCoroutine(string levelname)
 	{
 		yield return new WaitForEndOfFrame();
+		setPlayerMoveable(false);
 		StartCoroutine(FadeOut(levelname));
 		yield return null;
 	}
