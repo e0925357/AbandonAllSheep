@@ -6,44 +6,44 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Levels/Level01.unity
+    path: Assets/Scenes/Levels/Leap of Faith.unity
   - enabled: 1
-    path: Assets/Scenes/Levels/Level02.unity
+    path: Assets/Scenes/Levels/Hall of Spikes.unity
   - enabled: 1
-    path: Assets/Scenes/Levels/ThePlate.unity
+    path: Assets/Scenes/Levels/The Plate.unity
   - enabled: 1
-    path: Assets/Scenes/Levels/Level03.unity
+    path: Assets/Scenes/Levels/Mill in the Middle.unity
   - enabled: 1
-    path: Assets/Scenes/Levels/FeelThePreassure.unity
+    path: Assets/Scenes/Levels/Feel the Pressure.unity
   - enabled: 1
-    path: Assets/Scenes/Levels/LooseCables.unity
+    path: Assets/Scenes/Levels/Loose Cables.unity
   - enabled: 1
-    path: Assets/Scenes/Levels/SchockingEnd.unity
+    path: Assets/Scenes/Levels/Shocking End.unity
   - enabled: 1
-    path: Assets/Scenes/Levels/TheDrop.unity
+    path: Assets/Scenes/Levels/The Drop.unity
   - enabled: 1
-    path: Assets/Scenes/Levels/Level04.unity
+    path: Assets/Scenes/Levels/Acid Ahoi.unity
   - enabled: 1
-    path: Assets/Scenes/Levels/Level05.unity
+    path: Assets/Scenes/Levels/Zigzag.unity
   - enabled: 1
-    path: Assets/Scenes/Levels/WarmWelcome.unity
+    path: Assets/Scenes/Levels/Warm Welcome.unity
   - enabled: 1
     path: Assets/Scenes/Levels/The Squasher.unity
   - enabled: 1
-    path: Assets/Scenes/Levels/BloodMarksTheSpot.unity
+    path: Assets/Scenes/Levels/Blood marks the Spot.unity
   - enabled: 1
-    path: Assets/Scenes/Levels/Level06.unity
+    path: Assets/Scenes/Levels/Hall of Despair.unity
   - enabled: 1
     path: Assets/Scenes/Levels/Blue Spark.unity
   - enabled: 1
-    path: Assets/Scenes/Levels/PainfulReturn.unity
+    path: Assets/Scenes/Levels/Painful Return.unity
   - enabled: 1
     path: Assets/Scenes/Levels/Iron Wave.unity
   - enabled: 1
-    path: Assets/Scenes/Levels/Level07.unity
+    path: Assets/Scenes/Levels/Up it goes.unity
   - enabled: 1
     path: Assets/Scenes/Levels/The Maw.unity
   - enabled: 1
-    path: Assets/Scenes/Levels/Level08.unity
+    path: Assets/Scenes/Levels/Curiosity.unity
   - enabled: 1
-    path: Assets/Scenes/Levels/LevelFinal.unity
+    path: Assets/Scenes/Levels/The Final.unity
