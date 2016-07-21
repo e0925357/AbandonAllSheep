@@ -87,6 +87,14 @@ public class LevelChanger : MonoBehaviour
 		{
 			JumpToScene(firstLevelName);
 		}
+		else if (CrossPlatformInputManager.GetButtonDown("ResetSheep") || Input.GetKeyDown(KeyCode.Menu))
+		{
+			if (playerObject)
+			{
+				Health health = playerObject.GetComponent<Health>();
+				health.KillSheep(null, null);
+			}
+		}
 		else if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			Application.Quit();

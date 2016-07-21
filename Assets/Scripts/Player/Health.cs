@@ -51,18 +51,28 @@ public class Health : MonoBehaviour {
 		if (killer != null && killer.Active)
 		{
 			AudioClip deathSound = killer.SheepHit(gameObject);
-			if (scheduledAudioClip == null && deathSound != null)
-			{
-				scheduledAudioClip = deathSound;
-				Vector3 clipPosition = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
-				AudioSource.PlayClipAtPoint(scheduledAudioClip, clipPosition);
-				StartCoroutine(ResetScheduledAudioClip());
-			}
-
-			SpawnBlood();
-			SpawnDeathSound(other);
-			KillSheep();
+			KillSheep(deathSound, other);
 		}
+	}
+
+	public void KillSheep(AudioClip deathSound, GameObject other)
+	{
+		if (scheduledAudioClip == null && deathSound != null)
+		{
+			scheduledAudioClip = deathSound;
+			Vector3 clipPosition = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
+			AudioSource.PlayClipAtPoint(scheduledAudioClip, clipPosition);
+			StartCoroutine(ResetScheduledAudioClip());
+		}
+
+		SpawnBlood();
+
+		if (other != null)
+		{
+			SpawnDeathSound(other);
+		}
+
+		DestroySheep();
 	}
 
 	private IEnumerator ResetScheduledAudioClip()
@@ -93,7 +103,7 @@ public class Health : MonoBehaviour {
 		}
 	}
 
-	void KillSheep()
+	void DestroySheep()
 	{
 		isMarkedForDeath = true;
 
