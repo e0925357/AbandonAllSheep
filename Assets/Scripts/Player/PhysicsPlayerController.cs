@@ -9,6 +9,7 @@ public class PhysicsPlayerController : MonoBehaviour {
 	public Animator animator;
 	public float maxSpeed = 10f;
 	public Transform groundOffset;
+	public Vector2 groundCheckBoxSize = new Vector2(1.1259f, 0.1f);
 
 	bool flipped = false;
 	bool onGround = false;
@@ -33,10 +34,14 @@ public class PhysicsPlayerController : MonoBehaviour {
 	void FixedUpdate()
 	{
 		bool wasOnGround = onGround;
-		onGround = Physics2D.BoxCast(groundOffset.position, new Vector2(1.1259f, 0.1f), 0f, Vector2.down, 0.46f, groundMask);
+		onGround = Physics2D.BoxCast(groundOffset.position, groundCheckBoxSize, 0f, Vector2.down, 0.46f, groundMask);
 		Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
 
+#if UNITY_EDITOR
+		Debug.DrawLine(groundOffset.transform.position + new Vector3(groundCheckBoxSize.x/2, 0, 0), groundOffset.transform.position + new Vector3(0, -groundCheckRadius, 0) + new Vector3(groundCheckBoxSize.x/2, 0, 0));
 		Debug.DrawLine(groundOffset.transform.position, groundOffset.transform.position + new Vector3(0, -groundCheckRadius, 0));
+		Debug.DrawLine(groundOffset.transform.position - new Vector3(groundCheckBoxSize.x/2, 0, 0), groundOffset.transform.position + new Vector3(0, -groundCheckRadius, 0) - new Vector3(groundCheckBoxSize.x/2, 0, 0));
+#endif
 
 		float hSpeed = CrossPlatformInputManager.GetAxis("Horizontal");
 
