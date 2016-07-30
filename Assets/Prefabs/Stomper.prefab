@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 435562}
   - 61: {fileID: 6110934}
-  - 114: {fileID: 11411230}
+  - 114: {fileID: 11421430}
   m_Layer: 13
   m_Name: PlayerTrigger
   m_TagString: Untagged
@@ -207,7 +207,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 5, z: 0}
+  m_LocalPosition: {x: -6.5, y: -15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -474,18 +474,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &11411230
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1a5440a7fca3f24c93001c278a685e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controlledExtender: {fileID: 11462686}
 --- !u!114 &11418436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -501,6 +489,18 @@ MonoBehaviour:
   deadlyExtension: 0.5
   corpsePrefab: {fileID: 146600, guid: 1faa87d52afb19b45a625d954f004810, type: 2}
   crushSound: {fileID: 8300000, guid: 805c9d4703ff1e049beff4112895a464, type: 3}
+--- !u!114 &11421430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c240ca4f976a3fb46973022855bb0b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlledExtender: {fileID: 11462686}
 --- !u!114 &11423126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -586,6 +586,7 @@ MonoBehaviour:
   extensionDuration: 3
   paused: 0
   loop: 1
+  extendOverride: 0
 --- !u!114 &11473466
 MonoBehaviour:
   m_ObjectHideFlags: 1

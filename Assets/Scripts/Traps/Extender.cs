@@ -43,13 +43,14 @@ public class Extender : MonoBehaviour {
 	public float extensionDuration = 1.0f;
 	public bool paused = false;
 	public bool loop = true;
+	public bool extendOverride = false;
 
 	private float timer = 0.0f;
 	private Vector3 localStartPosition;
 
 	public enum State
 	{
-		RETRACTED, RETRACTED_WAIT, RETRACTED_STOP, EXTENDING, EXTENDED, EXTENDED_WAIT, RETRACTING
+		RETRACTED, RETRACTED_WAIT, RETRACTED_STOP, EXTENDING, EXTENDED, EXTENDED_WAIT, EXTENDED_STOP, RETRACTING
 	}
 	private State state = State.RETRACTED_STOP;
 
@@ -81,7 +82,7 @@ public class Extender : MonoBehaviour {
 				extend();
 				break;
 			case State.EXTENDED:
-				state = State.EXTENDED_WAIT;
+				state = extendOverride ? State.EXTENDED_STOP : State.EXTENDED_WAIT;
 				StartCoroutine(waitExtended());
 				break;
 			case State.RETRACTING:
@@ -120,10 +121,15 @@ public class Extender : MonoBehaviour {
 
 	private IEnumerator waitExtended()
 	{
+		if (extendOverride) yield return null;
+
 		yield return new WaitForSeconds(extendedTime);
 
-		state = State.RETRACTING;
-		if (retractingEvent != null) retractingEvent();
+		if (!extendOverride)
+		{
+			state = State.RETRACTING;
+			if (retractingEvent != null) retractingEvent();
+		}
 	}
 
 	private void retract()
@@ -225,6 +231,41 @@ public class Extender : MonoBehaviour {
 			else if(!value && oldValue && unpausedEvent != null)
 			{
 				unpausedEvent();
+			}
+		}
+	}
+
+	public bool ExtendOverride
+	{
+		get { return extendOverride; }
+		set
+		{
+			bool oldValue = extendOverride;
+			extendOverride = value;
+
+			if (!oldValue && value)
+			{
+				if (state == State.RETRACTING)
+				{
+					toggleExtending();
+				}
+				else if (state == State.EXTENDED_WAIT)
+				{
+					state = State.EXTENDED_STOP;
+				}
+			}
+
+			if (oldValue && !value)
+			{
+				if (state == State.EXTENDED_STOP)
+				{
+					state = State.RETRACTING;
+
+					if (retractingEvent != null)
+					{
+						retractingEvent();
+					}
+				}
 			}
 		}
 	}

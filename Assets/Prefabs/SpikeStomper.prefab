@@ -79,7 +79,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 418220}
   - 61: {fileID: 6175292}
-  - 114: {fileID: 11444380}
+  - 114: {fileID: 11458622}
   m_Layer: 13
   m_Name: PlayerTrigger
   m_TagString: Untagged
@@ -819,18 +819,6 @@ MonoBehaviour:
   EnableMirroring: 1
   spikeDeathAudioClips:
   - {fileID: 8300000, guid: 0443a83c8d2627f40a4a1400a894cfbb, type: 3}
---- !u!114 &11444380
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1a5440a7fca3f24c93001c278a685e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controlledExtender: {fileID: 11452424}
 --- !u!114 &11445880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -892,6 +880,7 @@ MonoBehaviour:
   extensionDuration: 3
   paused: 0
   loop: 1
+  extendOverride: 0
 --- !u!114 &11453880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -915,6 +904,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stomperExtender: {fileID: 11452424}
+--- !u!114 &11458622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c240ca4f976a3fb46973022855bb0b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlledExtender: {fileID: 11452424}
 --- !u!114 &11460988
 MonoBehaviour:
   m_ObjectHideFlags: 1
